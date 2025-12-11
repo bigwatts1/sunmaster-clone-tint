@@ -11,21 +11,21 @@ const About = () => {
               We Can Handle Any Project
             </h2>
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              Welcome to Sunmasters Window Tinting, your trusted partner for
-              premier window tinting solutions. With years of expertise and a
-              passion for excellence, we have built a reputation for delivering
+              Welcome to Sun Masters Window Tinting, your trusted partner for
+              premier window tinting solutions since 1979. With over 45 years of expertise 
+              and a passion for excellence, we have built a reputation for delivering
               customized tinting services that cater to the unique needs of
               automotive, residential, and commercial properties.
             </p>
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              At Sunmasters, we understand the importance of comfort, privacy,
+              At Sun Masters, we understand the importance of comfort, privacy,
               and energy efficiency. That's why we use cutting-edge technology
               and the highest quality films to ensure superior UV protection,
               heat reduction, and aesthetic enhancement for your windows.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Whether you're looking to upgrade your vehicle, protect your home,
-              or enhance your commercial space, you can rely on Sunmasters for
+              or enhance your commercial space, you can rely on Sun Masters for
               reliable, professional, and innovative tinting solutions.
             </p>
             <Button
@@ -39,26 +39,26 @@ const About = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-2 gap-8">
-            <div className="text-center p-8 bg-card rounded-sm">
-              <span className="stat-number">15+</span>
+            <div className="text-center p-8 bg-card rounded-sm border border-border">
+              <span className="stat-number">45+</span>
               <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
                 Years of Experience
               </p>
             </div>
-            <div className="text-center p-8 bg-card rounded-sm">
+            <div className="text-center p-8 bg-card rounded-sm border border-border">
               <span className="stat-number">100%</span>
               <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
                 Customer Satisfaction Guaranteed!
               </p>
             </div>
-            <div className="text-center p-8 bg-card rounded-sm">
-              <span className="stat-number">5K+</span>
+            <div className="text-center p-8 bg-card rounded-sm border border-border">
+              <span className="stat-number">10K+</span>
               <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
                 Vehicles Tinted
               </p>
             </div>
-            <div className="text-center p-8 bg-card rounded-sm">
-              <span className="stat-number">500+</span>
+            <div className="text-center p-8 bg-card rounded-sm border border-border">
+              <span className="stat-number">1K+</span>
               <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
                 Buildings Completed
               </p>

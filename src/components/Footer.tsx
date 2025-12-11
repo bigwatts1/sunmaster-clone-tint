@@ -1,4 +1,5 @@
-import { Sun, Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -7,22 +8,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Logo & About */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <Sun className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <span className="font-heading text-xl font-bold text-foreground">
-                  SUNMASTERS
-                </span>
-                <span className="block text-xs text-primary font-medium -mt-1">
-                  Window Tinting
-                </span>
-              </div>
-            </div>
+            <img src={logo} alt="Sun Masters Window Tinting" className="h-24 w-auto mb-4" />
             <p className="text-muted-foreground text-sm">
               Professional window tinting services for automotive, residential,
-              and commercial properties. Quality you can trust.
+              and commercial properties since 1979. Quality you can trust.
             </p>
           </div>
 
@@ -68,7 +57,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Sunmasters Window Tinting. All rights
+            © {new Date().getFullYear()} Sun Masters Window Tinting. Est. 1979. All rights
             reserved.
           </p>
         </div>

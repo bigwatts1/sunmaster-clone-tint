@@ -6,92 +6,93 @@
 
 @layer base {
   :root {
-    --background: 220 20% 10%;
-    --foreground: 210 40% 98%;
+    --background: 220 30% 8%;
+    --foreground: 40 20% 98%;
 
-    --card: 220 20% 14%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 30% 12%;
+    --card-foreground: 40 20% 98%;
 
-    --popover: 220 20% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 30% 12%;
+    --popover-foreground: 40 20% 98%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 220 20% 10%;
+    --primary: 32 95% 55%;
+    --primary-foreground: 220 50% 15%;
 
-    --secondary: 220 20% 18%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 50% 15%;
+    --secondary-foreground: 40 20% 98%;
 
-    --muted: 220 20% 20%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 170 80% 45%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 32 100% 50%;
+    --accent-foreground: 220 50% 15%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 20% 98%;
 
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
-    --ring: 199 89% 48%;
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --ring: 32 95% 55%;
 
     --radius: 0.25rem;
 
     /* Custom tokens */
-    --hero-overlay: 220 20% 5% / 0.7;
-    --accent-glow: 199 89% 48% / 0.3;
-    --form-bg: 220 20% 8% / 0.95;
+    --hero-overlay: 220 30% 5% / 0.75;
+    --accent-glow: 32 95% 55% / 0.3;
+    --form-bg: 220 30% 8% / 0.95;
+    --gradient-sunset: linear-gradient(180deg, hsl(45 100% 60%), hsl(32 95% 55%), hsl(25 90% 50%));
 
     /* Font families */
     --font-heading: 'Oswald', sans-serif;
     --font-body: 'Open Sans', sans-serif;
 
-    --sidebar-background: 220 20% 10%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 199 89% 48%;
-    --sidebar-primary-foreground: 220 20% 10%;
-    --sidebar-accent: 220 20% 18%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 20% 25%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 40 20% 98%;
+    --sidebar-primary: 32 95% 55%;
+    --sidebar-primary-foreground: 220 50% 15%;
+    --sidebar-accent: 220 30% 18%;
+    --sidebar-accent-foreground: 40 20% 98%;
+    --sidebar-border: 220 30% 22%;
+    --sidebar-ring: 32 95% 55%;
   }
 
   .dark {
-    --background: 220 20% 10%;
-    --foreground: 210 40% 98%;
+    --background: 220 30% 8%;
+    --foreground: 40 20% 98%;
 
-    --card: 220 20% 14%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 30% 12%;
+    --card-foreground: 40 20% 98%;
 
-    --popover: 220 20% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 30% 12%;
+    --popover-foreground: 40 20% 98%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 220 20% 10%;
+    --primary: 32 95% 55%;
+    --primary-foreground: 220 50% 15%;
 
-    --secondary: 220 20% 18%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 50% 15%;
+    --secondary-foreground: 40 20% 98%;
 
-    --muted: 220 20% 20%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 170 80% 45%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 32 100% 50%;
+    --accent-foreground: 220 50% 15%;
 
     --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 20% 98%;
 
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
-    --ring: 199 89% 48%;
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --ring: 32 95% 55%;
 
-    --sidebar-background: 220 20% 10%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 199 89% 48%;
-    --sidebar-primary-foreground: 220 20% 10%;
-    --sidebar-accent: 220 20% 18%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 20% 25%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 40 20% 98%;
+    --sidebar-primary: 32 95% 55%;
+    --sidebar-primary-foreground: 220 50% 15%;
+    --sidebar-accent: 220 30% 18%;
+    --sidebar-accent-foreground: 40 20% 98%;
+    --sidebar-border: 220 30% 22%;
+    --sidebar-ring: 32 95% 55%;
   }
 }
 
@@ -113,7 +114,7 @@
 
 @layer components {
   .accent-line {
-    @apply w-1 h-full bg-accent absolute left-0 top-0;
+    @apply w-1 h-full bg-primary absolute left-0 top-0;
   }
   
   .hero-title {
