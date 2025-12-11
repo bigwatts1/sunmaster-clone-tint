@@ -4,11 +4,10 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Window Films", href: "#services" },
+  { label: "Window Coverings", href: "#services" },
+  { label: "Surface Solutions", href: "#services" },
+  { label: "About", href: "#about" },
 ];
 
 const Navbar = () => {
@@ -19,11 +18,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         {/* Logo */}
         <a href="#home" className="flex items-center">
-          <img src={logo} alt="Sun Masters Window Tinting" className="h-16 md:h-20 w-auto" />
+          <img src={logo} alt="Sunmasters Window Tinting" className="h-14 md:h-16 w-auto" />
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -33,13 +32,19 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <Button
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
+            asChild
+          >
+            <a href="#estimate">Request a Free Estimate</a>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -48,7 +53,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-secondary border-t border-border">
+        <div className="lg:hidden bg-secondary border-t border-border">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
@@ -60,6 +65,13 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <Button
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider w-full"
+              asChild
+              onClick={() => setIsOpen(false)}
+            >
+              <a href="#estimate">Request a Free Estimate</a>
+            </Button>
           </div>
         </div>
       )}
