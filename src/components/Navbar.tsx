@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Menu, X, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -15,20 +16,10 @@ const Navbar = () => {
 
   return (
     <nav className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-            <Sun className="w-6 h-6 text-primary-foreground" />
-          </div>
-          <div>
-            <span className="font-heading text-xl font-bold text-foreground">
-              SUNMASTERS
-            </span>
-            <span className="block text-xs text-primary font-medium -mt-1">
-              Window Tinting
-            </span>
-          </div>
+        <a href="#home" className="flex items-center">
+          <img src={logo} alt="Sun Masters Window Tinting" className="h-16 md:h-20 w-auto" />
         </a>
 
         {/* Desktop Navigation */}

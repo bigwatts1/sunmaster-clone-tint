@@ -12,7 +12,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-background/75" />
       </div>
 
       {/* Content */}
@@ -21,12 +21,15 @@ const Hero = () => {
           <div className="relative pl-6">
             <div className="accent-line" />
             <h1 className="hero-title text-foreground mb-4 animate-fadeIn">
-              SUNMASTERS
+              SUN MASTERS
               <br />
               WINDOW TINTING
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-              For All Your Window Tinting Needs!
+            <p className="text-xl md:text-2xl text-muted-foreground mb-2 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+              Commercial & Residential & Automotive
+            </p>
+            <p className="text-lg text-primary mb-8 animate-fadeIn font-heading" style={{ animationDelay: "0.3s" }}>
+              Est. 1979
             </p>
             <Button
               size="lg"
