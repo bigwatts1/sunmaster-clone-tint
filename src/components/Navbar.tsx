@@ -1,24 +1,34 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Window Films", href: "#services" },
-  { label: "Window Coverings", href: "#services" },
-  { label: "Surface Solutions", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "#home" },
+  { label: "Services", href: "#services" },
+  { 
+    label: "Locations", 
+    href: "#areas",
+    hasDropdown: true 
+  },
+  { label: "About Us", href: "#about" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-background/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border">
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+    <nav className="bg-card/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="flex items-center">
-          <img src={logo} alt="Sunmasters Window Tinting" className="h-14 md:h-16 w-auto" />
+        <a href="#home" className="flex items-center gap-3">
+          <img src={logo} alt="Sunmasters Window Tinting" className="h-12 md:h-14 w-auto" />
+          <div className="hidden sm:block">
+            <p className="font-heading font-bold text-foreground text-lg leading-tight">Sunmasters</p>
+            <p className="text-muted-foreground text-xs">Window Tinting</p>
+          </div>
         </a>
 
         {/* Desktop Navigation */}
@@ -27,16 +37,29 @@ const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
-              className="nav-link text-foreground hover:text-primary"
+              className="nav-link text-foreground hover:text-primary flex items-center gap-1"
             >
+              {link.label === "Locations" && <MapPin className="w-4 h-4" />}
               {link.label}
+              {link.hasDropdown && <ChevronDown className="w-3 h-3" />}
             </a>
           ))}
+        </div>
+
+        {/* Right Side - Phone & CTA */}
+        <div className="hidden lg:flex items-center gap-4">
+          <a
+            href="tel:555-123-4567"
+            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            <span className="font-medium">(555) 123-4567</span>
+          </a>
           <Button
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
             asChild
           >
-            <a href="#estimate">Request a Free Estimate</a>
+            <a href="#estimate">Get Free Quote</a>
           </Button>
         </div>
 
@@ -65,12 +88,20 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <a
+              href="tel:555-123-4567"
+              className="flex items-center gap-2 text-foreground hover:text-primary py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <Phone className="w-4 h-4" />
+              <span>(555) 123-4567</span>
+            </a>
             <Button
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider w-full"
               asChild
               onClick={() => setIsOpen(false)}
             >
-              <a href="#estimate">Request a Free Estimate</a>
+              <a href="#estimate">Get Free Quote</a>
             </Button>
           </div>
         </div>

@@ -1,74 +1,107 @@
 import { Button } from "@/components/ui/button";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] flex items-center justify-center"
+      className="relative min-h-[90vh] flex items-center"
     >
-      {/* Background Image */}
+      {/* Background Image with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-background/70" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="max-w-3xl mx-auto text-center md:text-left md:mx-0">
-          <div className="bg-secondary/90 backdrop-blur-sm p-8 md:p-12 rounded-sm">
-            <h1 className="hero-title text-foreground mb-4 animate-fadeIn text-4xl md:text-6xl">
-              Sunmasters of Dallas
+      <div className="relative z-10 container mx-auto px-4 py-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-6">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 rounded-full px-4 py-2">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-foreground text-sm font-medium">Trusted by 1000+ Customers</span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
+              <span className="text-foreground">Expert Window</span>
+              <br />
+              <span className="text-primary">Tinting &</span>
+              <br />
+              <span className="text-primary">Protection</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-              Serving Dallas, Texas, and the surrounding area. Contact us today for a FREE consultation and learn how we can help you.
+
+            {/* Description */}
+            <p className="text-lg text-muted-foreground max-w-lg">
+              Keep your space cool and your energy bills low. We specialize in residential, commercial, and automotive window tinting, paint protection, and ceramic coatings.
             </p>
-            
-            {/* Navigation Buttons */}
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start animate-fadeIn" style={{ animationDelay: "0.3s" }}>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
               <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider group"
                 asChild
               >
-                <a href="#estimate">Request a Free Estimate</a>
+                <a href="#estimate">
+                  Get Free Estimate
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
               <Button
+                size="lg"
                 variant="outline"
                 className="border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider"
                 asChild
               >
-                <a href="#services">Our Services</a>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="#team">Our Team</a>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="#areas">Areas Served</a>
+                <a href="tel:555-123-4567">Call Now: (555) 123-4567</a>
               </Button>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Before/After Temperature Display */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
-        <div className="bg-red-600 text-white px-6 py-4 rounded-sm text-center">
-          <p className="text-sm font-heading uppercase">Before</p>
-          <p className="text-3xl font-bold font-heading">82°</p>
-        </div>
-        <div className="bg-green-600 text-white px-6 py-4 rounded-sm text-center">
-          <p className="text-sm font-heading uppercase">After</p>
-          <p className="text-3xl font-bold font-heading">72°</p>
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap gap-6 pt-4">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="text-sm">Licensed & Insured</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="text-sm">Same-Day Service</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="text-sm">Free Estimates</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Content - Logo & Experience */}
+          <div className="flex flex-col items-center justify-center space-y-8">
+            <div className="relative">
+              <img 
+                src={logo} 
+                alt="Sunmasters Window Tinting" 
+                className="w-64 md:w-80 h-auto drop-shadow-2xl"
+              />
+            </div>
+            
+            {/* Experience Box */}
+            <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg px-8 py-6 text-center">
+              <div className="flex items-center gap-4">
+                <span className="text-5xl md:text-6xl font-bold text-primary font-heading">45+</span>
+                <div className="text-left">
+                  <p className="text-foreground font-bold text-lg">Years Experience</p>
+                  <p className="text-muted-foreground text-sm">Serving our community</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import ServiceCard from "./ServiceCard";
+import { ArrowRight } from "lucide-react";
 import automotiveImg from "@/assets/service-automotive.jpg";
 import commercialImg from "@/assets/service-commercial.jpg";
 import residentialImg from "@/assets/service-residential.jpg";
@@ -9,62 +9,79 @@ import securityImg from "@/assets/service-security.jpg";
 const services = [
   {
     title: "Automotive Tinting",
-    description:
-      "We specialize in expert automotive window tinting, providing superior UV protection, heat reduction, and enhanced privacy for your vehicle. Our skilled technicians ensure a flawless, bubble-free installation.",
+    description: "Fast, reliable tinting for cars, trucks, and SUVs. UV protection, heat reduction, and enhanced privacy.",
     image: automotiveImg,
   },
   {
-    title: "Commercial Tinting",
-    description:
-      "Enhance your commercial space with our professional window tinting services. Reduce energy costs, improve comfort, and add a sleek, professional appearance to your office or storefront.",
-    image: commercialImg,
-  },
-  {
     title: "Residential Tinting",
-    description:
-      "Protect your home and family with our residential window tinting solutions. Enjoy improved energy efficiency, reduced glare, and enhanced privacy while maintaining your home's beautiful views.",
+    description: "Custom window film solutions for homes. Improve energy efficiency and protect your family from UV rays.",
     image: residentialImg,
   },
   {
+    title: "Commercial Tinting",
+    description: "Large-scale window solutions for businesses, offices, and commercial properties.",
+    image: commercialImg,
+  },
+  {
     title: "Paint Protection Film",
-    description:
-      "Protect your vehicle's paint from rock chips, scratches, and road debris with our premium paint protection film. Virtually invisible protection that preserves your car's showroom finish.",
+    description: "Protect your vehicle's paint from rock chips, scratches, and road debris with PPF.",
     image: ppfImg,
   },
   {
     title: "Ceramic Coating",
-    description:
-      "Experience the ultimate in paint protection with our ceramic coating services. Achieve a brilliant, long-lasting shine while protecting your vehicle from environmental contaminants.",
+    description: "Long-lasting paint protection with a brilliant, hydrophobic finish for your vehicle.",
     image: ceramicImg,
   },
   {
     title: "Security Film",
-    description:
-      "Our security film installation provides an extra layer of protection for your windows. Prevent break-ins, hold glass together during impacts, and protect against storms and accidents.",
+    description: "Strengthen windows against break-ins, storms, and accidents with safety film.",
     image: securityImg,
   },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-secondary">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="section-title text-foreground mb-4">Our Services</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            From automotive to commercial and residential, we offer comprehensive
-            window tinting and protection services tailored to your needs.
-          </p>
+        {/* Section Header */}
+        <div className="text-center mb-4">
+          <span className="text-primary font-medium uppercase tracking-wider text-sm">Our Services</span>
         </div>
+        <h2 className="section-title text-foreground text-center mb-4">
+          Complete Window Tinting Solutions for Texas Properties
+        </h2>
+        <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+          From automotive to commercial and residential, we handle all your window tinting and protection needs across the Dallas-Fort Worth metropolitan area.
+        </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
-            <ServiceCard
+            <a
               key={service.title}
-              title={service.title}
-              description={service.description}
-              image={service.image}
-            />
+              href="#estimate"
+              className="group block bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+            >
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {service.description}
+                </p>
+                <span className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                  Learn More
+                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </div>
+            </a>
           ))}
         </div>
       </div>
