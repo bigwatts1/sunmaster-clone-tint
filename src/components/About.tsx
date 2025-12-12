@@ -1,67 +1,78 @@
-import { Button } from "@/components/ui/button";
+import { CheckCircle, Shield, Award } from "lucide-react";
+import automotiveImg from "@/assets/service-automotive.jpg";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div>
-            <h2 className="section-title text-foreground mb-6">
-              We Can Handle Any Project
-            </h2>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              Welcome to Sun Masters Window Tinting, your trusted partner for
-              premier window tinting solutions since 1979. With over 45 years of expertise 
-              and a passion for excellence, we have built a reputation for delivering
-              customized tinting services that cater to the unique needs of
-              automotive, residential, and commercial properties.
-            </p>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              At Sun Masters, we understand the importance of comfort, privacy,
-              and energy efficiency. That's why we use cutting-edge technology
-              and the highest quality films to ensure superior UV protection,
-              heat reduction, and aesthetic enhancement for your windows.
-            </p>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              Whether you're looking to upgrade your vehicle, protect your home,
-              or enhance your commercial space, you can rely on Sun Masters for
-              reliable, professional, and innovative tinting solutions.
-            </p>
-            <Button
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="#services">Learn More!</a>
-            </Button>
+          {/* Left - Stats & Image */}
+          <div className="relative">
+            <img
+              src={automotiveImg}
+              alt="Professional window tinting"
+              className="rounded-lg w-full"
+            />
+            
+            {/* Stats Overlay */}
+            <div className="grid grid-cols-2 gap-4 mt-6">
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <span className="text-4xl font-bold text-primary font-heading">45+</span>
+                <p className="text-muted-foreground text-sm mt-1">Years Experience</p>
+              </div>
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <span className="text-4xl font-bold text-primary font-heading">10K+</span>
+                <p className="text-muted-foreground text-sm mt-1">Projects Completed</p>
+              </div>
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <span className="text-4xl font-bold text-primary font-heading">100%</span>
+                <p className="text-muted-foreground text-sm mt-1">Satisfaction</p>
+              </div>
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <span className="text-4xl font-bold text-primary font-heading">24/7</span>
+                <p className="text-muted-foreground text-sm mt-1">Support Available</p>
+              </div>
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 gap-8">
-            <div className="text-center p-8 bg-card rounded-sm border border-border">
-              <span className="stat-number">45+</span>
-              <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
-                Years of Experience
-              </p>
-            </div>
-            <div className="text-center p-8 bg-card rounded-sm border border-border">
-              <span className="stat-number">100%</span>
-              <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
-                Customer Satisfaction Guaranteed!
-              </p>
-            </div>
-            <div className="text-center p-8 bg-card rounded-sm border border-border">
-              <span className="stat-number">10K+</span>
-              <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
-                Vehicles Tinted
-              </p>
-            </div>
-            <div className="text-center p-8 bg-card rounded-sm border border-border">
-              <span className="stat-number">1K+</span>
-              <p className="text-muted-foreground mt-2 font-heading uppercase tracking-wide">
-                Buildings Completed
-              </p>
+          {/* Right - Content */}
+          <div>
+            <span className="text-primary font-medium uppercase tracking-wider text-sm">About Us</span>
+            <h2 className="section-title text-foreground mt-2 mb-6">
+              Your Trusted Local Window Tinting Experts
+            </h2>
+            
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              For over 45 years, Sunmasters Window Tinting has been the go-to choice for homeowners and businesses seeking reliable, professional window tinting services throughout Dallas and the surrounding area. We're not just technicians – we're your neighbors who take pride in keeping our community comfortable and protected.
+            </p>
+            
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Our team of certified professionals brings expertise in all major window film brands and systems. Whether you need automotive tinting for your vehicle, residential film for your home, or commercial solutions for your business, we approach every job with the same dedication to quality and customer satisfaction.
+            </p>
+
+            {/* Features */}
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                <div>
+                  <p className="text-foreground font-medium">Same-Day Service Available</p>
+                  <p className="text-muted-foreground text-sm">Fast, efficient installations when you need them</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Shield className="w-5 h-5 text-primary mt-1" />
+                <div>
+                  <p className="text-foreground font-medium">Licensed & Insured</p>
+                  <p className="text-muted-foreground text-sm">Full protection and peace of mind</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Award className="w-5 h-5 text-primary mt-1" />
+                <div>
+                  <p className="text-foreground font-medium">Certified Technicians</p>
+                  <p className="text-muted-foreground text-sm">Trained experts in all major brands</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
