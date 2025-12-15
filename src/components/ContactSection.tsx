@@ -112,6 +112,7 @@ const ContactSection = () => {
                   <option value="ceramic">Ceramic Coating</option>
                   <option value="security">Security Film</option>
                   <option value="smartfilm">Smart Film</option>
+                  <option value="patio-screens">Motorized Patio Screens</option>
                 </select>
               </div>
               <div>
