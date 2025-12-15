@@ -51,6 +51,7 @@ const services: Service[] = [
     title: "Smart Film",
     description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
     image: smartfilmImg,
+    video: "/videos/smartfilm-bg.mp4",
     link: "/smart-film",
   },
 ];
