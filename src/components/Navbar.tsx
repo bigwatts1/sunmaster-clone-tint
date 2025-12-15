@@ -23,14 +23,22 @@ const Navbar = () => {
   return (
     <nav className="bg-card/95 backdrop-blur-sm sticky top-0 z-50 border-b border-border">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#home" className="flex items-center gap-3">
-          <img src={logo} alt="Sunmasters Window Tinting" className="h-12 md:h-14 w-auto" />
-          <div className="hidden sm:block">
-            <p className="font-heading font-bold text-foreground text-lg leading-tight">Sunmasters</p>
-            <p className="text-muted-foreground text-xs">Window Tinting</p>
-          </div>
-        </a>
+        {/* Logo & CTA Button */}
+        <div className="flex items-center gap-4">
+          <a href="#home" className="flex items-center gap-3">
+            <img src={logo} alt="Sunmasters Window Tinting" className="h-12 md:h-14 w-auto" />
+            <div className="hidden sm:block">
+              <p className="font-heading font-bold text-foreground text-lg leading-tight">Sunmasters</p>
+              <p className="text-muted-foreground text-xs">Window Tinting</p>
+            </div>
+          </a>
+          <Button
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider text-xs md:text-sm"
+            asChild
+          >
+            <a href="#estimate">Get Free Estimate</a>
+          </Button>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6">
@@ -47,21 +55,15 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right Side - Phone & CTA */}
+        {/* Right Side - Phone */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="tel:469-757-4325"
+            href="tel:+14697574325"
             className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
           >
             <Phone className="w-4 h-4" />
             <span className="font-medium">(469) 757-4325</span>
           </a>
-          <Button
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-            asChild
-          >
-            <a href="#estimate">Get Free Quote</a>
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
