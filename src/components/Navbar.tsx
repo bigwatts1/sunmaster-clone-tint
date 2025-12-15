@@ -4,16 +4,17 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "Smart Film", href: "/smart-film" },
   { 
     label: "Locations", 
-    href: "#areas",
+    href: "/#areas",
     hasDropdown: true 
   },
-  { label: "About Us", href: "#about" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "/#about" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
