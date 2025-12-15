@@ -17,6 +17,7 @@ const services = [
   "Paint Protection Film",
   "Ceramic Coating",
   "Security Film",
+  "Motorized Patio Screens",
 ];
 
 const ContactForm = () => {
