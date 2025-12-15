@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactLink from "@/components/ContactLink";
 import automotiveImg from "@/assets/service-automotive.jpg";
 
 const benefits = [
@@ -157,16 +158,9 @@ const AutomotiveTinting = () => {
                 premium XPEL ceramic films backed by a lifetime warranty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                  asChild
-                >
-                  <a href="/#contact">
-                    Get Free Estimate
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
+                <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                  Get Free Estimate
+                </ContactLink>
                 <Button
                   size="lg"
                   variant="outline"
@@ -507,16 +501,9 @@ const AutomotiveTinting = () => {
                   45+ years of experience
                 </li>
               </ul>
-              <Button
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="/#contact">
-                  Get Your Free Estimate
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+              <ContactLink className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                Get Your Free Estimate
+              </ContactLink>
             </div>
           </div>
         </div>
@@ -619,14 +606,9 @@ const AutomotiveTinting = () => {
             Serving Dallas-Fort Worth with 45+ years of experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">Get Free Estimate</a>
-            </Button>
+            <ContactLink variant="secondary" className="font-heading uppercase tracking-wider" showArrow={false}>
+              Get Free Estimate
+            </ContactLink>
             <Button
               size="lg"
               variant="outline"

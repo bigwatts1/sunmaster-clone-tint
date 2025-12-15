@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactLink from "@/components/ContactLink";
 import ceramicImg from "@/assets/service-ceramic.jpg";
 
 const benefits = [
@@ -184,16 +185,9 @@ const CeramicCoating = () => {
                 ceramic coatings provide years of protection with minimal maintenance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                  asChild
-                >
-                  <a href="/#contact">
-                    Get Free Estimate
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
+                <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                  Get Free Estimate
+                </ContactLink>
                 <Button
                   size="lg"
                   variant="outline"
@@ -382,16 +376,9 @@ const CeramicCoating = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">
-                Request Custom Quote
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
+            <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+              Request Custom Quote
+            </ContactLink>
           </div>
         </div>
       </section>
@@ -560,16 +547,9 @@ const CeramicCoating = () => {
                   45+ years of experience
                 </li>
               </ul>
-              <Button
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="/#contact">
-                  Get Your Free Estimate
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+              <ContactLink className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                Get Your Free Estimate
+              </ContactLink>
             </div>
           </div>
         </div>
@@ -676,14 +656,9 @@ const CeramicCoating = () => {
             with 45+ years of automotive protection experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">Get Free Estimate</a>
-            </Button>
+            <ContactLink variant="secondary" className="font-heading uppercase tracking-wider" showArrow={false}>
+              Get Free Estimate
+            </ContactLink>
             <Button
               size="lg"
               variant="outline"
