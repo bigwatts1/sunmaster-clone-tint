@@ -49,11 +49,11 @@ const Navbar = () => {
         {/* Right Side - Phone & CTA */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="tel:555-123-4567"
+            href="tel:469-757-4325"
             className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
           >
             <Phone className="w-4 h-4" />
-            <span className="font-medium">(555) 123-4567</span>
+            <span className="font-medium">(469) 757-4325</span>
           </a>
           <Button
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
@@ -89,12 +89,12 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="tel:555-123-4567"
+              href="tel:469-757-4325"
               className="flex items-center gap-2 text-foreground hover:text-primary py-2"
               onClick={() => setIsOpen(false)}
             >
               <Phone className="w-4 h-4" />
-              <span>(555) 123-4567</span>
+              <span>(469) 757-4325</span>
             </a>
             <Button
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider w-full"

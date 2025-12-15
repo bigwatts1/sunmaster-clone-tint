@@ -90,11 +90,11 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               <a
-                href="tel:555-123-4567"
+                href="tel:469-757-4325"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 <Phone className="w-4 h-4" />
-                <span>(555) 123-4567</span>
+                <span>(469) 757-4325</span>
               </a>
               <a
                 href="mailto:info@sunmasters.com"
