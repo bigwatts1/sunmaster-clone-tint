@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & About */}
           <div>
-            <img src={logo} alt="Sunmasters Window Tinting" className="h-16 w-auto mb-4" />
+            <img src={logo} alt="Sunmasters Window Tinting and Shades" className="h-16 w-auto mb-4" />
             <p className="text-muted-foreground text-sm">
               Professional window tinting and protection solutions for automotive, residential,
               and commercial properties since 1979.
@@ -118,7 +118,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Sunmasters Window Tinting. Est. 1979. All rights reserved.
+            © {new Date().getFullYear()} Sunmasters Window Tinting and Shades. Est. 1979. All rights reserved.
           </p>
         </div>
       </div>

@@ -47,7 +47,7 @@ const About = () => {
             </h2>
             
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              For over 45 years, Sunmasters Window Tinting has been the go-to choice for homeowners and businesses seeking reliable, professional window tinting services throughout Dallas and the surrounding area. We're not just technicians – we're your neighbors who take pride in keeping our community comfortable and protected.
+              For over 45 years, Sunmasters Window Tinting and Shades has been the go-to choice for homeowners and businesses seeking reliable, professional window tinting services throughout Dallas and the surrounding area. We're not just technicians – we're your neighbors who take pride in keeping our community comfortable and protected.
             </p>
             
             <p className="text-muted-foreground mb-6 leading-relaxed">

@@ -66,11 +66,11 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Sunmasters Window Tinting <onboarding@resend.dev>",
+        from: "Sunmasters Window Tinting and Shades <onboarding@resend.dev>",
         to: [email],
         subject: "Thank you for contacting Sunmasters!",
         html: `
-          <h2>Thank you for contacting Sunmasters Window Tinting!</h2>
+          <h2>Thank you for contacting Sunmasters Window Tinting and Shades!</h2>
           <p>Hi ${name},</p>
           <p>We've received your inquiry about <strong>${service}</strong> and will get back to you within 24 hours.</p>
           <p>In the meantime, feel free to call us at <a href="tel:469-757-4325">(469) 757-4325</a>.</p>
