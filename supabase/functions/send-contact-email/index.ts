@@ -90,9 +90,14 @@ const handler = async (req: Request): Promise<Response> => {
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
   } catch (error: any) {
+    // Log detailed error server-side only for debugging
     console.error("Error in send-contact-email function:", error);
+    
+    // Return generic error message to clients - never expose internal details
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        error: "Unable to send your message at this time. Please try again later or call us directly at (469) 757-4325." 
+      }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
