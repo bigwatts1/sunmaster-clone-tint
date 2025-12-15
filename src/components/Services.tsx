@@ -34,6 +34,7 @@ const services: Service[] = [
     description: "Large-scale window solutions for businesses, offices, and commercial properties.",
     image: commercialImg,
     video: "/videos/commercial-bg.mp4",
+    link: "/commercial-tinting",
   },
   {
     title: "Paint Protection Film",
