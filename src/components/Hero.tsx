@@ -60,7 +60,7 @@ const Hero = () => {
                 className="border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider"
                 asChild
               >
-                <a href="tel:555-123-4567">Call Now: (555) 123-4567</a>
+                <a href="tel:469-757-4325">Call Now: (469) 757-4325</a>
               </Button>
             </div>
 
