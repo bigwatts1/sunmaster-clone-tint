@@ -111,13 +111,13 @@ const Navbar = () => {
               <Phone className="w-4 h-4" />
               <span>(469) 757-4325</span>
             </a>
-            <Button
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider w-full mt-2"
-              asChild
+            <a 
+              href="#estimate"
+              className="inline-flex items-center justify-center h-10 px-4 bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider w-full mt-2 rounded-md text-sm font-medium"
               onClick={() => setIsOpen(false)}
             >
-              <a href="#estimate">Get Free Quote</a>
-            </Button>
+              Get Free Quote
+            </a>
           </div>
         </div>
       )}
