@@ -8,11 +8,15 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Stats & Image */}
           <div className="relative">
-            <img
-              src={automotiveImg}
-              alt="Professional window tinting"
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
               className="rounded-lg w-full"
-            />
+            >
+              <source src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//IMG_3977.mov" type="video/mp4" />
+            </video>
             
             {/* Stats Overlay */}
             <div className="grid grid-cols-2 gap-4 mt-6">
