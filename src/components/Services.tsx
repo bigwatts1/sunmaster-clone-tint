@@ -55,6 +55,7 @@ const services: Service[] = [
     title: "Ceramic Coating",
     description: "Long-lasting paint protection with a brilliant, hydrophobic finish for your vehicle.",
     image: ceramicImg,
+    video: "/videos/ceramic-bg.mov",
     link: "/ceramic-coating",
   },
   {
