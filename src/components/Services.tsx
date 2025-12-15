@@ -69,6 +69,7 @@ const services: Service[] = [
     description: "Transform your outdoor living space with motorized retractable screens for patios, pergolas, and outdoor areas.",
     image: residentialImg,
     video: "https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//copy_DF98BC66-AF50-462F-AE4A-29E0ECEA82E5.mov",
+    link: "/motorized-patio-screens",
   },
 ];
 

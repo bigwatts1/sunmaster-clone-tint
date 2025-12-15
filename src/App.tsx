@@ -11,6 +11,7 @@ import CommercialTinting from "./pages/CommercialTinting";
 import AutomotiveTinting from "./pages/AutomotiveTinting";
 import CeramicCoating from "./pages/CeramicCoating";
 import SecurityFilm from "./pages/SecurityFilm";
+import MotorizedPatioScreens from "./pages/MotorizedPatioScreens";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/automotive-tinting" element={<AutomotiveTinting />} />
           <Route path="/ceramic-coating" element={<CeramicCoating />} />
           <Route path="/security-film" element={<SecurityFilm />} />
+          <Route path="/motorized-patio-screens" element={<MotorizedPatioScreens />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
