@@ -9,11 +9,17 @@ const Hero = () => {
       id="home"
       className="relative min-h-[90vh] flex items-center"
     >
-      {/* Background Image with overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
+      {/* Background Video with overlay */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//64AE3775-E4F5-4A33-B85C-F0A60F3AD2A7.mov" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-background/70" />
       </div>
 
