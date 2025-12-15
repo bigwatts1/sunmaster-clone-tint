@@ -46,6 +46,11 @@ const Footer = () => {
                   Ceramic Coating
                 </a>
               </li>
+              <li>
+                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  Smart Film
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -5,6 +5,7 @@ import residentialImg from "@/assets/service-residential.jpg";
 import ppfImg from "@/assets/service-ppf.jpg";
 import ceramicImg from "@/assets/service-ceramic.jpg";
 import securityImg from "@/assets/service-security.jpg";
+import smartfilmImg from "@/assets/service-smartfilm.jpg";
 
 const services = [
   {
@@ -36,6 +37,11 @@ const services = [
     title: "Security Film",
     description: "Strengthen windows against break-ins, storms, and accidents with safety film.",
     image: securityImg,
+  },
+  {
+    title: "Smart Film",
+    description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
+    image: smartfilmImg,
   },
 ];
 
