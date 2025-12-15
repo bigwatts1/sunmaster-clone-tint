@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import automotiveImg from "@/assets/service-automotive.jpg";
+import automotivePricing from "@/assets/automotive-pricing.jpeg";
 
 const benefits = [
   {
@@ -335,8 +336,34 @@ const AutomotiveTinting = () => {
         </div>
       </section>
 
-      {/* Texas Tint Laws */}
+      {/* Pricing Section */}
       <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-primary font-medium uppercase tracking-wider text-sm">
+              Transparent Pricing
+            </span>
+            <h2 className="section-title text-foreground mt-2">
+              Automotive Tinting Pricing
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              Clear, upfront pricing for all vehicle types. Choose from our XPEL PRIME film lineup 
+              with Good, Better, and Best options to fit your needs and budget.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <img
+              src={automotivePricing}
+              alt="Automotive window tinting pricing chart - XPEL PRIME CS, PRIME XR, and PRIME XR PLUS options for all vehicle types"
+              className="rounded-lg shadow-2xl w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Texas Tint Laws */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-primary font-medium uppercase tracking-wider text-sm">
