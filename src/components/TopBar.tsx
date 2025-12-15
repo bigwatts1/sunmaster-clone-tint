@@ -4,11 +4,11 @@ const TopBar = () => {
   return (
     <div className="bg-secondary py-2 px-4 flex flex-col md:flex-row justify-center md:justify-between items-center text-sm border-b border-border">
       <a 
-        href="tel:555-123-4567" 
+        href="tel:469-757-4325" 
         className="flex items-center gap-2 hover:text-primary transition-colors font-semibold"
       >
         <Phone className="w-4 h-4" />
-        <span>(555) 123-4567</span>
+        <span>(469) 757-4325</span>
       </a>
       <div className="flex items-center gap-4">
         <a href="#areas" className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors">

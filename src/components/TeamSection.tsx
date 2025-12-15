@@ -36,11 +36,11 @@ const TeamSection = () => {
               </p>
               
               <a 
-                href="tel:555-123-4567" 
+                href="tel:469-757-4325" 
                 className="flex items-center gap-2 text-2xl font-heading text-primary hover:text-primary/80 transition-colors"
               >
                 <Phone className="w-6 h-6" />
-                (555) 123-4567
+                (469) 757-4325
               </a>
 
               {/* Certifications */}
