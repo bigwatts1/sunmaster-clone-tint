@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactLink from "@/components/ContactLink";
 import securityImg from "@/assets/service-security.jpg";
 
 const benefits = [
@@ -138,16 +139,9 @@ const SecurityFilm = () => {
                 together, protecting your family, employees, and property when it matters most.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                  asChild
-                >
-                  <a href="/#contact">
-                    Get Free Estimate
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
+                <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                  Get Free Estimate
+                </ContactLink>
                 <Button
                   size="lg"
                   variant="outline"
@@ -346,16 +340,9 @@ const SecurityFilm = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">
-                Request Security Assessment
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
+            <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+              Request Security Assessment
+            </ContactLink>
           </div>
         </div>
       </section>
@@ -543,16 +530,9 @@ const SecurityFilm = () => {
                   45+ years of experience
                 </li>
               </ul>
-              <Button
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="/#contact">
-                  Get Your Free Assessment
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+              <ContactLink className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                Get Your Free Assessment
+              </ContactLink>
             </div>
           </div>
         </div>
@@ -659,14 +639,9 @@ const SecurityFilm = () => {
             businesses with 45+ years of experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">Get Free Assessment</a>
-            </Button>
+            <ContactLink variant="secondary" className="font-heading uppercase tracking-wider" showArrow={false}>
+              Get Free Assessment
+            </ContactLink>
             <Button
               size="lg"
               variant="outline"

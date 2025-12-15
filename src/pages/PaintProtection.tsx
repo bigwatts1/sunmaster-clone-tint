@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactLink from "@/components/ContactLink";
 
 
 const benefits = [
@@ -106,16 +107,9 @@ const PaintProtection = () => {
                 precision-cut, computer-designed patterns for a perfect fit on every vehicle.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                  asChild
-                >
-                  <a href="/#contact">
-                    Get Free Estimate
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
+                <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                  Get Free Estimate
+                </ContactLink>
                 <Button
                   size="lg"
                   variant="outline"
@@ -367,16 +361,9 @@ const PaintProtection = () => {
                   45+ years of industry experience
                 </li>
               </ul>
-              <Button
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="/#contact">
-                  Schedule Your Free Estimate
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+              <ContactLink className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                Schedule Your Free Estimate
+              </ContactLink>
             </div>
           </div>
         </div>
@@ -478,14 +465,9 @@ const PaintProtection = () => {
             window film and paint protection expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">Get Free Estimate</a>
-            </Button>
+            <ContactLink variant="secondary" className="font-heading uppercase tracking-wider">
+              Get Free Estimate
+            </ContactLink>
             <Button
               size="lg"
               variant="outline"

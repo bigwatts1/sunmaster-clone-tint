@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet";
-import { ArrowRight, Shield, Sun, Wind, Eye, Zap, Home, CheckCircle2, Smartphone, ThermometerSun, Bug } from "lucide-react";
+import { ArrowRight, Shield, Sun, Wind, Eye, Zap, Home, CheckCircle2, Smartphone, Bug } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactLink from "@/components/ContactLink";
 
 const benefits = [
   {
@@ -119,16 +120,9 @@ const MotorizedPatioScreens = () => {
                 Perfect for Dallas-area patios, pergolas, and outdoor living areas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                  asChild
-                >
-                  <a href="/#contact">
-                    Get Free Estimate
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
+                <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                  Get Free Estimate
+                </ContactLink>
                 <Button
                   size="lg"
                   variant="outline"
@@ -375,16 +369,9 @@ const MotorizedPatioScreens = () => {
                   Manufacturer warranties
                 </li>
               </ul>
-              <Button
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="/#contact">
-                  Schedule Your Free Consultation
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+              <ContactLink className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                Schedule Your Free Consultation
+              </ContactLink>
             </div>
           </div>
         </div>
@@ -486,16 +473,9 @@ const MotorizedPatioScreens = () => {
             can transform your Dallas-area home.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-background text-foreground hover:bg-background/90 font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">
-                Get Your Free Quote
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
+            <ContactLink className="bg-background text-foreground hover:bg-background/90 font-heading uppercase tracking-wider">
+              Get Your Free Quote
+            </ContactLink>
             <Button
               size="lg"
               variant="outline"

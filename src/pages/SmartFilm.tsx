@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactLink from "@/components/ContactLink";
 import smartfilmImg from "@/assets/service-smartfilm.jpg";
 
 const benefits = [
@@ -82,16 +83,9 @@ const SmartFilm = () => {
                 control over your privacy and light.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                  asChild
-                >
-                  <a href="/#contact">
-                    Get Free Estimate
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
-                </Button>
+                <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                  Get Free Estimate
+                </ContactLink>
                 <Button
                   size="lg"
                   variant="outline"
@@ -246,16 +240,9 @@ const SmartFilm = () => {
                   45+ years of industry experience
                 </li>
               </ul>
-              <Button
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-                asChild
-              >
-                <a href="/#contact">
-                  Schedule Your Free Estimate
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+              <ContactLink className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                Schedule Your Free Estimate
+              </ContactLink>
             </div>
           </div>
         </div>
@@ -332,14 +319,9 @@ const SmartFilm = () => {
             and surrounding areas with 45+ years of window film expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="font-heading uppercase tracking-wider"
-              asChild
-            >
-              <a href="/#contact">Get Free Estimate</a>
-            </Button>
+            <ContactLink variant="secondary" className="font-heading uppercase tracking-wider" showArrow={false}>
+              Get Free Estimate
+            </ContactLink>
             <Button
               size="lg"
               variant="outline"
