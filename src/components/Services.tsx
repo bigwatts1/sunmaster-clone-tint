@@ -4,7 +4,7 @@ import commercialImg from "@/assets/service-commercial.jpg";
 import residentialImg from "@/assets/service-residential.jpg";
 import ppfImg from "@/assets/service-ppf.jpg";
 import ceramicImg from "@/assets/service-ceramic.jpg";
-import securityImg from "@/assets/service-security.jpg";
+import securityImg from "@/assets/service-security-school.jpg";
 import smartfilmImg from "@/assets/service-smartfilm.jpg";
 
 interface Service {
