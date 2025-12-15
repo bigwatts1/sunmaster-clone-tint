@@ -11,6 +11,7 @@ interface Service {
   title: string;
   description: string;
   image: string;
+  video?: string;
   link?: string;
 }
 
@@ -19,6 +20,7 @@ const services: Service[] = [
     title: "Automotive Tinting",
     description: "Fast, reliable tinting for cars, trucks, and SUVs. UV protection, heat reduction, and enhanced privacy.",
     image: automotiveImg,
+    video: "/videos/automotive-bg.mp4",
   },
   {
     title: "Residential Tinting",
@@ -76,12 +78,31 @@ const Services = () => {
               href={service.link || "/#estimate"}
               className="group block bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
             >
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div className="aspect-[16/10] overflow-hidden relative">
+                {service.video ? (
+                  <>
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    >
+                      <source src={service.video} type="video/mp4" />
+                    </video>
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="hidden"
+                    />
+                  </>
+                ) : (
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <h3 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
