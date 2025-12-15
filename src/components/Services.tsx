@@ -7,7 +7,14 @@ import ceramicImg from "@/assets/service-ceramic.jpg";
 import securityImg from "@/assets/service-security.jpg";
 import smartfilmImg from "@/assets/service-smartfilm.jpg";
 
-const services = [
+interface Service {
+  title: string;
+  description: string;
+  image: string;
+  link?: string;
+}
+
+const services: Service[] = [
   {
     title: "Automotive Tinting",
     description: "Fast, reliable tinting for cars, trucks, and SUVs. UV protection, heat reduction, and enhanced privacy.",
@@ -42,6 +49,7 @@ const services = [
     title: "Smart Film",
     description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
     image: smartfilmImg,
+    link: "/smart-film",
   },
 ];
 
@@ -65,7 +73,7 @@ const Services = () => {
           {services.map((service) => (
             <a
               key={service.title}
-              href="#estimate"
+              href={service.link || "/#estimate"}
               className="group block bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
             >
               <div className="aspect-[16/10] overflow-hidden">
