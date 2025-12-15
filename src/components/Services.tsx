@@ -60,6 +60,7 @@ const services: Service[] = [
     title: "Security Film",
     description: "Strengthen windows against break-ins, storms, and accidents with safety film.",
     image: securityImg,
+    link: "/security-film",
   },
 ];
 
