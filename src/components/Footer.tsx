@@ -102,11 +102,11 @@ const Footer = () => {
                 <span>(469) 757-4325</span>
               </a>
               <a
-                href="mailto:info@sunmasters.com"
+                href="mailto:aaron@sunmastersdfw.com"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 <Mail className="w-4 h-4" />
-                <span>info@sunmasters.com</span>
+                <span>aaron@sunmastersdfw.com</span>
               </a>
               <div className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 mt-0.5" />
