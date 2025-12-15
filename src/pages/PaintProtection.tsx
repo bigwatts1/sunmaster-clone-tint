@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ppfImg from "@/assets/service-ppf.jpg";
+
 
 const benefits = [
   {
@@ -127,11 +127,16 @@ const PaintProtection = () => {
               </div>
             </div>
             <div className="relative">
-              <img
-                src={ppfImg}
-                alt="XPEL Paint Protection Film coverage options"
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="rounded-lg shadow-2xl w-full"
-              />
+              >
+                <source src="/videos/ppf-bg.mov" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
               <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
                 <p className="font-heading font-bold text-2xl">10 Year</p>
                 <p className="text-sm">Warranty</p>
