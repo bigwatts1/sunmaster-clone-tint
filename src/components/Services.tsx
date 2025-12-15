@@ -38,6 +38,7 @@ const services: Service[] = [
     title: "Paint Protection Film",
     description: "Protect your vehicle's paint from rock chips, scratches, and road debris with PPF.",
     image: ppfImg,
+    link: "/paint-protection",
   },
   {
     title: "Ceramic Coating",
