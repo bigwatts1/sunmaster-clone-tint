@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import SmartFilm from "./pages/SmartFilm";
 import PaintProtection from "./pages/PaintProtection";
+import ResidentialTinting from "./pages/ResidentialTinting";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/smart-film" element={<SmartFilm />} />
           <Route path="/paint-protection" element={<PaintProtection />} />
+          <Route path="/residential-tinting" element={<ResidentialTinting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

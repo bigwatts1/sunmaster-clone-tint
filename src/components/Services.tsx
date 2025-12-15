@@ -27,6 +27,7 @@ const services: Service[] = [
     description: "Custom window film solutions for homes. Improve energy efficiency and protect your family from UV rays.",
     image: residentialImg,
     video: "/videos/residential-bg.mp4",
+    link: "/residential-tinting",
   },
   {
     title: "Commercial Tinting",
