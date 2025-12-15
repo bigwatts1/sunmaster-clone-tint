@@ -12,7 +12,7 @@ const TeamSection = () => {
               <div className="relative">
                 <img 
                   src={logo} 
-                  alt="Sunmasters Window Tinting" 
+                  alt="Sunmasters Window Tinting and Shades" 
                   className="w-64 h-auto rounded-sm shadow-lg"
                 />
               </div>

@@ -84,7 +84,7 @@ const Hero = () => {
             <div className="relative">
               <img 
                 src={logo} 
-                alt="Sunmasters Window Tinting" 
+                alt="Sunmasters Window Tinting and Shades" 
                 className="w-64 md:w-80 h-auto drop-shadow-2xl"
               />
             </div>

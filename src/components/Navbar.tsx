@@ -35,7 +35,7 @@ const Navbar = () => {
         {/* Logo & CTA Button */}
         <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Sunmasters Window Tinting" className="h-12 md:h-14 w-auto" />
+            <img src={logo} alt="Sunmasters Window Tinting and Shades" className="h-12 md:h-14 w-auto" />
             <div className="hidden sm:block">
               <p className="font-heading font-bold text-foreground text-lg leading-tight">Sunmasters</p>
               <p className="text-muted-foreground text-xs">Window Tinting</p>
