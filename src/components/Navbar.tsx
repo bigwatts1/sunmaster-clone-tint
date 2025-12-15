@@ -64,7 +64,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="lg:hidden bg-secondary border-t border-border">
+        <div className="absolute top-full left-0 right-0 bg-secondary border-t border-border shadow-lg z-50">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navLinks.map((link) => (
               <div key={link.label}>
