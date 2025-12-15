@@ -8,6 +8,7 @@ import SmartFilm from "./pages/SmartFilm";
 import PaintProtection from "./pages/PaintProtection";
 import ResidentialTinting from "./pages/ResidentialTinting";
 import CommercialTinting from "./pages/CommercialTinting";
+import AutomotiveTinting from "./pages/AutomotiveTinting";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/paint-protection" element={<PaintProtection />} />
           <Route path="/residential-tinting" element={<ResidentialTinting />} />
           <Route path="/commercial-tinting" element={<CommercialTinting />} />
+          <Route path="/automotive-tinting" element={<AutomotiveTinting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

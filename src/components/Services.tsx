@@ -21,6 +21,7 @@ const services: Service[] = [
     description: "Fast, reliable tinting for cars, trucks, and SUVs. UV protection, heat reduction, and enhanced privacy.",
     image: automotiveImg,
     video: "/videos/automotive-bg.mp4",
+    link: "/automotive-tinting",
   },
   {
     title: "Residential Tinting",
