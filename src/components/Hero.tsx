@@ -54,14 +54,12 @@ const Hero = () => {
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider"
-                asChild
+              <a
+                href="tel:+14697574325"
+                className="inline-flex items-center justify-center h-11 px-8 rounded-md border border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider text-sm font-medium transition-colors"
               >
-                <a href="tel:+14697574325">Call Now: (469) 757-4325</a>
-              </Button>
+                Call Now: (469) 757-4325
+              </a>
             </div>
 
             {/* Trust Indicators */}
