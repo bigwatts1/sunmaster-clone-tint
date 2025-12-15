@@ -38,6 +38,13 @@ const services: Service[] = [
     link: "/commercial-tinting",
   },
   {
+    title: "Smart Film",
+    description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
+    image: smartfilmImg,
+    video: "/videos/smartfilm-bg.mp4",
+    link: "/smart-film",
+  },
+  {
     title: "Paint Protection Film",
     description: "Protect your vehicle's paint from rock chips, scratches, and road debris with PPF.",
     image: ppfImg,
@@ -52,13 +59,6 @@ const services: Service[] = [
     title: "Security Film",
     description: "Strengthen windows against break-ins, storms, and accidents with safety film.",
     image: securityImg,
-  },
-  {
-    title: "Smart Film",
-    description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
-    image: smartfilmImg,
-    video: "/videos/smartfilm-bg.mp4",
-    link: "/smart-film",
   },
 ];
 
