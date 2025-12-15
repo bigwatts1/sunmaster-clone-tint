@@ -11,14 +11,35 @@ const Hero = () => {
     >
       {/* Background Video with overlay */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Fallback background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+        {/* Video overlay */}
         <video
           autoPlay
           loop
           muted
           playsInline
+          // @ts-ignore - webkit prefix for Safari compatibility
+          webkit-playsinline="true"
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//64AE3775-E4F5-4A33-B85C-F0A60F3AD2A7.mov"
-        />
+          poster={heroBg}
+          onError={(e) => {
+            // Hide video if it fails to load, fallback image will show
+            (e.target as HTMLVideoElement).style.display = 'none';
+          }}
+        >
+          <source 
+            src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//64AE3775-E4F5-4A33-B85C-F0A60F3AD2A7.mov" 
+            type="video/quicktime" 
+          />
+          <source 
+            src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//64AE3775-E4F5-4A33-B85C-F0A60F3AD2A7.mov" 
+            type="video/mp4" 
+          />
+        </video>
         <div className="absolute inset-0 bg-background/80" />
       </div>
 
