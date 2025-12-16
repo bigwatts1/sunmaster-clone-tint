@@ -18,7 +18,38 @@ const routesToPrerender = [
   '/automotive-tinting',
   '/ceramic-coating',
   '/security-film',
-  '/motorized-patio-screens'
+  '/motorized-patio-screens',
+  // Location pages
+  '/locations/dallas',
+  '/locations/plano',
+  '/locations/frisco',
+  '/locations/mckinney',
+  '/locations/fort-worth',
+  '/locations/arlington',
+  '/locations/irving',
+  '/locations/garland',
+  '/locations/grand-prairie',
+  '/locations/richardson',
+  '/locations/allen',
+  '/locations/carrollton',
+  '/locations/lewisville',
+  '/locations/denton',
+  '/locations/flower-mound',
+  '/locations/the-colony',
+  '/locations/little-elm',
+  '/locations/prosper',
+  '/locations/mesquite',
+  '/locations/rockwall',
+  '/locations/rowlett',
+  '/locations/wylie',
+  '/locations/murphy',
+  '/locations/sachse',
+  '/locations/coppell',
+  '/locations/grapevine',
+  '/locations/southlake',
+  '/locations/greenville',
+  '/locations/caddo-mills',
+  '/locations/commerce',
 ]
 
 ;(async () => {
@@ -26,7 +57,13 @@ const routesToPrerender = [
     const appHtml = render(url);
     const html = template.replace(`<!--app-html-->`, appHtml)
 
+    // Create nested directories for location pages
     const filePath = `dist${url === '/' ? '/index' : url}.html`
+    const dir = path.dirname(toAbsolute(filePath))
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true })
+    }
+    
     fs.writeFileSync(toAbsolute(filePath), html)
     console.log('pre-rendered:', filePath)
   }
