@@ -15,10 +15,43 @@ const servicePages = [
   { label: "Motorized Patio Screens", href: "/motorized-patio-screens" },
 ];
 
+const locationPages = [
+  { label: "Dallas", href: "/locations/dallas" },
+  { label: "Fort Worth", href: "/locations/fort-worth" },
+  { label: "Plano", href: "/locations/plano" },
+  { label: "Frisco", href: "/locations/frisco" },
+  { label: "McKinney", href: "/locations/mckinney" },
+  { label: "Arlington", href: "/locations/arlington" },
+  { label: "Irving", href: "/locations/irving" },
+  { label: "Garland", href: "/locations/garland" },
+  { label: "Grand Prairie", href: "/locations/grand-prairie" },
+  { label: "Richardson", href: "/locations/richardson" },
+  { label: "Allen", href: "/locations/allen" },
+  { label: "Carrollton", href: "/locations/carrollton" },
+  { label: "Lewisville", href: "/locations/lewisville" },
+  { label: "Denton", href: "/locations/denton" },
+  { label: "Flower Mound", href: "/locations/flower-mound" },
+  { label: "The Colony", href: "/locations/the-colony" },
+  { label: "Little Elm", href: "/locations/little-elm" },
+  { label: "Prosper", href: "/locations/prosper" },
+  { label: "Mesquite", href: "/locations/mesquite" },
+  { label: "Rockwall", href: "/locations/rockwall" },
+  { label: "Rowlett", href: "/locations/rowlett" },
+  { label: "Wylie", href: "/locations/wylie" },
+  { label: "Murphy", href: "/locations/murphy" },
+  { label: "Sachse", href: "/locations/sachse" },
+  { label: "Coppell", href: "/locations/coppell" },
+  { label: "Grapevine", href: "/locations/grapevine" },
+  { label: "Southlake", href: "/locations/southlake" },
+  { label: "Greenville", href: "/locations/greenville" },
+  { label: "Caddo Mills", href: "/locations/caddo-mills" },
+  { label: "Commerce", href: "/locations/commerce" },
+];
+
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services", hasDropdown: true, subLinks: servicePages },
-  { label: "Locations", href: "/#areas" },
+  { label: "Services", href: "/#services", hasDropdown: true, dropdownType: "services" },
+  { label: "Locations", href: "/#areas", hasDropdown: true, dropdownType: "locations" },
   { label: "About Us", href: "/#about" },
   { label: "Reviews", href: "/#reviews" },
   { label: "Contact", href: "/#contact" },
@@ -27,7 +60,29 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+  const [locationsOpen, setLocationsOpen] = useState(false);
+
+  const getDropdownItems = (type: string) => {
+    if (type === "services") return servicePages;
+    if (type === "locations") return locationPages;
+    return [];
+  };
+
+  const toggleDropdown = (type: string) => {
+    if (type === "services") {
+      setServicesOpen(!servicesOpen);
+      setLocationsOpen(false);
+    } else if (type === "locations") {
+      setLocationsOpen(!locationsOpen);
+      setServicesOpen(false);
+    }
+  };
+
+  const isDropdownOpen = (type: string) => {
+    if (type === "services") return servicesOpen;
+    if (type === "locations") return locationsOpen;
+    return false;
+  };
 
   return (
     <nav className="bg-secondary sticky top-0 z-50 border-b border-border">
@@ -71,15 +126,18 @@ const Navbar = () => {
                 {link.hasDropdown ? (
                   <>
                     <button
-                      onClick={() => setServicesOpen(!servicesOpen)}
+                      onClick={() => toggleDropdown(link.dropdownType!)}
                       className="nav-link text-foreground hover:text-primary py-2 w-full text-left flex items-center justify-between"
                     >
-                      {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                      <span className="flex items-center gap-2">
+                        {link.dropdownType === "locations" && <MapPin className="w-4 h-4" />}
+                        {link.label}
+                      </span>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isDropdownOpen(link.dropdownType!) ? 'rotate-180' : ''}`} />
                     </button>
-                    {servicesOpen && (
-                      <div className="pl-4 flex flex-col gap-1 border-l-2 border-primary/30 ml-2">
-                        {link.subLinks?.map((subLink) => (
+                    {isDropdownOpen(link.dropdownType!) && (
+                      <div className={`pl-4 flex flex-col gap-1 border-l-2 border-primary/30 ml-2 ${link.dropdownType === "locations" ? "max-h-64 overflow-y-auto" : ""}`}>
+                        {getDropdownItems(link.dropdownType!).map((subLink) => (
                           <Link
                             key={subLink.href}
                             to={subLink.href}
