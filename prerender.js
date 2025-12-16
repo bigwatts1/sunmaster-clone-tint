@@ -19,6 +19,14 @@ const routesToPrerender = [
   '/ceramic-coating',
   '/security-film',
   '/motorized-patio-screens',
+  // Blog pages
+  '/blog',
+  '/blog/texas-window-tint-laws-2024',
+  '/blog/benefits-ceramic-window-tint',
+  '/blog/home-window-tinting-energy-savings',
+  '/blog/xpel-vs-other-ppf-brands',
+  '/blog/motorized-patio-screens-outdoor-living',
+  '/blog/commercial-window-tinting-benefits-business',
   // Location pages
   '/locations/dallas',
   '/locations/plano',
