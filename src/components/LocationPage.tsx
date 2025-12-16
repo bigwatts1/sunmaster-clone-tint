@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import { LocationData } from "@/data/locations";
 import { Link } from "react-router-dom";
+import locationHeroImage from "@/assets/location-hero.jpeg";
 
 interface LocationPageProps {
   location: LocationData;
@@ -266,8 +267,18 @@ const LocationPage = ({ location }: LocationPageProps) => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-secondary overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={locationHeroImage} 
+            alt={`Professional window tinting services in ${city}, ${state}`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10 py-20">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 mb-4">
               <MapPin className="w-5 h-5 text-primary" />
