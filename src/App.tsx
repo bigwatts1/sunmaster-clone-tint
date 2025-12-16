@@ -12,6 +12,8 @@ import AutomotiveTinting from "./pages/AutomotiveTinting";
 import CeramicCoating from "./pages/CeramicCoating";
 import SecurityFilm from "./pages/SecurityFilm";
 import MotorizedPatioScreens from "./pages/MotorizedPatioScreens";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 // Location Pages
@@ -63,6 +65,10 @@ const App = () => (
         <Route path="/ceramic-coating" element={<CeramicCoating />} />
         <Route path="/security-film" element={<SecurityFilm />} />
         <Route path="/motorized-patio-screens" element={<MotorizedPatioScreens />} />
+        
+        {/* Blog Pages */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         
         {/* Location Pages */}
         <Route path="/locations/dallas" element={<Dallas />} />

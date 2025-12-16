@@ -52,6 +52,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services", hasDropdown: true, dropdownType: "services" },
   { label: "Locations", href: "/#areas", hasDropdown: true, dropdownType: "locations" },
+  { label: "Blog", href: "/blog" },
   { label: "About Us", href: "/#about" },
   { label: "Reviews", href: "/#reviews" },
   { label: "Contact", href: "/#contact" },
@@ -150,6 +151,14 @@ const Navbar = () => {
                       </div>
                     )}
                   </>
+                ) : link.href.startsWith('/') && !link.href.includes('#') ? (
+                  <Link
+                    to={link.href}
+                    className="nav-link text-foreground hover:text-primary py-2 block"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
                 ) : (
                   <a
                     href={link.href}
