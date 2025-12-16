@@ -32,6 +32,9 @@ const eastWestAreas = [
   "Coppell",
   "Grapevine",
   "Southlake",
+  "Greenville",
+  "Caddo Mills",
+  "Commerce",
 ];
 
 const AreasServed = () => {
