@@ -1,40 +1,42 @@
+import { Link } from "react-router-dom";
+
 const dallasAreas = [
-  "Dallas",
-  "Plano", 
-  "Frisco",
-  "McKinney",
-  "Fort Worth",
-  "Arlington",
-  "Irving",
-  "Garland",
-  "Grand Prairie",
+  { name: "Dallas", slug: "dallas" },
+  { name: "Plano", slug: "plano" },
+  { name: "Frisco", slug: "frisco" },
+  { name: "McKinney", slug: "mckinney" },
+  { name: "Fort Worth", slug: "fort-worth" },
+  { name: "Arlington", slug: "arlington" },
+  { name: "Irving", slug: "irving" },
+  { name: "Garland", slug: "garland" },
+  { name: "Grand Prairie", slug: "grand-prairie" },
 ];
 
 const northAreas = [
-  "Richardson",
-  "Allen",
-  "Carrollton",
-  "Lewisville",
-  "Denton",
-  "Flower Mound",
-  "The Colony",
-  "Little Elm",
-  "Prosper",
+  { name: "Richardson", slug: "richardson" },
+  { name: "Allen", slug: "allen" },
+  { name: "Carrollton", slug: "carrollton" },
+  { name: "Lewisville", slug: "lewisville" },
+  { name: "Denton", slug: "denton" },
+  { name: "Flower Mound", slug: "flower-mound" },
+  { name: "The Colony", slug: "the-colony" },
+  { name: "Little Elm", slug: "little-elm" },
+  { name: "Prosper", slug: "prosper" },
 ];
 
 const eastWestAreas = [
-  "Mesquite",
-  "Rockwall",
-  "Rowlett",
-  "Wylie",
-  "Murphy",
-  "Sachse",
-  "Coppell",
-  "Grapevine",
-  "Southlake",
-  "Greenville",
-  "Caddo Mills",
-  "Commerce",
+  { name: "Mesquite", slug: "mesquite" },
+  { name: "Rockwall", slug: "rockwall" },
+  { name: "Rowlett", slug: "rowlett" },
+  { name: "Wylie", slug: "wylie" },
+  { name: "Murphy", slug: "murphy" },
+  { name: "Sachse", slug: "sachse" },
+  { name: "Coppell", slug: "coppell" },
+  { name: "Grapevine", slug: "grapevine" },
+  { name: "Southlake", slug: "southlake" },
+  { name: "Greenville", slug: "greenville" },
+  { name: "Caddo Mills", slug: "caddo-mills" },
+  { name: "Commerce", slug: "commerce" },
 ];
 
 const AreasServed = () => {
@@ -58,8 +60,13 @@ const AreasServed = () => {
             <h3 className="font-heading font-bold text-foreground text-xl mb-4">Dallas Metro</h3>
             <ul className="space-y-2">
               {dallasAreas.map((city) => (
-                <li key={city} className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                  {city}
+                <li key={city.slug}>
+                  <Link 
+                    to={`/locations/${city.slug}`}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {city.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -69,8 +76,13 @@ const AreasServed = () => {
             <h3 className="font-heading font-bold text-foreground text-xl mb-4">North DFW</h3>
             <ul className="space-y-2">
               {northAreas.map((city) => (
-                <li key={city} className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                  {city}
+                <li key={city.slug}>
+                  <Link 
+                    to={`/locations/${city.slug}`}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {city.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -80,8 +92,13 @@ const AreasServed = () => {
             <h3 className="font-heading font-bold text-foreground text-xl mb-4">East & West DFW</h3>
             <ul className="space-y-2">
               {eastWestAreas.map((city) => (
-                <li key={city} className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-                  {city}
+                <li key={city.slug}>
+                  <Link 
+                    to={`/locations/${city.slug}`}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {city.name}
+                  </Link>
                 </li>
               ))}
             </ul>
