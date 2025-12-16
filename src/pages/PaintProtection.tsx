@@ -85,6 +85,7 @@ const PaintProtection = () => {
           name="description"
           content="Professional XPEL paint protection film installation in Dallas-Fort Worth. Self-healing PPF protects against rock chips, scratches & UV damage. 10-year warranty. Free estimates."
         />
+        <link rel="canonical" href="https://sunmasterstintandshades.com/paint-protection" />
       </Helmet>
 
       <TopBar />

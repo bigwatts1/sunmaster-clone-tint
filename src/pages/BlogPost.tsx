@@ -20,7 +20,7 @@ const BlogPost = () => {
     .filter((p) => p.slug !== post.slug)
     .slice(0, 3);
 
-  const canonicalUrl = `https://sunmastersdfw.com/blog/${post.slug}`;
+  const canonicalUrl = `https://sunmasterstintandshades.com/blog/${post.slug}`;
 
   return (
     <>

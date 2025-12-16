@@ -122,7 +122,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
   
   const pageTitle = `Window Tinting & Shades ${city}, ${state} | Auto, Home & Commercial | Sunmasters`;
   const metaDescription = `Professional window tinting and motorized shades in ${city}, ${state}. Automotive, residential & commercial window film. Patio screens & blinds. XPEL certified. 99% UV protection. Free estimates.`;
-  const canonicalUrl = `https://sunmastersdfw.com/locations/${location.slug}`;
+  const canonicalUrl = `https://sunmasterstintandshades.com/locations/${location.slug}`;
 
   return (
     <>

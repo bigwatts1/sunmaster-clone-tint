@@ -116,7 +116,7 @@ const SecurityFilm = () => {
           content="Professional security window film in Dallas-Fort Worth. Protect against break-ins, storms & accidents. Holds glass together when shattered. Free estimates for homes & businesses."
         />
         <meta name="keywords" content="security window film Dallas, safety film, break-in protection, storm protection, shatterproof glass, security glass film, commercial security film, residential safety film" />
-        <link rel="canonical" href="https://sunmastersdfw.com/security-film" />
+        <link rel="canonical" href="https://sunmasterstintandshades.com/security-film" />
       </Helmet>
 
       <TopBar />
