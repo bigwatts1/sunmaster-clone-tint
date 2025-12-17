@@ -10,6 +10,7 @@ const { render } = await import('./dist/server/entry-server.js')
 
 // Define routes to match App.tsx routing
 const routesToPrerender = [
+  // Main pages
   '/',
   '/smart-film',
   '/paint-protection',
@@ -19,6 +20,7 @@ const routesToPrerender = [
   '/ceramic-coating',
   '/security-film',
   '/motorized-patio-screens',
+  
   // Blog pages
   '/blog',
   '/blog/texas-window-tint-laws-2024',
@@ -27,6 +29,7 @@ const routesToPrerender = [
   '/blog/xpel-vs-other-ppf-brands',
   '/blog/motorized-patio-screens-outdoor-living',
   '/blog/commercial-window-tinting-benefits-business',
+  
   // Location pages
   '/locations/dallas',
   '/locations/plano',
@@ -65,14 +68,17 @@ const routesToPrerender = [
     const appHtml = render(url);
     const html = template.replace(`<!--app-html-->`, appHtml)
 
-    // Create nested directories for location pages
+    // Determine file path
     const filePath = `dist${url === '/' ? '/index' : url}.html`
-    const dir = path.dirname(toAbsolute(filePath))
+    const absolutePath = toAbsolute(filePath)
+    const dir = path.dirname(absolutePath)
+    
+    // Ensure directory exists before writing
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true })
     }
     
-    fs.writeFileSync(toAbsolute(filePath), html)
+    fs.writeFileSync(absolutePath, html)
     console.log('pre-rendered:', filePath)
   }
 })()
