@@ -120,11 +120,23 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={locationHeroImage} 
-            alt={`${title} services in ${city}, ${state}`}
-            className="w-full h-full object-cover"
-          />
+          {service.slug === 'smart-film' ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/videos/smartfilm-bg.mp4" type="video/mp4" />
+            </video>
+          ) : (
+            <img 
+              src={locationHeroImage} 
+              alt={`${title} services in ${city}, ${state}`}
+              className="w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
         </div>
         
