@@ -14,6 +14,7 @@ import SecurityFilm from "./pages/SecurityFilm";
 import MotorizedPatioScreens from "./pages/MotorizedPatioScreens";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import CityService from "./pages/CityService";
 import NotFound from "./pages/NotFound";
 
 // Location Pages
@@ -69,6 +70,9 @@ const App = () => (
         {/* Blog Pages */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        
+        {/* City-Service Pages (dynamic) */}
+        <Route path="/:citySlug/:serviceSlug" element={<CityService />} />
         
         {/* Location Pages */}
         <Route path="/locations/dallas" element={<Dallas />} />

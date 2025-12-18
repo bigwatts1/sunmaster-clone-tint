@@ -8,6 +8,28 @@ const toAbsolute = (p) => path.resolve(__dirname, p)
 const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
 const { render } = await import('./dist/server/entry-server.js')
 
+// City slugs from locations data
+const citySlugs = [
+  'dallas', 'plano', 'frisco', 'mckinney', 'fort-worth', 'arlington', 'irving',
+  'garland', 'grand-prairie', 'richardson', 'allen', 'carrollton', 'lewisville',
+  'denton', 'flower-mound', 'the-colony', 'little-elm', 'prosper', 'mesquite',
+  'rockwall', 'rowlett', 'wylie', 'murphy', 'sachse', 'coppell', 'grapevine',
+  'southlake', 'greenville', 'caddo-mills', 'commerce'
+]
+
+// Service slugs from services data
+const serviceSlugs = [
+  'automotive-window-tint', 'ceramic-window-tint', 'residential-window-tint',
+  'commercial-window-tint', 'storefront-window-tint', 'privacy-window-film',
+  'decorative-window-film', 'security-window-film', 'motorized-window-shades',
+  'solar-heat-rejection-film'
+]
+
+// Generate city-service route combinations
+const cityServiceRoutes = citySlugs.flatMap(city => 
+  serviceSlugs.map(service => `/${city}-tx/${service}`)
+)
+
 // Define routes to match App.tsx routing
 const routesToPrerender = [
   // Main pages
@@ -61,9 +83,14 @@ const routesToPrerender = [
   '/locations/greenville',
   '/locations/caddo-mills',
   '/locations/commerce',
+  
+  // City-Service pages (300 pages: 30 cities x 10 services)
+  ...cityServiceRoutes,
 ]
 
 ;(async () => {
+  console.log(`Pre-rendering ${routesToPrerender.length} routes...`)
+  
   for (const url of routesToPrerender) {
     const appHtml = render(url);
     const html = template.replace(`<!--app-html-->`, appHtml)
@@ -81,4 +108,6 @@ const routesToPrerender = [
     fs.writeFileSync(absolutePath, html)
     console.log('pre-rendered:', filePath)
   }
+  
+  console.log(`\nSuccessfully pre-rendered ${routesToPrerender.length} pages!`)
 })()

@@ -18,37 +18,37 @@ const services = [
     icon: Car,
     title: "Automotive Window Tinting",
     description: "XPEL ceramic window film for cars, trucks, and SUVs with up to 98% heat rejection.",
-    link: "/automotive-tinting",
+    slug: "automotive-window-tint",
   },
   {
     icon: Home,
     title: "Residential Window Tinting",
     description: "Energy-saving window film for homes that reduces heat, glare, and UV damage.",
-    link: "/residential-tinting",
+    slug: "residential-window-tint",
   },
   {
     icon: Building2,
     title: "Commercial Window Tinting",
     description: "Professional window film solutions for offices, storefronts, and commercial buildings.",
-    link: "/commercial-tinting",
-  },
-  {
-    icon: Shield,
-    title: "Paint Protection Film",
-    description: "XPEL PPF protects your vehicle's paint from rock chips, scratches, and road debris.",
-    link: "/paint-protection",
+    slug: "commercial-window-tint",
   },
   {
     icon: Sparkles,
-    title: "Ceramic Coating",
-    description: "Professional-grade ceramic coating for long-lasting paint protection and shine.",
-    link: "/ceramic-coating",
+    title: "Ceramic Window Tint",
+    description: "Premium ceramic technology for superior heat rejection without signal interference.",
+    slug: "ceramic-window-tint",
+  },
+  {
+    icon: Shield,
+    title: "Security & Safety Film",
+    description: "Protect your property with film that holds glass together when broken.",
+    slug: "security-window-film",
   },
   {
     icon: Sun,
-    title: "Smart Film",
-    description: "Switchable privacy glass that transforms from clear to opaque with the touch of a button.",
-    link: "/smart-film",
+    title: "Solar Heat Rejection Film",
+    description: "Combat Texas heat with advanced films that reject up to 98% of infrared heat.",
+    slug: "solar-heat-rejection-film",
   },
 ];
 
@@ -459,14 +459,14 @@ const LocationPage = ({ location }: LocationPageProps) => {
             {services.map((service) => (
               <Link
                 key={service.title}
-                to={service.link}
+                to={`/${location.slug}-tx/${service.slug}`}
                 className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors group"
               >
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
                   <service.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
-                  {service.title}
+                  {service.title} in {city}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
