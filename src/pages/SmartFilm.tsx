@@ -97,7 +97,7 @@ const SmartFilm = () => {
                 </Button>
               </div>
             </div>
-            <div className="relative max-w-md lg:max-w-lg mx-auto">
+            <div className="relative max-w-lg lg:max-w-xl mx-auto">
               <video
                 autoPlay
                 loop
