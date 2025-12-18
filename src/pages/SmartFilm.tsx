@@ -97,13 +97,13 @@ const SmartFilm = () => {
                 </Button>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative max-w-md lg:max-w-lg mx-auto">
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="rounded-lg shadow-2xl w-full object-cover"
+                className="rounded-lg shadow-2xl w-full h-auto max-h-[400px] object-cover"
               >
                 <source src="/videos/smartfilm-bg.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
