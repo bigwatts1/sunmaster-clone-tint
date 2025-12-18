@@ -394,6 +394,41 @@ export const services: ServiceData[] = [
         answer: "Absolutely! Our screens integrate with Alexa, Google Home, Apple HomeKit, and other automation systems for voice and app control."
       }
     ]
+  },
+  {
+    slug: "smart-film",
+    title: "Smart Film (Switchable Privacy Glass)",
+    shortTitle: "Smart Film",
+    description: "Transform any glass surface into switchable privacy glass with smart film technology. Instantly transition from clear to frosted with the flip of a switch.",
+    icon: "Zap",
+    benefits: [
+      "Instant privacy on demand",
+      "Clear to opaque in milliseconds",
+      "Energy-efficient LED technology",
+      "Smart home integration capable",
+      "UV protection included",
+      "Retrofit to existing glass"
+    ],
+    products: [
+      "PDLC smart film",
+      "Self-adhesive smart film",
+      "Laminated smart glass",
+      "Switchable projection film"
+    ],
+    faqs: [
+      {
+        question: "How does smart film work?",
+        answer: "Smart film uses PDLC (Polymer Dispersed Liquid Crystal) technology. When electric current is applied, the crystals align to become transparent. When off, they scatter light creating a frosted appearance."
+      },
+      {
+        question: "Can smart film be retrofitted to existing windows?",
+        answer: "Yes! Our self-adhesive smart film can be applied to most existing glass surfaces without replacing the glass, making it a cost-effective privacy solution."
+      },
+      {
+        question: "Does smart film work with smart home systems?",
+        answer: "Absolutely! Smart film integrates with popular home automation systems for voice control, app control, and automated scheduling based on time or sensor input."
+      }
+    ]
   }
 ];
 
@@ -403,6 +438,6 @@ export const getServiceBySlug = (slug: string): ServiceData | undefined => {
 
 export const serviceCategories = {
   automotive: ["automotive-window-tint", "ceramic-window-tint"],
-  residential: ["residential-window-tint", "privacy-window-film", "decorative-window-film", "solar-heat-rejection-film", "motorized-window-shades", "motorized-patio-screens"],
-  commercial: ["commercial-window-tint", "storefront-window-tint", "security-window-film"],
+  residential: ["residential-window-tint", "privacy-window-film", "decorative-window-film", "solar-heat-rejection-film", "motorized-window-shades", "motorized-patio-screens", "smart-film"],
+  commercial: ["commercial-window-tint", "storefront-window-tint", "security-window-film", "smart-film"],
 };

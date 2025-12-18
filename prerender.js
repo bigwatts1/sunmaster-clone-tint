@@ -22,7 +22,7 @@ const serviceSlugs = [
   'automotive-window-tint', 'ceramic-window-tint', 'residential-window-tint',
   'commercial-window-tint', 'storefront-window-tint', 'privacy-window-film',
   'decorative-window-film', 'security-window-film', 'motorized-window-shades',
-  'solar-heat-rejection-film'
+  'solar-heat-rejection-film', 'motorized-patio-screens', 'smart-film'
 ]
 
 // Generate city-service route combinations

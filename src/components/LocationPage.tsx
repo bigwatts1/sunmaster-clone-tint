@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { MapPin, Phone, Car, Home, Building2, Shield, Sparkles, Sun, CheckCircle2, ArrowRight, Blinds, Thermometer, DollarSign, Clock, Award, Zap, Eye, Lock, PanelTop } from "lucide-react";
+import { MapPin, Phone, Car, Home, Building2, Shield, Sparkles, Sun, CheckCircle2, ArrowRight, Blinds, Thermometer, DollarSign, Clock, Award, Zap, Eye, Lock, PanelTop, ToggleRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -49,6 +49,12 @@ const services = [
     title: "Solar Heat Rejection Film",
     description: "Combat Texas heat with advanced films that reject up to 98% of infrared heat.",
     slug: "solar-heat-rejection-film",
+  },
+  {
+    icon: ToggleRight,
+    title: "Smart Film",
+    description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
+    slug: "smart-film",
   },
 ];
 
@@ -537,6 +543,98 @@ const LocationPage = ({ location }: LocationPageProps) => {
         </div>
       </section>
 
+      {/* Smart Film Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-primary font-medium uppercase tracking-wider text-sm">
+                Switchable Privacy
+              </span>
+              <h2 className="section-title text-foreground mt-2 mb-6">
+                Smart Film Installation in {city}
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Experience the future of privacy with smart film technology. Transform any glass surface from completely clear to frosted white in milliseconds with the flip of a switch or tap of your phone.
+              </p>
+              <p className="text-muted-foreground mb-6">
+                Smart film is perfect for {city} homes, offices, conference rooms, medical facilities, and retail spaces. Create instant privacy when needed while maintaining an open, bright atmosphere when desired. Our PDLC (Polymer Dispersed Liquid Crystal) technology is energy-efficient, using minimal power to stay transparent.
+              </p>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Instant privacy on demand</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Retrofit to existing glass</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Smart home integration</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">UV protection included</span>
+                </li>
+              </ul>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to={`/${location.slug}-tx/smart-film`}
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-heading uppercase tracking-wider text-sm hover:bg-primary/90 transition-colors"
+                >
+                  Smart Film Details <ArrowRight className="w-4 h-4" />
+                </Link>
+                <ContactLink className="border border-border hover:bg-card">
+                  Get Smart Film Quote
+                </ContactLink>
+              </div>
+            </div>
+            
+            <div className="bg-card border border-border rounded-lg p-8">
+              <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                <ToggleRight className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-heading font-bold text-foreground text-xl mb-4">
+                Smart Film Applications
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Zap className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-foreground font-medium">Conference Rooms</span>
+                    <p className="text-muted-foreground text-sm">Instant privacy for meetings at the touch of a button</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Zap className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-foreground font-medium">Healthcare Facilities</span>
+                    <p className="text-muted-foreground text-sm">Patient privacy without sacrificing natural light</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Zap className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-foreground font-medium">Bathroom Windows</span>
+                    <p className="text-muted-foreground text-sm">Natural light when desired, complete privacy when needed</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Zap className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-foreground font-medium">Retail Storefronts</span>
+                    <p className="text-muted-foreground text-sm">After-hours privacy for security and visual merchandising</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SEO Content Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
@@ -585,6 +683,16 @@ const LocationPage = ({ location }: LocationPageProps) => {
               </p>
               <p className="mb-6">
                 Our motorized patio screens are ideal for {city}'s outdoor lifestyle. Transform your patio, porch, or pergola into a comfortable living space protected from sun, wind, and insects. With the touch of a button, enjoy your outdoor area year-round.
+              </p>
+              
+              <h3 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
+                Smart Film: Switchable Privacy Glass in {city}
+              </h3>
+              <p className="mb-6">
+                Experience cutting-edge smart film technology that transforms any glass surface from clear to frosted in an instant. Perfect for {city} conference rooms, medical offices, bathrooms, and storefronts, smart film provides on-demand privacy while maintaining natural light when transparency is desired.
+              </p>
+              <p className="mb-6">
+                Our PDLC smart film can be retrofitted to existing windows, making it a cost-effective alternative to replacing glass. With smart home integration capabilities, control your privacy settings via voice commands, smartphone apps, or automated schedules.
               </p>
             </div>
           </div>
