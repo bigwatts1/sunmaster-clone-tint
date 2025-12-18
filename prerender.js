@@ -5,7 +5,7 @@ import url from 'node:url'
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
 
-const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
+const template = fs.readFileSync(toAbsolute('dist/client/index.html'), 'utf-8')
 const { render } = await import('./dist/server/entry-server.js')
 
 // Define routes to match App.tsx routing
