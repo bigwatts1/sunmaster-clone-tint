@@ -57,21 +57,25 @@ const shadeTypes = [
     icon: PanelTop,
     title: "Motorized Patio Screens",
     description: "Transform your outdoor living space with retractable motorized screens that provide shade, insect protection, and weather resistance.",
+    slug: "motorized-patio-screens",
   },
   {
     icon: Blinds,
     title: "Motorized Blinds & Shades",
     description: "Automated window treatments with smart home integration for effortless light control and energy savings.",
+    slug: "motorized-window-shades",
   },
   {
     icon: Sun,
     title: "Solar Shades",
     description: "Block harsh sunlight while maintaining your view with UV-filtering solar shade fabrics.",
+    slug: "motorized-window-shades",
   },
   {
     icon: Lock,
     title: "Blackout Shades",
     description: "Complete light blocking for bedrooms, media rooms, and spaces requiring total darkness.",
+    slug: "motorized-window-shades",
   },
 ];
 
@@ -514,18 +518,19 @@ const LocationPage = ({ location }: LocationPageProps) => {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {shadeTypes.map((shade) => (
-                <div
+                <Link
                   key={shade.title}
-                  className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors"
+                  to={`/${location.slug}-tx/${shade.slug}`}
+                  className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors group"
                 >
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mb-3">
                     <shade.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-heading font-bold text-foreground text-lg mb-2">
+                  <h3 className="font-heading font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">
                     {shade.title}
                   </h3>
                   <p className="text-muted-foreground text-sm">{shade.description}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -359,6 +359,41 @@ export const services: ServiceData[] = [
         answer: "Most customers notice reduced A/C runtime immediately. The full energy savings become apparent within the first billing cycle during summer months."
       }
     ]
+  },
+  {
+    slug: "motorized-patio-screens",
+    title: "Motorized Patio Screens",
+    shortTitle: "Patio Screens",
+    description: "Transform your outdoor living space with retractable motorized screens that provide shade, insect protection, and weather resistance for year-round comfort.",
+    icon: "PanelTop",
+    benefits: [
+      "Retractable for flexible use",
+      "Block sun and reduce heat",
+      "Insect and debris protection",
+      "Weather-resistant materials",
+      "Smart home integration",
+      "Extends outdoor living season"
+    ],
+    products: [
+      "Motorized retractable screens",
+      "Solar shade screens",
+      "Insect mesh screens",
+      "Privacy screens"
+    ],
+    faqs: [
+      {
+        question: "How do motorized patio screens work?",
+        answer: "Motorized patio screens operate via remote control, wall switch, or smart home integration. They roll down from a housing unit to provide shade and protection."
+      },
+      {
+        question: "Can patio screens withstand Texas weather?",
+        answer: "Yes, our screens are designed for Texas conditions with UV-resistant fabrics and durable motors rated for high temperatures and wind."
+      },
+      {
+        question: "Do motorized screens work with smart home systems?",
+        answer: "Absolutely! Our screens integrate with Alexa, Google Home, Apple HomeKit, and other automation systems for voice and app control."
+      }
+    ]
   }
 ];
 
@@ -368,6 +403,6 @@ export const getServiceBySlug = (slug: string): ServiceData | undefined => {
 
 export const serviceCategories = {
   automotive: ["automotive-window-tint", "ceramic-window-tint"],
-  residential: ["residential-window-tint", "privacy-window-film", "decorative-window-film", "solar-heat-rejection-film", "motorized-window-shades"],
+  residential: ["residential-window-tint", "privacy-window-film", "decorative-window-film", "solar-heat-rejection-film", "motorized-window-shades", "motorized-patio-screens"],
   commercial: ["commercial-window-tint", "storefront-window-tint", "security-window-film"],
 };
