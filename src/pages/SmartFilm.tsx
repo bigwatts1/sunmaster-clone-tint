@@ -98,11 +98,16 @@ const SmartFilm = () => {
               </div>
             </div>
             <div className="relative">
-              <img
-                src={smartfilmImg}
-                alt="Smart film switchable glass technology"
-                className="rounded-lg shadow-2xl w-full"
-              />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="rounded-lg shadow-2xl w-full object-cover"
+              >
+                <source src="/videos/smartfilm-bg.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
               <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
                 <p className="font-heading font-bold text-2xl">45+</p>
                 <p className="text-sm">Years Experience</p>
