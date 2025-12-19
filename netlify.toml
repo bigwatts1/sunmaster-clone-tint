@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build:ssg"
+  publish = "dist"
+
+# No redirects for SPA - we're using SSG with pre-rendered HTML
+# Each route has its own HTML file
