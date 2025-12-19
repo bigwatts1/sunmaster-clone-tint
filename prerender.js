@@ -112,7 +112,7 @@ const routesToPrerender = [
   console.log(`\nSuccessfully pre-rendered ${routesToPrerender.length} pages!`)
 
   // Copy client assets to dist root for deployment
-  const assetsToCopy = ['assets', 'favicon.ico', 'robots.txt', 'sitemap.xml', 'videos'];
+  const assetsToCopy = ['assets', 'favicon.ico', 'robots.txt', 'sitemap.xml', 'videos', 'og-image.png'];
   for (const asset of assetsToCopy) {
     const src = toAbsolute(`dist/client/${asset}`);
     const dest = toAbsolute(`dist/${asset}`);
