@@ -8,6 +8,6 @@ export function render(url: string) {
       <App />
     </StaticRouter>
   );
-  
+
   return html;
 }
