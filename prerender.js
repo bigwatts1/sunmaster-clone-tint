@@ -110,4 +110,19 @@ const routesToPrerender = [
   }
   
   console.log(`\nSuccessfully pre-rendered ${routesToPrerender.length} pages!`)
+
+  // Copy client assets to dist root for deployment
+  const assetsToCopy = ['assets', 'favicon.ico', 'robots.txt', 'sitemap.xml', 'videos'];
+  for (const asset of assetsToCopy) {
+    const src = toAbsolute(`dist/client/${asset}`);
+    const dest = toAbsolute(`dist/${asset}`);
+    if (fs.existsSync(src)) {
+      if (fs.lstatSync(src).isDirectory()) {
+        fs.cpSync(src, dest, { recursive: true });
+      } else {
+        fs.copyFileSync(src, dest);
+      }
+      console.log('copied:', asset);
+    }
+  }
 })()
