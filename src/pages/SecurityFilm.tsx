@@ -5,7 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
-import securityImg from "@/assets/service-security.jpg";
+import securityImg from "@/assets/rockwall-security-window-film.jpg";
 
 const benefits = [
   {

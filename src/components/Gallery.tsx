@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import automotiveImg from "@/assets/service-automotive.jpg";
-import commercialImg from "@/assets/service-commercial.jpg";
-import residentialImg from "@/assets/service-residential.jpg";
-import ppfImg from "@/assets/service-ppf.jpg";
-import ceramicImg from "@/assets/service-ceramic.jpg";
-import securityImg from "@/assets/service-security.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
+import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
+import commercialImg from "@/assets/rockwall-commercial-window-tinting.jpg";
+import residentialImg from "@/assets/rockwall-residential-window-tinting.jpg";
+import ppfImg from "@/assets/rockwall-paint-protection-film.jpg";
+import ceramicImg from "@/assets/rockwall-ceramic-coating.jpg";
+import securityImg from "@/assets/rockwall-security-window-film.jpg";
+import heroBg from "@/assets/rockwall-window-tinting-hero.jpg";
 
 const galleryImages = [
   { src: heroBg, alt: "Team at work" },

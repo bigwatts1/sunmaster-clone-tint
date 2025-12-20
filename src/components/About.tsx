@@ -1,5 +1,5 @@
 import { CheckCircle, Shield, Award } from "lucide-react";
-import automotiveImg from "@/assets/service-automotive.jpg";
+import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
 
 const About = () => {
   return (

@@ -5,7 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
-import ceramicImg from "@/assets/service-ceramic.jpg";
+import ceramicImg from "@/assets/rockwall-ceramic-coating.jpg";
 
 const benefits = [
   {

@@ -5,7 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
-import automotiveImg from "@/assets/automotive-hero.jpeg";
+import automotiveImg from "@/assets/rockwall-car-window-tinting.jpeg";
 import automotivePricing from "@/assets/automotive-pricing.jpeg";
 
 const benefits = [
