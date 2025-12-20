@@ -67,7 +67,7 @@ const ProcessSection = () => {
                     className="text-primary p-0 h-auto text-xs font-heading uppercase"
                     asChild
                   >
-                    <a href="#services">Learn More</a>
+                    <a href="#services">Explore Our Window Tinting Services</a>
                   </Button>
                 </div>
               </div>

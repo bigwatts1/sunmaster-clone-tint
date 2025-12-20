@@ -29,7 +29,7 @@ const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
           className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-heading uppercase tracking-wider text-xs"
           asChild
         >
-          <a href="#contact">Learn More!</a>
+          <a href="#contact">Get a Free {title} Estimate</a>
         </Button>
       </div>
     </div>

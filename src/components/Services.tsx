@@ -134,7 +134,7 @@ const Services = () => {
                   {service.description}
                 </p>
                 <span className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                  Learn More
+                  Explore {service.title} Services
                   <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
