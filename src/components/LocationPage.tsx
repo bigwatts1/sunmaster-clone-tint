@@ -300,7 +300,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
               Window Tinting in {city}, {state}
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-3xl">
-              {description}
+              Looking for professional window tinting near you in {city}, {state}? Sunmasters provides expert automotive, residential, and commercial window tinting services throughout {city} and the {region} area. Certified XPEL installers serving {county} County with 99% UV protection and lifetime warranty.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
