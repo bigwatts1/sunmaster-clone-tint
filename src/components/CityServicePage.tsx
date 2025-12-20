@@ -8,7 +8,7 @@ import ContactLink from "@/components/ContactLink";
 import { LocationData } from "@/data/locations";
 import { ServiceData } from "@/data/services";
 import { Link } from "react-router-dom";
-import locationHeroImage from "@/assets/location-hero.jpeg";
+import locationHeroImage from "@/assets/dfw-window-tinting-service.jpeg";
 
 interface CityServicePageProps {
   location: LocationData;

@@ -5,7 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
-import residentialImg from "@/assets/residential-hero.jpeg";
+import residentialImg from "@/assets/rockwall-home-window-tinting.jpeg";
 
 const benefits = [
   {

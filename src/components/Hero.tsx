@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/rockwall-window-tinting-hero.jpg";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
@@ -108,7 +108,7 @@ const Hero = () => {
             <div className="relative">
               <img 
                 src={logo} 
-                alt="Sunmasters Window Tinting and Shades" 
+                alt="Sunmasters Window Tinting Rockwall TX - Professional auto home and commercial tinting" 
                 className="w-64 md:w-80 h-auto drop-shadow-2xl"
               />
             </div>

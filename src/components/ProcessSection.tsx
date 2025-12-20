@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import privacyImg from "@/assets/service-residential.jpg";
-import commercialImg from "@/assets/service-commercial.jpg";
-import automotiveImg from "@/assets/service-automotive.jpg";
-import securityImg from "@/assets/service-security.jpg";
-import ceramicImg from "@/assets/service-ceramic.jpg";
+import privacyImg from "@/assets/rockwall-residential-window-tinting.jpg";
+import commercialImg from "@/assets/rockwall-commercial-window-tinting.jpg";
+import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
+import securityImg from "@/assets/rockwall-security-window-film.jpg";
+import ceramicImg from "@/assets/rockwall-ceramic-coating.jpg";
 
 const products = [
   {

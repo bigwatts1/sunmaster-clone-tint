@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import { LocationData } from "@/data/locations";
 import { Link } from "react-router-dom";
-import locationHeroImage from "@/assets/location-hero.jpeg";
+import locationHeroImage from "@/assets/dfw-window-tinting-service.jpeg";
 
 interface LocationPageProps {
   location: LocationData;
