@@ -56,16 +56,14 @@ const Hero = () => {
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
-              <span className="text-foreground">Expert Window</span>
+              <span className="text-foreground">Window Tinting in</span>
               <br />
-              <span className="text-primary">Tinting &</span>
-              <br />
-              <span className="text-primary">Protection</span>
+              <span className="text-primary">Rockwall, TX</span>
             </h1>
 
             {/* Description */}
             <p className="text-lg text-muted-foreground max-w-lg">
-              Keep your space cool and your energy bills low. We specialize in residential, commercial, and automotive window tinting, paint protection, and ceramic coatings.
+              Looking for professional window tinting near you? Sunmasters serves Rockwall, TX and the entire East DFW metroplex with expert automotive, residential, and commercial window tinting. Certified XPEL installers with 99% UV protection and lifetime warranty.
             </p>
 
             {/* CTA Buttons */}
