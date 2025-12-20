@@ -82,11 +82,15 @@ const Services = () => {
           <span className="text-primary font-medium uppercase tracking-wider text-sm">Our Services</span>
         </div>
         <h2 className="section-title text-foreground text-center mb-4">
-          Complete Window Tinting Solutions for Texas Properties
+          Residential Window Tinting in Rockwall
         </h2>
-        <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+        <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-6">
           From automotive to commercial and residential, we handle all your window tinting and protection needs across the Dallas-Fort Worth metropolitan area.
         </p>
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <h2 className="text-lg font-heading font-semibold text-foreground bg-secondary px-4 py-2 rounded-lg">Commercial Window Tinting for Offices</h2>
+          <h2 className="text-lg font-heading font-semibold text-foreground bg-secondary px-4 py-2 rounded-lg">Automotive Window Tinting Services</h2>
+        </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

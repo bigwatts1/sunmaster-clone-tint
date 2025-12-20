@@ -48,7 +48,7 @@ const AreasServed = () => {
           <span className="text-primary font-medium uppercase tracking-wider text-sm">Service Areas</span>
         </div>
         <h2 className="section-title text-foreground text-center mb-4">
-          Professional Window Tinting Across Dallas-Fort Worth
+          Service Areas Near Rockwall TX
         </h2>
         <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
           Sunmasters provides expert window tinting, paint protection, and ceramic coating services throughout the Dallas-Fort Worth metropolitan area. Our certified technicians are ready to serve you.
