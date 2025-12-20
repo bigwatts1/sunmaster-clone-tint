@@ -297,7 +297,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
               </span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Professional Window Tinting & Shades in {city}, {state}
+              Window Tinting in {city}, {state}
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-3xl">
               {description}
@@ -359,7 +359,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 About {city}
               </span>
               <h2 className="section-title text-foreground mt-2 mb-6">
-                Window Tinting & Shade Services for {city} Residents & Businesses
+                Professional Window Tinting & Shade Services
               </h2>
               <p className="text-muted-foreground mb-6">
                 Sunmasters Window Tinting and Shades proudly serves {city}, {state} and the surrounding {region} area. Our certified technicians bring professional-grade window tinting and shade installation services directly to your location, ensuring convenience without compromising quality.
@@ -424,7 +424,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
               Why Window Tinting
             </span>
             <h2 className="section-title text-foreground mt-2">
-              Benefits of Professional Window Tinting in {city}
+              Benefits of Professional Window Tinting
             </h2>
             <p className="text-muted-foreground max-w-3xl mx-auto mt-4">
               {city} residents and businesses face intense Texas heat and sun exposure year-round. Professional window tinting provides multiple benefits that improve comfort, save money, and protect your property.
@@ -648,9 +648,9 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 When it comes to professional window tinting and shade installation in {city}, {state}, Sunmasters Window Tinting and Shades stands apart as the premier choice for homeowners, vehicle owners, and business operators throughout {county || region}. Our commitment to quality craftsmanship, premium materials, and exceptional customer service has made us the go-to provider for window solutions across the Dallas-Fort Worth metroplex.
               </p>
               
-              <h3 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
+              <h2 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
                 Automotive Window Tinting in {city}
-              </h3>
+              </h2>
               <p className="mb-6">
                 {city} drivers know the challenges of Texas heat. Summer temperatures regularly exceed 100°F, turning your vehicle into an oven. Our XPEL ceramic window films block up to 98% of infrared heat, keeping your cabin cool and comfortable. Unlike cheap dyed films that fade and bubble, XPEL's nano-ceramic technology maintains its performance and appearance for the lifetime of your vehicle.
               </p>
@@ -658,9 +658,9 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 Every automotive tinting installation at Sunmasters is performed by certified XPEL technicians using precision computer-cut patterns. This ensures a perfect fit with no gaps, bubbles, or peeling edges. We offer multiple shade options to match your style while staying compliant with Texas tint laws.
               </p>
               
-              <h3 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
-                Residential Window Tinting for {city} Homes
-              </h3>
+              <h2 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
+                Residential Window Film Solutions
+              </h2>
               <p className="mb-6">
                 Protect your {city} home from the relentless Texas sun with professional residential window tinting. Our window films reject solar heat, reduce glare, and block 99% of harmful UV rays that cause furniture fading, hardwood floor damage, and artwork deterioration. Many {city} homeowners see energy savings of 20-30% on cooling costs after installation.
               </p>
@@ -668,9 +668,9 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 We offer a variety of residential film options including solar control films, decorative films, privacy films, and security films. Our team works with you to find the perfect solution that enhances your home's comfort, efficiency, and appearance.
               </p>
               
-              <h3 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
-                Commercial Window Film Solutions
-              </h3>
+              <h2 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
+                Commercial & Office Window Film
+              </h2>
               <p className="mb-6">
                 {city} businesses trust Sunmasters for commercial window tinting that reduces operating costs and improves tenant comfort. From small storefronts to large office buildings, we provide custom solutions that address glare, heat, privacy, and security concerns. Our commercial films can reduce HVAC costs, extend equipment life, and create a more productive work environment.
               </p>
@@ -707,7 +707,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
               FAQ
             </span>
             <h2 className="section-title text-foreground mt-2">
-              Frequently Asked Questions About Window Tinting in {city}
+              FAQs About Window Tinting in {city}
             </h2>
           </div>
 
@@ -766,7 +766,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="font-heading font-bold text-foreground text-2xl">
-                Also Serving Nearby Communities
+                Serving {city} and {region}
               </h2>
               <p className="text-muted-foreground mt-2">
                 In addition to {city}, we provide window tinting and shade services throughout the {region} area.
