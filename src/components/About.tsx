@@ -43,7 +43,7 @@ const About = () => {
           <div>
             <span className="text-primary font-medium uppercase tracking-wider text-sm">About Us</span>
             <h2 className="section-title text-foreground mt-2 mb-6">
-              Your Trusted Local Window Tinting Experts
+              Why Choose Sunmasters Window Tinting
             </h2>
             
             <p className="text-muted-foreground mb-4 leading-relaxed">
