@@ -5,6 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
+import RelatedServices from "@/components/RelatedServices";
 import residentialImg from "@/assets/rockwall-home-window-tinting.jpeg";
 
 const benefits = [
@@ -588,6 +589,11 @@ const ResidentialTinting = () => {
           </div>
         </div>
       </section>
+
+      <RelatedServices 
+        currentService="/residential-tinting" 
+        relatedSlugs={["/commercial-tinting", "/security-film", "/smart-film"]} 
+      />
 
       <Footer />
     </>

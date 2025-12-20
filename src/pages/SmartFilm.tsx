@@ -5,6 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
+import RelatedServices from "@/components/RelatedServices";
 import smartfilmImg from "@/assets/rockwall-smart-film-installation.jpg";
 
 const benefits = [
@@ -339,6 +340,11 @@ const SmartFilm = () => {
           </div>
         </div>
       </section>
+
+      <RelatedServices 
+        currentService="/smart-film" 
+        relatedSlugs={["/commercial-tinting", "/residential-tinting", "/security-film"]} 
+      />
 
       <Footer />
     </>
