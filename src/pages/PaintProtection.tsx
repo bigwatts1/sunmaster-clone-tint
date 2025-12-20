@@ -5,6 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
+import RelatedServices from "@/components/RelatedServices";
 
 
 const benefits = [
@@ -480,6 +481,11 @@ const PaintProtection = () => {
           </div>
         </div>
       </section>
+
+      <RelatedServices 
+        currentService="/paint-protection" 
+        relatedSlugs={["/ceramic-coating", "/automotive-tinting"]} 
+      />
 
       <Footer />
     </>

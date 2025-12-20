@@ -5,6 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
+import RelatedServices from "@/components/RelatedServices";
 import ceramicImg from "@/assets/rockwall-ceramic-coating.jpg";
 
 const benefits = [
@@ -670,6 +671,11 @@ const CeramicCoating = () => {
           </div>
         </div>
       </section>
+
+      <RelatedServices 
+        currentService="/ceramic-coating" 
+        relatedSlugs={["/paint-protection", "/automotive-tinting"]} 
+      />
 
       <Footer />
     </>
