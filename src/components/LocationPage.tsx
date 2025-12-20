@@ -480,7 +480,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Learn More <ArrowRight className="w-4 h-4" />
+                  View {service.title} in {city} <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
             ))}
