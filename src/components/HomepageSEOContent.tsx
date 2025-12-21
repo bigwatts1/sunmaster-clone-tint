@@ -50,27 +50,23 @@ const useCases = [
 const faqs = [
   {
     question: "How much does window tinting cost in Rockwall, TX?",
-    answer: "Window tinting prices in Rockwall vary based on the service type. Automotive tinting typically ranges from $199-$599 depending on vehicle size and film quality. Residential and commercial projects are quoted per square foot. Contact Sunmasters for a free, no-obligation estimate for your specific needs."
+    answer: "Window tinting prices in Rockwall vary based on the service type. Automotive tinting typically ranges from $199-$599 depending on vehicle size and film quality. Residential and commercial projects are quoted per square foot based on film type and number of windows. Contact Sunmasters at (469) 757-4325 for a free, no-obligation estimate."
   },
   {
-    question: "Is window tinting legal in Texas?",
-    answer: "Yes, window tinting is legal in Texas with specific regulations. Front side windows must allow at least 25% visible light transmission (VLT). Rear side windows and the back windshield can be any darkness. Sunmasters ensures all automotive installations comply with Texas state law."
+    question: "What is the difference between ceramic and dyed window tint?",
+    answer: "Ceramic window tint uses nano-ceramic technology that blocks up to 98% of infrared heat without interfering with electronics. It provides superior heat rejection, clarity, and longevity. Dyed tint is more affordable but fades faster and provides less heat rejection. For Texas heat, we recommend ceramic film for the best long-term value."
   },
   {
-    question: "How long does window tinting last?",
-    answer: "Professional window tinting installed by Sunmasters lasts 15-25 years or more. We use premium XPEL films backed by a manufacturer lifetime warranty. Cheap DIY films or low-quality installations may bubble, peel, or fade within 1-3 years."
+    question: "What are the legal window tint limits in Texas?",
+    answer: "Texas law requires front side windows to allow at least 25% visible light transmission (VLT). Rear side windows and the back windshield can be any darkness. Sunmasters ensures all automotive installations comply with Texas state regulations, and we provide documentation of your tint levels."
   },
   {
-    question: "Do you offer mobile window tinting in Rockwall?",
-    answer: "Yes! Sunmasters provides mobile window tinting services throughout Rockwall and the surrounding East DFW area. We can come to your home or office for residential and commercial installations. Automotive tinting is performed at our shop for optimal results."
+    question: "How long does window tinting installation take?",
+    answer: "Automotive window tinting typically takes 2-4 hours depending on the vehicle, with same-day service available for most cars and trucks. Residential projects vary based on the number of windows—a typical home takes 4-8 hours. Commercial installations are scheduled based on project scope to minimize business disruption."
   },
   {
-    question: "What is ceramic window tint?",
-    answer: "Ceramic window tint uses nano-ceramic technology instead of metal or dye. It provides superior heat rejection (up to 98% of infrared heat), does not interfere with cell phone, GPS, or radio signals, and offers excellent clarity. It is the premium choice for Texas heat."
-  },
-  {
-    question: "How long does window tinting take?",
-    answer: "Automotive window tinting typically takes 2-4 hours depending on the vehicle. Most cars can be completed same-day. Residential projects vary based on the number of windows. Commercial installations are scheduled based on project scope to minimize business disruption."
+    question: "Can window tinting reduce my home energy bills?",
+    answer: "Yes! Professional window tinting can reduce cooling costs by 20-30% by blocking solar heat gain. In Rockwall and Dallas where summer temperatures regularly exceed 100°F, this translates to significant savings. The film pays for itself through lower energy bills while improving comfort year-round."
   }
 ];
 

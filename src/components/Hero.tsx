@@ -51,19 +51,24 @@ const Hero = () => {
             {/* Trust Badge */}
             <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 rounded-full px-4 py-2">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-foreground text-sm font-medium">Trusted by 1000+ Customers</span>
+              <span className="text-foreground text-sm font-medium">Trusted by Thousands of Customers</span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
-              <span className="text-foreground">Window Tinting in</span>
+            {/* Main Heading - SEO Optimized H1 */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              <span className="text-foreground">Window Tinting Rockwall TX</span>
               <br />
-              <span className="text-primary">Rockwall, TX</span>
+              <span className="text-primary">& Dallas Window Film Installation</span>
             </h1>
+
+            {/* Subheadline */}
+            <p className="text-xl text-foreground font-medium">
+              Professional Residential, Commercial & Automotive Window Tinting
+            </p>
 
             {/* Description */}
             <p className="text-lg text-muted-foreground max-w-lg">
-              Looking for professional window tinting near you? Sunmasters serves Rockwall, TX and the entire East DFW metroplex with expert automotive, residential, and commercial window tinting. Certified XPEL installers with 99% UV protection and lifetime warranty.
+              Sunmasters Window Tinting Rockwall delivers expert window film installation for homes, businesses, and vehicles across Rockwall, Dallas, and North Texas. With over 45 years of experience and certified technicians, we provide manufacturer-backed film options with lifetime warranties.
             </p>
 
             {/* CTA Buttons */}
@@ -74,7 +79,7 @@ const Hero = () => {
                 asChild
               >
                 <a href="#estimate">
-                  Get Free Estimate
+                  Free Quote
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
@@ -82,7 +87,7 @@ const Hero = () => {
                 href="tel:+14697574325"
                 className="inline-flex items-center justify-center h-11 px-8 rounded-md border border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider text-sm font-medium transition-colors"
               >
-                Call Now: (469) 757-4325
+                Call (469) 757-4325
               </a>
             </div>
 
@@ -90,15 +95,15 @@ const Hero = () => {
             <div className="flex flex-wrap gap-6 pt-4">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-sm">Licensed & Insured</span>
+                <span className="text-sm">45+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-sm">Same-Day Service</span>
+                <span className="text-sm">Certified Installers</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-sm">Free Estimates</span>
+                <span className="text-sm">Lifetime Warranty</span>
               </div>
             </div>
           </div>
@@ -108,7 +113,7 @@ const Hero = () => {
             <div className="relative">
               <img 
                 src={logo} 
-                alt="Sunmasters Window Tinting Rockwall TX - Professional auto home and commercial tinting" 
+                alt="Sunmasters Window Tinting Rockwall - Professional auto home and commercial tinting in Dallas TX" 
                 className="w-64 md:w-80 h-auto drop-shadow-2xl"
               />
             </div>
@@ -119,7 +124,7 @@ const Hero = () => {
                 <span className="text-5xl md:text-6xl font-bold text-primary font-heading">45+</span>
                 <div className="text-left">
                   <p className="text-foreground font-bold text-lg">Years Experience</p>
-                  <p className="text-muted-foreground text-sm">Serving our community</p>
+                  <p className="text-muted-foreground text-sm">Serving Rockwall & Dallas</p>
                 </div>
               </div>
             </div>

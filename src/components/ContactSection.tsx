@@ -137,13 +137,22 @@ const ContactSection = () => {
 
           {/* Contact Info */}
           <div className="space-y-8">
+            <div>
+              <h3 className="font-heading font-bold text-foreground text-xl mb-4">
+                Call Today for a Free No-Obligation Quote
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Ready to improve your comfort, privacy, and energy efficiency? Contact Sunmasters Window Tinting Rockwall today. Quick scheduling available for residential and commercial projects, with same-day service for most automotive tinting.
+              </p>
+            </div>
+
             <div className="flex items-start gap-4">
               <div className="bg-primary/20 p-3 rounded-lg">
                 <Phone className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <p className="text-foreground font-bold text-lg">Phone</p>
-                <a href="tel:469-757-4325" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="tel:+14697574325" className="text-primary text-xl font-bold hover:underline">
                   (469) 757-4325
                 </a>
               </div>
@@ -166,8 +175,11 @@ const ContactSection = () => {
                 <MapPin className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="text-foreground font-bold text-lg">Service Area</p>
-                <p className="text-muted-foreground">Dallas, TX & Surrounding Counties</p>
+                <p className="text-foreground font-bold text-lg">Location</p>
+                <address className="text-muted-foreground not-italic">
+                  4480 E Interstate 30, Ste 200<br />
+                  Rockwall, TX 75087
+                </address>
               </div>
             </div>
 
