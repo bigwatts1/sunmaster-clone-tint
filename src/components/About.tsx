@@ -1,5 +1,4 @@
-import { CheckCircle, Shield, Award } from "lucide-react";
-import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
+import { CheckCircle, Shield, Award, Users } from "lucide-react";
 
 const About = () => {
   return (
@@ -33,8 +32,8 @@ const About = () => {
                 <p className="text-muted-foreground text-sm mt-1">Satisfaction</p>
               </div>
               <div className="bg-card border border-border rounded-lg p-6 text-center">
-                <span className="text-4xl font-bold text-primary font-heading">24/7</span>
-                <p className="text-muted-foreground text-sm mt-1">Support Available</p>
+                <span className="text-4xl font-bold text-primary font-heading">5★</span>
+                <p className="text-muted-foreground text-sm mt-1">Customer Reviews</p>
               </div>
             </div>
           </div>
@@ -43,38 +42,45 @@ const About = () => {
           <div>
             <span className="text-primary font-medium uppercase tracking-wider text-sm">About Us</span>
             <h2 className="section-title text-foreground mt-2 mb-6">
-              Why Choose Sunmasters Window Tinting
+              Rockwall & Dallas Window Tinting Experts
             </h2>
             
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              For over 45 years, Sunmasters Window Tinting and Shades has been the go-to choice for homeowners and businesses seeking reliable, professional window tinting services throughout Dallas and the surrounding area. We're not just technicians – we're your neighbors who take pride in keeping our community comfortable and protected.
+              Sunmasters Window Tinting Rockwall has served homeowners, businesses, and vehicle owners across Rockwall and Dallas for over four decades. Our expert team brings decades of combined experience and certified installation training to every project. From privacy window tint in Rockwall TX to commercial window tinting near me searches—we're the local professionals who get the job done right.
             </p>
             
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Our team of certified professionals brings expertise in all major window film brands and systems. Whether you need automotive tinting for your vehicle, residential film for your home, or commercial solutions for your business, we approach every job with the same dedication to quality and customer satisfaction.
+              We've completed thousands of installations for satisfied customers throughout North Texas. Our certified technicians are trained on all major window film brands and use only high-quality materials backed by manufacturer warranties. Whether you need automotive, residential, or commercial window film, we deliver clean, professional installations with attention to every detail.
             </p>
 
             {/* Features */}
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                <Users className="w-5 h-5 text-primary mt-1" />
                 <div>
-                  <p className="text-foreground font-medium">Same-Day Service Available</p>
-                  <p className="text-muted-foreground text-sm">Fast, efficient installations when you need them</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Shield className="w-5 h-5 text-primary mt-1" />
-                <div>
-                  <p className="text-foreground font-medium">Licensed & Insured</p>
-                  <p className="text-muted-foreground text-sm">Full protection and peace of mind</p>
+                  <p className="text-foreground font-medium">Decades of Combined Experience</p>
+                  <p className="text-muted-foreground text-sm">Expert team with thousands of installations</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Award className="w-5 h-5 text-primary mt-1" />
                 <div>
-                  <p className="text-foreground font-medium">Certified Technicians</p>
-                  <p className="text-muted-foreground text-sm">Trained experts in all major brands</p>
+                  <p className="text-foreground font-medium">Certified Installation Technicians</p>
+                  <p className="text-muted-foreground text-sm">Trained on all major film brands and systems</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Shield className="w-5 h-5 text-primary mt-1" />
+                <div>
+                  <p className="text-foreground font-medium">Licensed, Insured & Warranty-Backed</p>
+                  <p className="text-muted-foreground text-sm">Full protection and peace of mind</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-primary mt-1" />
+                <div>
+                  <p className="text-foreground font-medium">Serving Rockwall & Dallas</p>
+                  <p className="text-muted-foreground text-sm">Plus Plano, Garland, Mesquite, Richardson & nearby</p>
                 </div>
               </div>
             </div>

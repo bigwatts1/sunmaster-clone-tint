@@ -1,42 +1,31 @@
 import { Link } from "react-router-dom";
+import { MapPin } from "lucide-react";
 
-const dallasAreas = [
-  { name: "Dallas", slug: "dallas" },
-  { name: "Plano", slug: "plano" },
-  { name: "Frisco", slug: "frisco" },
-  { name: "McKinney", slug: "mckinney" },
-  { name: "Fort Worth", slug: "fort-worth" },
-  { name: "Arlington", slug: "arlington" },
-  { name: "Irving", slug: "irving" },
-  { name: "Garland", slug: "garland" },
-  { name: "Grand Prairie", slug: "grand-prairie" },
-];
-
-const northAreas = [
-  { name: "Richardson", slug: "richardson" },
-  { name: "Allen", slug: "allen" },
-  { name: "Carrollton", slug: "carrollton" },
-  { name: "Lewisville", slug: "lewisville" },
-  { name: "Denton", slug: "denton" },
-  { name: "Flower Mound", slug: "flower-mound" },
-  { name: "The Colony", slug: "the-colony" },
-  { name: "Little Elm", slug: "little-elm" },
-  { name: "Prosper", slug: "prosper" },
-];
-
-const eastWestAreas = [
-  { name: "Mesquite", slug: "mesquite" },
+const primaryAreas = [
   { name: "Rockwall", slug: "rockwall" },
+  { name: "Dallas", slug: "dallas" },
+];
+
+const secondaryAreas = [
+  { name: "Plano", slug: "plano" },
+  { name: "Garland", slug: "garland" },
+  { name: "Mesquite", slug: "mesquite" },
+  { name: "Richardson", slug: "richardson" },
+];
+
+const nearbyAreas = [
   { name: "Rowlett", slug: "rowlett" },
   { name: "Wylie", slug: "wylie" },
   { name: "Murphy", slug: "murphy" },
   { name: "Sachse", slug: "sachse" },
-  { name: "Coppell", slug: "coppell" },
-  { name: "Grapevine", slug: "grapevine" },
-  { name: "Southlake", slug: "southlake" },
+  { name: "Allen", slug: "allen" },
+  { name: "McKinney", slug: "mckinney" },
+  { name: "Frisco", slug: "frisco" },
   { name: "Greenville", slug: "greenville" },
   { name: "Caddo Mills", slug: "caddo-mills" },
-  { name: "Commerce", slug: "commerce" },
+  { name: "Heath", slug: "rockwall" },
+  { name: "Royse City", slug: "rockwall" },
+  { name: "Forney", slug: "mesquite" },
 ];
 
 const AreasServed = () => {
@@ -48,18 +37,42 @@ const AreasServed = () => {
           <span className="text-primary font-medium uppercase tracking-wider text-sm">Service Areas</span>
         </div>
         <h2 className="section-title text-foreground text-center mb-4">
-          Service Areas Near Rockwall TX
+          Window Tinting Service Areas
         </h2>
         <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12">
-          Sunmasters provides expert window tinting, paint protection, and ceramic coating services throughout the Dallas-Fort Worth metropolitan area. Our certified technicians are ready to serve you.
+          Sunmasters Window Tinting Rockwall proudly serves Rockwall, Dallas, and surrounding North Texas communities with professional window film installation for homes, businesses, and vehicles.
         </p>
 
         {/* Areas Grid */}
         <div className="grid md:grid-cols-3 gap-8">
+          {/* Primary Areas */}
           <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="font-heading font-bold text-foreground text-xl mb-4">Dallas Metro</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <MapPin className="w-5 h-5 text-primary" />
+              <h3 className="font-heading font-bold text-foreground text-xl">Primary Service Areas</h3>
+            </div>
             <ul className="space-y-2">
-              {dallasAreas.map((city) => (
+              {primaryAreas.map((city) => (
+                <li key={city.slug}>
+                  <Link 
+                    to={`/locations/${city.slug}`}
+                    className="text-foreground font-medium hover:text-primary transition-colors"
+                  >
+                    Window Tinting {city.name} TX
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Secondary Areas */}
+          <div className="bg-card border border-border rounded-lg p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <MapPin className="w-5 h-5 text-primary" />
+              <h3 className="font-heading font-bold text-foreground text-xl">Also Serving</h3>
+            </div>
+            <ul className="space-y-2">
+              {secondaryAreas.map((city) => (
                 <li key={city.slug}>
                   <Link 
                     to={`/locations/${city.slug}`}
@@ -72,27 +85,15 @@ const AreasServed = () => {
             </ul>
           </div>
 
+          {/* Nearby Areas */}
           <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="font-heading font-bold text-foreground text-xl mb-4">North DFW</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <MapPin className="w-5 h-5 text-primary" />
+              <h3 className="font-heading font-bold text-foreground text-xl">Nearby Communities</h3>
+            </div>
             <ul className="space-y-2">
-              {northAreas.map((city) => (
-                <li key={city.slug}>
-                  <Link 
-                    to={`/locations/${city.slug}`}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {city.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="font-heading font-bold text-foreground text-xl mb-4">East & West DFW</h3>
-            <ul className="space-y-2">
-              {eastWestAreas.map((city) => (
-                <li key={city.slug}>
+              {nearbyAreas.map((city, index) => (
+                <li key={`${city.slug}-${index}`}>
                   <Link 
                     to={`/locations/${city.slug}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -106,7 +107,7 @@ const AreasServed = () => {
         </div>
 
         <p className="text-center text-muted-foreground mt-8">
-          Don't see your city listed? <a href="#contact" className="text-primary hover:underline">Contact us</a> – we likely serve your area!
+          Don't see your city listed? <a href="#estimate" className="text-primary hover:underline">Contact us</a> – we likely serve your area throughout North Texas!
         </p>
       </div>
     </section>
