@@ -90,7 +90,7 @@ const companyBenefits = [
 ];
 
 const CityServicePage = ({ location, service }: CityServicePageProps) => {
-  const { city, state, region, county, nearby, businessName, address, phone } = location;
+  const { city, state, region, county, nearby, businessName, address, phone, heroVideo } = location;
   const { title, description, benefits, products, faqs, icon } = service;
   
   const IconComponent = iconMap[icon] || Sun;
@@ -168,7 +168,17 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          {service.slug === 'smart-film' ? (
+          {heroVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+          ) : service.slug === 'smart-film' ? (
             <video
               autoPlay
               loop

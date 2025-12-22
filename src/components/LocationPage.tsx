@@ -151,7 +151,7 @@ const companyBenefits = [
 ];
 
 const LocationPage = ({ location }: LocationPageProps) => {
-  const { city, state, region, county, population, nearby, description, localFacts, businessName, address, phone } = location;
+  const { city, state, region, county, population, nearby, description, localFacts, businessName, address, phone, heroVideo } = location;
   
   const pageTitle = `Window Tinting & Shades ${city}, ${state} | Auto, Home & Commercial | Sunmasters`;
   const metaDescription = `Professional window tinting and motorized shades in ${city}, ${state}. Automotive, residential & commercial window film. Patio screens & blinds. XPEL certified. 99% UV protection. Free estimates.`;
@@ -301,13 +301,25 @@ const LocationPage = ({ location }: LocationPageProps) => {
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image/Video */}
         <div className="absolute inset-0">
-          <img 
-            src={locationHeroImage} 
-            alt={`Professional window tinting services in ${city}, ${state}`}
-            className="w-full h-full object-cover"
-          />
+          {heroVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+          ) : (
+            <img 
+              src={locationHeroImage} 
+              alt={`Professional window tinting services in ${city}, ${state}`}
+              className="w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
         </div>
         
