@@ -177,6 +177,7 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
         <div className="absolute inset-0">
           {currentServiceData?.video ? (
             <video
+              key={service.slug}
               autoPlay
               loop
               muted
