@@ -1,57 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { Car, Home, Building2, Zap, Sun } from "lucide-react";
-import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
-import automotiveImg2 from "@/assets/rockwall-car-window-tinting.jpeg";
-import commercialImg from "@/assets/rockwall-commercial-window-tinting.jpg";
-import residentialImg from "@/assets/rockwall-residential-window-tinting.jpg";
-import residentialImg2 from "@/assets/rockwall-home-window-tinting.jpeg";
-import smartFilmImg from "@/assets/rockwall-smart-film-installation.jpg";
-import heroBg from "@/assets/rockwall-window-tinting-hero.jpg";
 
 const galleryCategories = [
   {
     id: "automotive",
     title: "Automotive Tinting",
     icon: Car,
-    images: [
-      { src: automotiveImg, alt: "Automotive window tinting installation" },
-      { src: automotiveImg2, alt: "Car window tinting Rockwall" },
-      { src: heroBg, alt: "Professional auto tinting service" },
-    ],
+    images: [],
   },
   {
     id: "residential",
     title: "Residential Tinting",
     icon: Home,
-    images: [
-      { src: residentialImg, alt: "Residential window tinting" },
-      { src: residentialImg2, alt: "Home window tinting installation" },
-    ],
+    images: [],
   },
   {
     id: "commercial",
     title: "Commercial Tinting",
     icon: Building2,
-    images: [
-      { src: commercialImg, alt: "Commercial window tinting" },
-      { src: heroBg, alt: "Office building window film" },
-    ],
+    images: [],
   },
   {
     id: "smart-film",
     title: "Smart Film",
     icon: Zap,
-    images: [
-      { src: smartFilmImg, alt: "Smart film installation" },
-    ],
+    images: [],
   },
   {
     id: "patio-shades",
     title: "Motorized Patio Shades",
     icon: Sun,
-    images: [
-      { src: heroBg, alt: "Motorized patio shades" },
-    ],
+    images: [],
   },
 ];
 
