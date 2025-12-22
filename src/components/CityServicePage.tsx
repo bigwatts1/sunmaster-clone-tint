@@ -197,7 +197,7 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
               </span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              {title} in {city}, TX
+              Window Tinting {city}, Texas
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-3xl">
               SunMasters Window Tinting & Shades provides professional {title.toLowerCase()} services to {city} and the surrounding {region} area. {description}
