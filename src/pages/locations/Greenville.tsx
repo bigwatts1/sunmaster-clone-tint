@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { MapPin, Phone, Car, Shield, Sparkles, Sun, CheckCircle2, Thermometer, DollarSign, Award, Eye, Lock } from "lucide-react";
+import { MapPin, Phone, Car, Home, Building2, Shield, Sparkles, Sun, CheckCircle2, Thermometer, DollarSign, Award, Eye, Lock, ToggleRight, Blinds, PanelTop } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -8,30 +8,46 @@ import ContactLink from "@/components/ContactLink";
 import { getLocationBySlug } from "@/data/locations";
 import { Link } from "react-router-dom";
 
-const automotiveServices = [
+const services = [
   {
     icon: Car,
-    title: "Automotive Window Tinting",
-    description: "XPEL ceramic window film for cars, trucks, and SUVs with up to 98% heat rejection.",
+    title: "Automotive Tinting",
     slug: "automotive-window-tint",
+  },
+  {
+    icon: Home,
+    title: "Residential Tinting",
+    slug: "residential-window-tint",
+  },
+  {
+    icon: Building2,
+    title: "Commercial Tinting",
+    slug: "commercial-window-tint",
   },
   {
     icon: Sparkles,
     title: "Ceramic Coating",
-    description: "Premium ceramic protection for your vehicle's paint with long-lasting shine and protection.",
     slug: "ceramic-coating",
   },
   {
     icon: Shield,
-    title: "Paint Protection Film",
-    description: "Invisible protection against rock chips, scratches, and road debris for your vehicle.",
-    slug: "paint-protection-film",
+    title: "Security Film",
+    slug: "security-window-film",
   },
   {
-    icon: Sun,
-    title: "Ceramic Window Tint",
-    description: "Premium ceramic technology for superior heat rejection without signal interference.",
-    slug: "automotive-window-tint",
+    icon: ToggleRight,
+    title: "Smart Film",
+    slug: "smart-film",
+  },
+  {
+    icon: PanelTop,
+    title: "Patio Screens",
+    slug: "motorized-patio-screens",
+  },
+  {
+    icon: Blinds,
+    title: "Motorized Shades",
+    slug: "motorized-window-shades",
   },
 ];
 
@@ -237,15 +253,15 @@ const GreenvillePage = () => {
             </p>
             
             {/* Service Buttons - Right Below H1 */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-              {automotiveServices.map((service, index) => (
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-8">
+              {services.map((service, index) => (
                 <Link
                   key={index}
                   to={`/${service.slug}`}
                   className="flex flex-col items-center gap-2 p-4 bg-card/80 backdrop-blur-sm border border-border rounded-lg hover:bg-card hover:border-primary transition-all group"
                 >
                   <service.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
-                  <span className="text-foreground text-sm font-medium text-center">{service.title}</span>
+                  <span className="text-foreground text-xs font-medium text-center">{service.title}</span>
                 </Link>
               ))}
             </div>
