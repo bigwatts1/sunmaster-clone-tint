@@ -90,7 +90,7 @@ const companyBenefits = [
 ];
 
 const CityServicePage = ({ location, service }: CityServicePageProps) => {
-  const { city, state, region, county, nearby } = location;
+  const { city, state, region, county, nearby, businessName, address, phone } = location;
   const { title, description, benefits, products, faqs, icon } = service;
   
   const IconComponent = iconMap[icon] || Sun;
@@ -464,6 +464,32 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
             Contact SunMasters today for a free estimate. We offer fast scheduling and professional installation throughout {city} and the {region} area.
           </p>
+          
+          {/* Location-specific contact info */}
+          {(businessName || address || phone) && (
+            <div className="bg-primary-foreground/10 rounded-lg p-6 max-w-md mx-auto mb-8">
+              {businessName && (
+                <p className="text-primary-foreground font-heading font-bold text-lg mb-2">
+                  {businessName}
+                </p>
+              )}
+              {address && (
+                <p className="text-primary-foreground/80 mb-2">
+                  <MapPin className="w-4 h-4 inline mr-2" />
+                  {address}
+                </p>
+              )}
+              {phone && (
+                <p className="text-primary-foreground/80">
+                  <Phone className="w-4 h-4 inline mr-2" />
+                  <a href={`tel:${phone.replace(/\D/g, '')}`} className="hover:text-primary-foreground transition-colors">
+                    {phone}
+                  </a>
+                </p>
+              )}
+            </div>
+          )}
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ContactLink className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading uppercase tracking-wider">
               Get Free Estimate
@@ -474,9 +500,9 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
               className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
               asChild
             >
-              <a href="tel:469-757-4325">
+              <a href={`tel:${phone ? phone.replace(/\D/g, '') : '4697574325'}`}>
                 <Phone className="w-4 h-4 mr-2" />
-                Call (469) 757-4325
+                {phone || "(469) 757-4325"}
               </a>
             </Button>
           </div>
