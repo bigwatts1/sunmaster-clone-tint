@@ -95,10 +95,10 @@ const Hero = () => {
             {/* Photo Gallery Button */}
             <Link
               to="/gallery"
-              className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors font-heading uppercase tracking-wider text-sm"
+              className="inline-flex items-center justify-center h-11 px-8 rounded-md border border-foreground/30 text-foreground hover:bg-foreground/10 font-heading uppercase tracking-wider text-sm font-medium transition-colors gap-2"
             >
-              <Camera className="w-5 h-5" />
-              <span>View Photo Gallery</span>
+              <Camera className="w-4 h-4" />
+              Photo Gallery
             </Link>
 
             {/* Trust Indicators */}
