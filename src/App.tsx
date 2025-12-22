@@ -14,6 +14,7 @@ import SecurityFilm from "./pages/SecurityFilm";
 import MotorizedPatioScreens from "./pages/MotorizedPatioScreens";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Gallery from "./pages/Gallery";
 import CityService from "./pages/CityService";
 import NotFound from "./pages/NotFound";
 
@@ -70,6 +71,9 @@ const App = () => (
         {/* Blog Pages */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        
+        {/* Gallery Page */}
+        <Route path="/gallery" element={<Gallery />} />
         
         {/* City-Service Pages (dynamic) */}
         <Route path="/:citySlug/:serviceSlug" element={<CityService />} />

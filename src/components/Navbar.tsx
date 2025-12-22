@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone, ChevronDown, MapPin } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, MapPin, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
@@ -178,6 +178,14 @@ const Navbar = () => {
               <Phone className="w-4 h-4" />
               <span>(469) 757-4325</span>
             </a>
+            <Link
+              to="/gallery"
+              className="flex items-center gap-2 text-foreground hover:text-primary py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              <Camera className="w-4 h-4" />
+              <span>Photo Gallery</span>
+            </Link>
             <a 
               href="#estimate"
               className="inline-flex items-center justify-center h-10 px-4 bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider w-full mt-2 rounded-md text-sm font-medium"
