@@ -57,19 +57,19 @@ const Hero = () => {
 
             {/* Main Heading - SEO Optimized H1 */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="text-foreground">Window Tinting Rockwall TX</span>
+              <span className="text-foreground">#1 Window Tinting Rockwall TX</span>
               <br />
-              <span className="text-primary">& Dallas Window Film Installation</span>
+              <span className="text-primary">Auto, Home & Commercial Window Film</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl text-foreground font-medium">
-              Professional Residential, Commercial & Automotive Window Tinting
+              Professional Window Tinting in Rockwall TX | Automotive, Residential & Commercial
             </p>
 
             {/* Description */}
             <p className="text-lg text-muted-foreground max-w-lg">
-              Sunmasters Window Tinting Rockwall delivers expert window film installation for homes, businesses, and vehicles across Rockwall, Dallas, and North Texas. With over 45 years of experience and certified technicians, we provide manufacturer-backed film options with lifetime warranties.
+              Sunmasters is Rockwall TX's trusted window tinting company with 45+ years of experience. We provide expert automotive window tinting, residential window film, and commercial window tinting in Rockwall TX and the Dallas-Fort Worth area. Certified XPEL installers with lifetime warranties.
             </p>
 
             {/* CTA Buttons */}
@@ -123,7 +123,7 @@ const Hero = () => {
             <div className="relative">
               <img 
                 src={logo} 
-                alt="Sunmasters Window Tinting Rockwall - Professional auto home and commercial tinting in Dallas TX" 
+                alt="Sunmasters Window Tinting Rockwall TX - #1 Auto Home and Commercial Window Film in Rockwall Texas" 
                 className="w-64 md:w-80 h-auto drop-shadow-2xl"
               />
             </div>
@@ -134,7 +134,7 @@ const Hero = () => {
                 <span className="text-5xl md:text-6xl font-bold text-primary font-heading">45+</span>
                 <div className="text-left">
                   <p className="text-foreground font-bold text-lg">Years Experience</p>
-                  <p className="text-muted-foreground text-sm">Serving Rockwall & Dallas</p>
+                  <p className="text-muted-foreground text-sm">Serving Rockwall TX & Dallas</p>
                 </div>
               </div>
             </div>

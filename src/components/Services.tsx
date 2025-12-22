@@ -17,56 +17,56 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "Automotive Tinting",
-    description: "Fast, reliable tinting for cars, trucks, and SUVs. UV protection, heat reduction, and enhanced privacy.",
+    title: "Automotive Tinting Rockwall TX",
+    description: "Fast, reliable tinting for cars, trucks, and SUVs in Rockwall. UV protection, heat reduction, and enhanced privacy.",
     image: automotiveImg,
     video: "/videos/automotive-bg.mp4",
     link: "/automotive-tinting",
   },
   {
-    title: "Residential Tinting",
-    description: "Custom window film solutions for homes. Improve energy efficiency and protect your family from UV rays.",
+    title: "Residential Tinting Rockwall TX",
+    description: "Custom window film solutions for Rockwall homes. Improve energy efficiency and protect your family from UV rays.",
     image: residentialImg,
     video: "/videos/residential-bg.mp4",
     link: "/residential-tinting",
   },
   {
-    title: "Commercial Tinting",
-    description: "Large-scale window solutions for businesses, offices, and commercial properties.",
+    title: "Commercial Tinting Rockwall TX",
+    description: "Large-scale window solutions for Rockwall businesses, offices, and commercial properties.",
     image: commercialImg,
     video: "/videos/commercial-bg.mp4",
     link: "/commercial-tinting",
   },
   {
-    title: "Smart Film",
+    title: "Smart Film Rockwall TX",
     description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
     image: smartfilmImg,
     video: "/videos/smartfilm-bg.mp4",
     link: "/smart-film",
   },
   {
-    title: "Paint Protection Film",
-    description: "Protect your vehicle's paint from rock chips, scratches, and road debris with PPF.",
+    title: "Paint Protection Film Rockwall TX",
+    description: "Protect your vehicle's paint from rock chips, scratches, and road debris with PPF in Rockwall.",
     image: ppfImg,
     video: "/videos/ppf-homepage.mov",
     link: "/paint-protection",
   },
   {
-    title: "Ceramic Coating",
-    description: "Long-lasting paint protection with a brilliant, hydrophobic finish for your vehicle.",
+    title: "Ceramic Coating Rockwall TX",
+    description: "Long-lasting paint protection with a brilliant, hydrophobic finish for your vehicle in Rockwall.",
     image: ceramicImg,
     video: "/videos/ceramic-bg.mov",
     link: "/ceramic-coating",
   },
   {
-    title: "Security Film",
-    description: "Strengthen windows against break-ins, storms, and accidents with safety film.",
+    title: "Security Film Rockwall TX",
+    description: "Strengthen windows against break-ins, storms, and accidents with safety film in Rockwall.",
     image: securityImg,
     link: "/security-film",
   },
   {
-    title: "Motorized Patio Screens",
-    description: "Transform your outdoor living space with motorized retractable screens for patios, pergolas, and outdoor areas.",
+    title: "Motorized Patio Screens Rockwall TX",
+    description: "Transform your outdoor living space in Rockwall with motorized retractable screens for patios and pergolas.",
     image: residentialImg,
     video: "https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//copy_DF98BC66-AF50-462F-AE4A-29E0ECEA82E5.mov",
     link: "/motorized-patio-screens",
@@ -79,17 +79,18 @@ const Services = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-4">
-          <span className="text-primary font-medium uppercase tracking-wider text-sm">Our Services</span>
+          <span className="text-primary font-medium uppercase tracking-wider text-sm">Window Tinting Services Rockwall TX</span>
         </div>
         <h2 className="section-title text-foreground text-center mb-4">
-          Residential Window Tinting in Rockwall
+          Professional Window Tinting Rockwall TX
         </h2>
         <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-6">
-          From automotive to commercial and residential, we handle all your window tinting and protection needs across the Dallas-Fort Worth metropolitan area.
+          Sunmasters is Rockwall's premier window tinting company. From automotive to commercial and residential window film, we handle all your tinting needs in Rockwall TX and the Dallas-Fort Worth area.
         </p>
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <h2 className="text-lg font-heading font-semibold text-foreground bg-secondary px-4 py-2 rounded-lg">Commercial Window Tinting for Offices</h2>
-          <h2 className="text-lg font-heading font-semibold text-foreground bg-secondary px-4 py-2 rounded-lg">Automotive Window Tinting Services</h2>
+          <span className="text-lg font-heading font-semibold text-foreground bg-secondary px-4 py-2 rounded-lg">Commercial Window Tinting Rockwall TX</span>
+          <span className="text-lg font-heading font-semibold text-foreground bg-secondary px-4 py-2 rounded-lg">Automotive Window Tinting Rockwall TX</span>
+          <span className="text-lg font-heading font-semibold text-foreground bg-secondary px-4 py-2 rounded-lg">Residential Window Tinting Rockwall TX</span>
         </div>
 
         {/* Services Grid */}
@@ -134,7 +135,7 @@ const Services = () => {
                   {service.description}
                 </p>
                 <span className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                  Explore {service.title} Services
+                  Get {service.title} Quote
                   <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
