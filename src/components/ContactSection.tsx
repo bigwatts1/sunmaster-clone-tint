@@ -6,6 +6,11 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
+const automotiveLocations = [
+  { value: "greenville", label: "Greenville, TX" },
+  { value: "rockwall", label: "Rockwall, TX" },
+];
+
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,8 +19,11 @@ const ContactSection = () => {
     phone: "",
     email: "",
     service: "",
+    location: "",
     message: "",
   });
+
+  const isAutomotiveSelected = formData.service === "automotive";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +40,7 @@ const ContactSection = () => {
         title: "Message Sent!",
         description: "We'll get back to you within 24 hours.",
       });
-      setFormData({ name: "", phone: "", email: "", service: "", message: "" });
+      setFormData({ name: "", phone: "", email: "", service: "", location: "", message: "" });
     } catch (error: any) {
       console.error("Error sending message:", error);
       toast({
@@ -46,7 +54,14 @@ const ContactSection = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    
+    // Clear location when service changes away from automotive
+    if (name === "service" && value !== "automotive") {
+      setFormData({ ...formData, [name]: value, location: "" });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   return (
@@ -115,6 +130,24 @@ const ContactSection = () => {
                   <option value="patio-screens">Motorized Patio Screens</option>
                 </select>
               </div>
+              {isAutomotiveSelected && (
+                <div>
+                  <select
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    required
+                    className="w-full h-10 px-3 rounded-md bg-background border border-border text-foreground"
+                  >
+                    <option value="">Select Location</option>
+                    {automotiveLocations.map((loc) => (
+                      <option key={loc.value} value={loc.value}>
+                        {loc.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
               <div>
                 <Textarea
                   name="message"
