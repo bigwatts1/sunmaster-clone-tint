@@ -9,6 +9,7 @@ import { LocationData } from "@/data/locations";
 import { ServiceData } from "@/data/services";
 import { Link } from "react-router-dom";
 import locationHeroImage from "@/assets/dfw-window-tinting-service.jpeg";
+import securityFilmImg from "@/assets/rockwall-security-window-film.jpg";
 
 interface CityServicePageProps {
   location: LocationData;
@@ -44,6 +45,7 @@ const allServices = [
     icon: Shield,
     title: "Security Film",
     slug: "security-window-film",
+    image: securityFilmImg,
   },
   {
     icon: ToggleRight,
@@ -240,6 +242,12 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
                     >
                       <source src={svc.video} type={svc.video.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
                     </video>
+                  ) : svc.image ? (
+                    <img
+                      src={svc.image}
+                      alt={svc.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   ) : (
                     <div className="w-full h-full bg-secondary flex items-center justify-center">
                       <svc.icon className="w-10 h-10 text-primary/50" />
