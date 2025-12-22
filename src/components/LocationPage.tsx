@@ -151,7 +151,7 @@ const companyBenefits = [
 ];
 
 const LocationPage = ({ location }: LocationPageProps) => {
-  const { city, state, region, county, population, nearby, description, localFacts } = location;
+  const { city, state, region, county, population, nearby, description, localFacts, businessName, address, phone } = location;
   
   const pageTitle = `Window Tinting & Shades ${city}, ${state} | Auto, Home & Commercial | Sunmasters`;
   const metaDescription = `Professional window tinting and motorized shades in ${city}, ${state}. Automotive, residential & commercial window film. Patio screens & blinds. XPEL certified. 99% UV protection. Free estimates.`;
@@ -889,6 +889,32 @@ const LocationPage = ({ location }: LocationPageProps) => {
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
             Contact Sunmasters today for a free estimate on window tinting, motorized shades, paint protection, or ceramic coating services in {city} and the surrounding area.
           </p>
+          
+          {/* Location-specific contact info */}
+          {(businessName || address || phone) && (
+            <div className="bg-primary-foreground/10 rounded-lg p-6 max-w-md mx-auto mb-8">
+              {businessName && (
+                <p className="text-primary-foreground font-heading font-bold text-lg mb-2">
+                  {businessName}
+                </p>
+              )}
+              {address && (
+                <p className="text-primary-foreground/80 mb-2">
+                  <MapPin className="w-4 h-4 inline mr-2" />
+                  {address}
+                </p>
+              )}
+              {phone && (
+                <p className="text-primary-foreground/80">
+                  <Phone className="w-4 h-4 inline mr-2" />
+                  <a href={`tel:${phone.replace(/\D/g, '')}`} className="hover:text-primary-foreground transition-colors">
+                    {phone}
+                  </a>
+                </p>
+              )}
+            </div>
+          )}
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ContactLink className="bg-background text-foreground hover:bg-background/90 font-heading uppercase tracking-wider">
               Get Free Estimate
@@ -899,9 +925,9 @@ const LocationPage = ({ location }: LocationPageProps) => {
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
               asChild
             >
-              <a href="tel:469-757-4325">
+              <a href={`tel:${phone ? phone.replace(/\D/g, '') : '4697574325'}`}>
                 <Phone className="w-4 h-4 mr-2" />
-                (469) 757-4325
+                {phone || "(469) 757-4325"}
               </a>
             </Button>
           </div>
