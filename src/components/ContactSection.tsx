@@ -5,11 +5,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { locations } from "@/data/locations";
 
 const automotiveLocations = [
   { value: "greenville", label: "Greenville, TX" },
   { value: "rockwall", label: "Rockwall, TX" },
 ];
+
+// All locations for non-automotive services
+const allLocations = locations.map((loc) => ({
+  value: loc.slug,
+  label: `${loc.city}, TX`,
+}));
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -24,6 +31,7 @@ const ContactSection = () => {
   });
 
   const isAutomotiveSelected = formData.service === "automotive";
+  const isServiceSelected = formData.service !== "";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -130,7 +138,7 @@ const ContactSection = () => {
                   <option value="patio-screens">Motorized Patio Screens</option>
                 </select>
               </div>
-              {isAutomotiveSelected && (
+              {isServiceSelected && (
                 <div>
                   <select
                     name="location"
@@ -140,7 +148,7 @@ const ContactSection = () => {
                     className="w-full h-10 px-3 rounded-md bg-background border border-border text-foreground"
                   >
                     <option value="">Select Location</option>
-                    {automotiveLocations.map((loc) => (
+                    {(isAutomotiveSelected ? automotiveLocations : allLocations).map((loc) => (
                       <option key={loc.value} value={loc.value}>
                         {loc.label}
                       </option>
