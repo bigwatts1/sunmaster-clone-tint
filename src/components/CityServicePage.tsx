@@ -90,9 +90,11 @@ const companyBenefits = [
 ];
 
 const CityServicePage = ({ location, service }: CityServicePageProps) => {
-  const { city, state, region, county, nearby, businessName, address, phone, heroVideo } = location;
+  const { city, state, region, county, nearby, businessName, address, phone } = location;
   const { title, description, benefits, products, faqs, icon } = service;
   
+  // Get service-specific hero background
+  const currentServiceData = allServices.find(s => s.slug === service.slug);
   const IconComponent = iconMap[icon] || Sun;
   
   const isAutomotive = service.slug === 'automotive-window-tint';
@@ -173,7 +175,7 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          {heroVideo ? (
+          {currentServiceData?.video ? (
             <video
               autoPlay
               loop
@@ -181,18 +183,14 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src={heroVideo} type={heroVideo.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
+              <source src={currentServiceData.video} type={currentServiceData.video.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
             </video>
-          ) : service.slug === 'smart-film' ? (
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
+          ) : currentServiceData?.image ? (
+            <img 
+              src={currentServiceData.image} 
+              alt={`${title} services in ${city}, ${state}`}
               className="w-full h-full object-cover"
-            >
-              <source src="/videos/smartfilm-bg.mp4" type="video/mp4" />
-            </video>
+            />
           ) : (
             <img 
               src={locationHeroImage} 
