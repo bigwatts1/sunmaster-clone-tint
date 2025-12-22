@@ -95,8 +95,13 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
   
   const IconComponent = iconMap[icon] || Sun;
   
-  const pageTitle = `${title} in ${city}, TX | SunMasters Window Tinting & Shades`;
-  const metaDescription = `Professional ${title.toLowerCase()} services in ${city}, Texas. ${description.slice(0, 100)}... Free estimates. Call (469) 757-4325.`;
+  const isAutomotive = service.slug === 'automotive-window-tint';
+  const pageTitle = isAutomotive 
+    ? `Window Tinting ${city}, TX | Auto, Home & Commercial | SunMasters`
+    : `${title} ${city}, TX | SunMasters Window Tinting & Shades`;
+  const metaDescription = isAutomotive
+    ? `Professional window tinting in ${city}, Texas. Automotive, residential & commercial window film. XPEL certified. 99% UV protection. Free estimates. Call (469) 757-4325.`
+    : `Professional ${title.toLowerCase()} in ${city}, Texas. ${description.slice(0, 100)}... Free estimates. Call (469) 757-4325.`;
   const canonicalUrl = `https://sunmasterstintandshades.com/${location.slug}-tx/${service.slug}`;
 
   return (
