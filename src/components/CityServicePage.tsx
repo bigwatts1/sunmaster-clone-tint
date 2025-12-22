@@ -16,7 +16,15 @@ interface CityServicePageProps {
   service: ServiceData;
 }
 
-const allServices = [
+interface ServiceItem {
+  icon: React.ElementType;
+  title: string;
+  slug: string;
+  video?: string;
+  image?: string;
+}
+
+const allServices: ServiceItem[] = [
   {
     icon: Car,
     title: "Automotive",
