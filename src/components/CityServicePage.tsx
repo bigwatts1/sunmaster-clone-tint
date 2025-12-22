@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { MapPin, Phone, CheckCircle2, ArrowRight, Thermometer, Sun, DollarSign, Eye, Lock, Award, Car, Home, Building2, Shield, Sparkles, Blinds, Palette, Store, ToggleRight } from "lucide-react";
+import { MapPin, Phone, CheckCircle2, ArrowRight, Thermometer, Sun, DollarSign, Eye, Lock, Award, Car, Home, Building2, Shield, Sparkles, Blinds, Palette, Store, ToggleRight, PanelTop } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -61,6 +61,12 @@ const allServices: ServiceItem[] = [
     slug: "smart-film",
     video: "/videos/smartfilm-bg.mp4",
   },
+  {
+    icon: PanelTop,
+    title: "Patio Screens",
+    slug: "motorized-patio-screens",
+    video: "https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//copy_DF98BC66-AF50-462F-AE4A-29E0ECEA82E5.mov",
+  },
 ];
 
 const iconMap: Record<string, React.ElementType> = {
@@ -78,6 +84,7 @@ const iconMap: Record<string, React.ElementType> = {
   Thermometer,
   DollarSign,
   Award,
+  PanelTop,
 };
 
 const companyBenefits = [
