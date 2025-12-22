@@ -20,6 +20,11 @@ const services = [
   "Motorized Patio Screens",
 ];
 
+const automotiveLocations = [
+  "Greenville, TX",
+  "Rockwall, TX",
+];
+
 const ContactForm = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -27,7 +32,18 @@ const ContactForm = () => {
     email: "",
     phone: "",
     service: "",
+    location: "",
   });
+
+  const isAutomotiveSelected = formData.service === "Automotive Tinting";
+
+  const handleServiceChange = (value: string) => {
+    setFormData({ 
+      ...formData, 
+      service: value,
+      location: value === "Automotive Tinting" ? formData.location : ""
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +51,7 @@ const ContactForm = () => {
       title: "Message Sent!",
       description: "We'll get back to you as soon as possible.",
     });
-    setFormData({ name: "", email: "", phone: "", service: "" });
+    setFormData({ name: "", email: "", phone: "", service: "", location: "" });
   };
 
   return (
@@ -77,9 +93,7 @@ const ContactForm = () => {
             />
             <Select
               value={formData.service}
-              onValueChange={(value) =>
-                setFormData({ ...formData, service: value })
-              }
+              onValueChange={handleServiceChange}
             >
               <SelectTrigger className="bg-card border-border text-foreground">
                 <SelectValue placeholder="Service" />
@@ -92,13 +106,45 @@ const ContactForm = () => {
                 ))}
               </SelectContent>
             </Select>
-            <Button
-              type="submit"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
-            >
-              Submit
-            </Button>
+            {isAutomotiveSelected ? (
+              <Select
+                value={formData.location}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, location: value })
+                }
+                required
+              >
+                <SelectTrigger className="bg-card border-border text-foreground">
+                  <SelectValue placeholder="Location" />
+                </SelectTrigger>
+                <SelectContent>
+                  {automotiveLocations.map((location) => (
+                    <SelectItem key={location} value={location}>
+                      {location}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : (
+              <Button
+                type="submit"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
+              >
+                Submit
+              </Button>
+            )}
           </form>
+          {isAutomotiveSelected && (
+            <div className="mt-4 flex justify-end">
+              <Button
+                type="submit"
+                onClick={handleSubmit}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider"
+              >
+                Submit
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
