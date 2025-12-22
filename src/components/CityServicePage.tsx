@@ -253,13 +253,73 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
   const currentServiceData = allServices.find(s => s.slug === service.slug);
   const IconComponent = iconMap[icon] || Sun;
   
-  const isAutomotive = service.slug === 'automotive-window-tint';
-  const pageTitle = isAutomotive 
-    ? `Window Tinting ${city}, TX | Auto, Home & Commercial | SunMasters`
-    : `${title} ${city}, TX | SunMasters Window Tinting & Shades`;
-  const metaDescription = isAutomotive
-    ? `Professional window tinting in ${city}, Texas. Automotive, residential & commercial window film. XPEL certified. 99% UV protection. Free estimates. Call (469) 757-4325.`
-    : `Professional ${title.toLowerCase()} in ${city}, Texas. ${description.slice(0, 100)}... Free estimates. Call (469) 757-4325.`;
+  // Service-specific SEO title patterns
+  const getPageTitle = () => {
+    switch(service.slug) {
+      case 'automotive-window-tint':
+        return `#1 Automotive Window Tinting ${city}, TX | Car Tint ${city} Texas | Sunmasters`;
+      case 'residential-window-tint':
+        return `Residential Window Tinting ${city}, TX | Home Tinting ${city} Texas | Sunmasters`;
+      case 'commercial-window-tint':
+        return `Commercial Window Tinting ${city}, TX | Office Tint ${city} Texas | Sunmasters`;
+      case 'ceramic-window-tint':
+        return `Ceramic Window Tint ${city}, TX | Premium Ceramic Tinting ${city} Texas | Sunmasters`;
+      case 'security-window-film':
+        return `Security Window Film ${city}, TX | Safety Film ${city} Texas | Sunmasters`;
+      case 'smart-film':
+        return `Smart Film ${city}, TX | Switchable Privacy Glass ${city} Texas | Sunmasters`;
+      case 'motorized-patio-screens':
+        return `Motorized Patio Screens ${city}, TX | Outdoor Shades ${city} Texas | Sunmasters`;
+      default:
+        return `${title} ${city}, TX | Sunmasters Window Tinting`;
+    }
+  };
+
+  const getMetaDescription = () => {
+    switch(service.slug) {
+      case 'automotive-window-tint':
+        return `Looking for automotive window tinting ${city}, TX? Sunmasters offers professional car window tinting ${city} Texas with XPEL ceramic film. 98% heat rejection, 99% UV protection. Free estimates in ${county || region}.`;
+      case 'residential-window-tint':
+        return `Professional residential window tinting ${city}, TX. Home window tinting ${city} Texas reduces energy costs up to 30%, blocks 99% UV rays. Free estimates from Sunmasters in ${county || region}.`;
+      case 'commercial-window-tint':
+        return `Commercial window tinting ${city}, TX for offices, storefronts & buildings. Professional window film ${city} Texas reduces cooling costs. XPEL certified. Free estimates in ${county || region}.`;
+      case 'ceramic-window-tint':
+        return `Premium ceramic window tint ${city}, TX. XPEL ceramic tinting ${city} Texas with 98% infrared heat rejection, no signal interference. Lifetime warranty. Free estimates in ${county || region}.`;
+      case 'security-window-film':
+        return `Security window film ${city}, TX protects against break-ins & storms. Safety film ${city} Texas holds glass together. 4-14 mil options. Free estimates from Sunmasters in ${county || region}.`;
+      case 'smart-film':
+        return `Smart film installation ${city}, TX. Switchable privacy glass ${city} Texas - clear to frosted instantly. Perfect for offices & homes. Free estimates in ${county || region}.`;
+      case 'motorized-patio-screens':
+        return `Motorized patio screens ${city}, TX. Retractable outdoor screens ${city} Texas for bug protection, shade & privacy. Smart home ready. Free estimates in ${county || region}.`;
+      default:
+        return `Professional ${title.toLowerCase()} ${city}, Texas. ${description.slice(0, 80)}... Free estimates from Sunmasters. Call (469) 757-4325.`;
+    }
+  };
+
+  const getKeywords = () => {
+    const baseKeywords = `${title.toLowerCase()} ${city} TX, ${title.toLowerCase()} ${city} Texas, ${service.slug.replace(/-/g, ' ')} ${city}`;
+    switch(service.slug) {
+      case 'automotive-window-tint':
+        return `automotive window tinting ${city} TX, car window tinting ${city} Texas, auto tint ${city}, vehicle window tinting ${city} TX, XPEL tint ${city}, ceramic car tint ${city} TX, ${county} car tinting, window tinting near me ${city}`;
+      case 'residential-window-tint':
+        return `residential window tinting ${city} TX, home window tinting ${city} Texas, house window film ${city}, energy saving window film ${city} TX, UV protection windows ${city}, ${county} home tinting, window tinting near me ${city}`;
+      case 'commercial-window-tint':
+        return `commercial window tinting ${city} TX, office window tinting ${city} Texas, storefront window film ${city}, business window tinting ${city} TX, ${county} commercial tinting, building window film ${city}`;
+      case 'ceramic-window-tint':
+        return `ceramic window tint ${city} TX, ceramic tinting ${city} Texas, XPEL ceramic ${city}, nano ceramic tint ${city} TX, premium window tinting ${city}, ${county} ceramic tint`;
+      case 'security-window-film':
+        return `security window film ${city} TX, safety film ${city} Texas, break-in protection ${city}, storm protection windows ${city} TX, shatter resistant film ${city}, ${county} security film`;
+      case 'smart-film':
+        return `smart film ${city} TX, switchable glass ${city} Texas, privacy glass ${city}, PDLC film ${city} TX, electric privacy film ${city}, ${county} smart film`;
+      case 'motorized-patio-screens':
+        return `motorized patio screens ${city} TX, retractable screens ${city} Texas, outdoor shades ${city}, patio enclosures ${city} TX, bug screens ${city}, ${county} patio screens`;
+      default:
+        return baseKeywords + `, ${county} window tinting, window tinting near me ${city}`;
+    }
+  };
+
+  const pageTitle = getPageTitle();
+  const metaDescription = getMetaDescription();
   const canonicalUrl = `https://sunmasterstintandshades.com/${location.slug}-tx/${service.slug}`;
 
   return (
@@ -267,7 +327,7 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta name="keywords" content={`${title.toLowerCase()} ${city}, window tinting ${city} TX, ${service.slug} ${city}, ${title.toLowerCase()} near me, ${county} window tinting`} />
+        <meta name="keywords" content={getKeywords()} />
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph */}
@@ -281,11 +341,11 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": `${title} in ${city}, TX`,
-            "description": description,
+            "name": `${title} ${city}, TX`,
+            "description": `Professional ${title.toLowerCase()} in ${city}, Texas. ${description}`,
             "provider": {
               "@type": "LocalBusiness",
-              "name": "SunMasters Window Tinting & Shades",
+              "name": `Sunmasters Window Tinting ${city} TX`,
               "telephone": "469-757-4325",
               "email": "aaron@sunmastersdfw.com",
               "areaServed": {
@@ -303,6 +363,15 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
               "containedInPlace": {
                 "@type": "State",
                 "name": "Texas"
+              }
+            },
+            "serviceType": `${title} ${city} TX`,
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "areaServed": {
+                "@type": "City",
+                "name": city
               }
             }
           })}
@@ -367,10 +436,10 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
               </span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              {service.slug === 'automotive-window-tint' ? `Window Tinting ${city}, Texas` : `${title} ${city}, Texas`}
+              {title} {city}, TX
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-3xl">
-              SunMasters Window Tinting & Shades provides professional {title.toLowerCase()} services to {city} and the surrounding {region} area. {description}
+              Looking for {title.toLowerCase()} in {city}, Texas? Sunmasters provides professional {title.toLowerCase()} {city} TX throughout the {region} area. Certified XPEL installers serving {county || region} with 99% UV protection and lifetime warranty.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">

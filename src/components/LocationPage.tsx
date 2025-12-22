@@ -22,63 +22,90 @@ interface ServiceNavItem {
   image?: string;
 }
 
-const serviceNavItems: ServiceNavItem[] = [
-  { icon: Car, title: "Automotive", slug: "automotive-window-tint", video: "/videos/automotive-bg.mp4" },
-  { icon: Home, title: "Residential", slug: "residential-window-tint", video: "/videos/residential-bg.mp4" },
-  { icon: Building2, title: "Commercial", slug: "commercial-window-tint", video: "/videos/commercial-bg.mp4" },
-  { icon: Sparkles, title: "Ceramic Tint", slug: "ceramic-window-tint", video: "/videos/ceramic-bg.mov" },
-  { icon: Shield, title: "Security Film", slug: "security-window-film", image: securityFilmImg },
-  { icon: ToggleRight, title: "Smart Film", slug: "smart-film", video: "/videos/smartfilm-bg.mp4" },
-  { icon: PanelTop, title: "Patio Screens", slug: "motorized-patio-screens", video: "https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//copy_DF98BC66-AF50-462F-AE4A-29E0ECEA82E5.mov" },
+const getServiceNavItems = (city: string): ServiceNavItem[] => [
+  { icon: Car, title: `Automotive Tinting ${city} TX`, slug: "automotive-window-tint", video: "/videos/automotive-bg.mp4" },
+  { icon: Home, title: `Residential Tinting ${city} TX`, slug: "residential-window-tint", video: "/videos/residential-bg.mp4" },
+  { icon: Building2, title: `Commercial Tinting ${city} TX`, slug: "commercial-window-tint", video: "/videos/commercial-bg.mp4" },
+  { icon: Sparkles, title: `Ceramic Tint ${city} TX`, slug: "ceramic-window-tint", video: "/videos/ceramic-bg.mov" },
+  { icon: Shield, title: `Security Film ${city} TX`, slug: "security-window-film", image: securityFilmImg },
+  { icon: ToggleRight, title: `Smart Film ${city} TX`, slug: "smart-film", video: "/videos/smartfilm-bg.mp4" },
+  { icon: PanelTop, title: `Patio Screens ${city} TX`, slug: "motorized-patio-screens", video: "https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//copy_DF98BC66-AF50-462F-AE4A-29E0ECEA82E5.mov" },
 ];
 
-const services = [
+const getServices = (city: string) => [
   {
     icon: Car,
-    title: "Automotive Window Tinting",
-    description: "XPEL ceramic window film for cars, trucks, and SUVs with up to 98% heat rejection.",
+    title: `Automotive Window Tinting ${city} TX`,
+    description: `XPEL ceramic window film for cars, trucks, and SUVs in ${city} with up to 98% heat rejection.`,
     slug: "automotive-window-tint",
     video: "/videos/automotive-bg.mp4",
   },
   {
     icon: Home,
-    title: "Residential Window Tinting",
-    description: "Energy-saving window film for homes that reduces heat, glare, and UV damage.",
+    title: `Residential Window Tinting ${city} TX`,
+    description: `Energy-saving window film for ${city} homes that reduces heat, glare, and UV damage.`,
     slug: "residential-window-tint",
     video: "/videos/residential-bg.mp4",
   },
   {
     icon: Building2,
-    title: "Commercial Window Tinting",
-    description: "Professional window film solutions for offices, storefronts, and commercial buildings.",
+    title: `Commercial Window Tinting ${city} TX`,
+    description: `Professional window film solutions for ${city} offices, storefronts, and commercial buildings.`,
     slug: "commercial-window-tint",
     video: "/videos/commercial-bg.mp4",
   },
   {
     icon: Sparkles,
-    title: "Ceramic Window Tint",
-    description: "Premium ceramic technology for superior heat rejection without signal interference.",
+    title: `Ceramic Window Tint ${city} TX`,
+    description: `Premium ceramic technology for ${city} vehicles - superior heat rejection without signal interference.`,
     slug: "ceramic-window-tint",
     video: "/videos/ceramic-bg.mov",
   },
   {
     icon: Shield,
-    title: "Security & Safety Film",
-    description: "Protect your property with film that holds glass together when broken.",
+    title: `Security & Safety Film ${city} TX`,
+    description: `Protect your ${city} property with film that holds glass together when broken.`,
     slug: "security-window-film",
   },
   {
     icon: Sun,
-    title: "Solar Heat Rejection Film",
-    description: "Combat Texas heat with advanced films that reject up to 98% of infrared heat.",
+    title: `Solar Heat Rejection Film ${city} TX`,
+    description: `Combat ${city} Texas heat with advanced films that reject up to 98% of infrared heat.`,
     slug: "solar-heat-rejection-film",
   },
   {
     icon: ToggleRight,
-    title: "Smart Film",
-    description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
+    title: `Smart Film ${city} TX`,
+    description: `Switchable privacy glass for ${city} homes and businesses - transitions from clear to opaque instantly.`,
     slug: "smart-film",
     video: "/videos/smartfilm-bg.mp4",
+  },
+];
+
+const getShadeTypes = (city: string) => [
+  {
+    icon: PanelTop,
+    title: `Motorized Patio Screens ${city} TX`,
+    description: `Transform your ${city} outdoor living space with retractable motorized screens that provide shade, insect protection, and weather resistance.`,
+    slug: "motorized-patio-screens",
+  },
+  {
+    icon: Blinds,
+    title: `Motorized Blinds & Shades ${city} TX`,
+    description: `Automated window treatments for ${city} homes with smart home integration for effortless light control and energy savings.`,
+    slug: "motorized-window-shades",
+  },
+  {
+    icon: Sun,
+    title: `Solar Shades ${city} TX`,
+    description: `Block harsh ${city} sunlight while maintaining your view with UV-filtering solar shade fabrics.`,
+    slug: "motorized-window-shades",
+  },
+  {
+    icon: Lock,
+    title: `Blackout Shades ${city} TX`,
+    description: `Complete light blocking for ${city} bedrooms, media rooms, and spaces requiring total darkness.`,
+    slug: "motorized-window-shades",
   },
 ];
 
@@ -154,8 +181,13 @@ const companyBenefits = [
 const LocationPage = ({ location }: LocationPageProps) => {
   const { city, state, region, county, population, nearby, description, localFacts, businessName, address, phone, heroVideo } = location;
   
-  const pageTitle = `Window Tinting & Shades ${city}, ${state} | Auto, Home & Commercial | Sunmasters`;
-  const metaDescription = `Professional window tinting and motorized shades in ${city}, ${state}. Automotive, residential & commercial window film. Patio screens & blinds. XPEL certified. 99% UV protection. Free estimates.`;
+  // Generate location-specific data
+  const serviceNavItems = getServiceNavItems(city);
+  const services = getServices(city);
+  const shadeTypes = getShadeTypes(city);
+  
+  const pageTitle = `#1 Window Tinting ${city}, ${state} | Automotive, Residential & Commercial | Sunmasters`;
+  const metaDescription = `Looking for window tinting in ${city}, TX? Sunmasters provides professional automotive window tinting ${city}, residential window tinting ${city}, and commercial window film. XPEL certified installers. 99% UV protection. Lifetime warranty. Free estimates in ${county || region}.`;
   const canonicalUrl = `https://sunmasterstintandshades.com/locations/${location.slug}`;
 
   return (
@@ -163,7 +195,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
       <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta name="keywords" content={`window tinting ${city}, car tint ${city} ${state}, home window tinting ${city}, commercial window film ${city}, motorized shades ${city}, patio screens ${city}, blinds ${city}, XPEL ${city}, ceramic tint ${city}, PPF ${city}, ${county} window tinting, window shades ${city} TX`} />
+        <meta name="keywords" content={`window tinting ${city} TX, automotive window tinting ${city}, car tint ${city} Texas, home window tinting ${city} TX, residential window tinting ${city}, commercial window film ${city} TX, ceramic tint ${city}, security film ${city} TX, smart film ${city}, motorized shades ${city} TX, patio screens ${city}, XPEL installer ${city}, ${county} window tinting, window tinting near me ${city}`} />
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph */}
@@ -177,8 +209,8 @@ const LocationPage = ({ location }: LocationPageProps) => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Sunmasters Window Tinting and Shades",
-            "description": `Professional window tinting and shade services in ${city}, ${state}`,
+            "name": `Sunmasters Window Tinting ${city} TX`,
+            "description": `#1 professional window tinting in ${city}, ${state}. Automotive window tinting ${city}, residential window tinting ${city}, commercial window film ${city}. XPEL certified installers serving ${county || region}.`,
             "url": canonicalUrl,
             "telephone": "469-757-4325",
             "email": "aaron@sunmastersdfw.com",
@@ -207,46 +239,54 @@ const LocationPage = ({ location }: LocationPageProps) => {
             },
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Window Tinting and Shade Services",
+              "name": `Window Tinting Services ${city} TX`,
               "itemListElement": [
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Automotive Window Tinting",
-                    "description": "Professional car window tinting with XPEL ceramic films"
+                    "name": `Automotive Window Tinting ${city} TX`,
+                    "description": `Professional car window tinting in ${city}, Texas with XPEL ceramic films. 98% heat rejection, 99% UV protection.`
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Residential Window Tinting",
-                    "description": "Home window film for energy savings and UV protection"
+                    "name": `Residential Window Tinting ${city} TX`,
+                    "description": `Home window tinting in ${city}, TX for energy savings, UV protection, and reduced glare.`
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Commercial Window Tinting",
-                    "description": "Window film solutions for businesses and commercial buildings"
+                    "name": `Commercial Window Tinting ${city} TX`,
+                    "description": `Commercial window film in ${city} for offices, storefronts, and commercial buildings.`
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Motorized Shades and Blinds",
-                    "description": "Automated window treatments with smart home integration"
+                    "name": `Ceramic Window Tint ${city} TX`,
+                    "description": `Premium ceramic tint in ${city} with superior heat rejection and no signal interference.`
                   }
                 },
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Motorized Patio Screens",
-                    "description": "Retractable outdoor screens for patios and porches"
+                    "name": `Security Film ${city} TX`,
+                    "description": `Security window film in ${city} for break-in protection and storm safety.`
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": `Motorized Patio Screens ${city} TX`,
+                    "description": `Motorized patio screens in ${city} for outdoor living with insect and sun protection.`
                   }
                 }
               ]
@@ -333,10 +373,10 @@ const LocationPage = ({ location }: LocationPageProps) => {
               </span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Window Tinting in {city}, {state}
+              #1 Window Tinting {city}, TX
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-3xl">
-              Looking for professional window tinting near you in {city}, {state}? Sunmasters provides expert automotive, residential, and commercial window tinting services throughout {city} and the {region} area. Certified XPEL installers serving {county} County with 99% UV protection and lifetime warranty.
+              Looking for professional window tinting in {city}, Texas? Sunmasters provides expert automotive window tinting {city} TX, residential window tinting {city} TX, and commercial window film {city} TX. Certified XPEL installers serving {county || region} with 99% UV protection and lifetime warranty.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
@@ -442,19 +482,19 @@ const LocationPage = ({ location }: LocationPageProps) => {
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <span className="text-primary font-medium uppercase tracking-wider text-sm">
-                About {city}
+                Window Tinting {city} TX
               </span>
               <h2 className="section-title text-foreground mt-2 mb-6">
-                Professional Window Tinting & Shade Services
+                Professional Window Tinting Services in {city}, Texas
               </h2>
               <p className="text-muted-foreground mb-6">
-                Sunmasters Window Tinting and Shades proudly serves {city}, {state} and the surrounding {region} area. Our certified technicians bring professional-grade window tinting and shade installation services directly to your location, ensuring convenience without compromising quality.
+                Sunmasters Window Tinting proudly serves {city}, {state} and the surrounding {region} area. Our certified XPEL installers bring professional automotive window tinting {city} TX, residential window tinting {city} TX, and commercial window film {city} TX directly to your location.
               </p>
               <p className="text-muted-foreground mb-6">
-                Whether you need automotive window tinting for your daily driver, residential film to reduce energy costs and protect your home, commercial solutions for your business, or motorized shades for effortless light control, Sunmasters delivers exceptional results with industry-leading products.
+                Whether you need car window tinting {city} TX for your daily driver, home window tinting {city} TX to reduce energy costs, commercial tinting {city} TX for your business, or motorized patio screens {city} TX for outdoor living, Sunmasters delivers exceptional results.
               </p>
               <p className="text-muted-foreground mb-6">
-                The intense Texas sun can fade furniture, increase energy bills, and make interiors uncomfortable. Our professional window films and shades provide year-round comfort, blocking up to 98% of heat-causing infrared rays while maintaining your views and natural light.
+                The intense {city} Texas sun can fade furniture, increase energy bills, and make interiors uncomfortable. Our professional window films provide year-round comfort, blocking up to 98% of infrared heat while maintaining your views.
               </p>
               
               {localFacts.length > 0 && (
@@ -507,13 +547,13 @@ const LocationPage = ({ location }: LocationPageProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-primary font-medium uppercase tracking-wider text-sm">
-              Why Window Tinting
+              Window Tinting Benefits {city} TX
             </span>
             <h2 className="section-title text-foreground mt-2">
-              Benefits of Professional Window Tinting
+              Benefits of Window Tinting in {city}, Texas
             </h2>
             <p className="text-muted-foreground max-w-3xl mx-auto mt-4">
-              {city} residents and businesses face intense Texas heat and sun exposure year-round. Professional window tinting provides multiple benefits that improve comfort, save money, and protect your property.
+              {city}, TX residents and businesses face intense Texas heat and sun exposure year-round. Professional window tinting {city} TX provides heat reduction, UV protection, energy savings, and enhanced privacy for your vehicle, home, or business.
             </p>
           </div>
 
@@ -527,7 +567,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
                   <benefit.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-heading font-bold text-foreground text-xl mb-2">
-                  {benefit.title}
+                  {benefit.title} in {city}
                 </h3>
                 <p className="text-muted-foreground text-sm">{benefit.description}</p>
               </div>
@@ -541,13 +581,13 @@ const LocationPage = ({ location }: LocationPageProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-primary font-medium uppercase tracking-wider text-sm">
-              Window Tinting Services
+              Window Tinting Services {city} TX
             </span>
             <h2 className="section-title text-foreground mt-2">
-              Professional Window Film Installation in {city}
+              Window Tinting {city}, TX - All Services
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              From automotive to residential and commercial applications, we offer comprehensive window tinting solutions for {city} and the surrounding {region} area.
+              From automotive window tinting {city} TX to residential window tinting {city} TX and commercial window film {city} TX, we offer comprehensive window tinting solutions throughout {county || region}.
             </p>
           </div>
 
@@ -577,11 +617,11 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 </div>
                 <div className="p-6">
                   <h3 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
-                    {service.title} in {city}
+                    {service.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
                   <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                    View {service.title} in {city} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    Get {service.title} Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </Link>
@@ -596,30 +636,30 @@ const LocationPage = ({ location }: LocationPageProps) => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-primary font-medium uppercase tracking-wider text-sm">
-                Shades & Blinds
+                Motorized Shades {city} TX
               </span>
               <h2 className="section-title text-foreground mt-2 mb-6">
-                Motorized Shades & Patio Screens in {city}
+                Motorized Shades & Patio Screens {city}, Texas
               </h2>
               <p className="text-muted-foreground mb-6">
-                Complete your home or business with our professional shade and blind installation services. Sunmasters offers a full range of motorized window treatments and outdoor screens designed for the {city} climate.
+                Complete your {city} home or business with professional motorized shade installation. Sunmasters offers motorized blinds {city} TX, motorized patio screens {city} TX, and solar shades {city} TX designed for the Texas climate.
               </p>
               <p className="text-muted-foreground mb-6">
-                Our motorized shades integrate seamlessly with smart home systems like Amazon Alexa, Google Home, and Apple HomeKit. Control your window treatments with voice commands, smartphone apps, or automated schedules for ultimate convenience and energy efficiency.
+                Our motorized shades in {city} integrate seamlessly with smart home systems like Amazon Alexa, Google Home, and Apple HomeKit. Control your window treatments with voice commands, smartphone apps, or automated schedules.
               </p>
               <p className="text-muted-foreground mb-8">
-                For outdoor living spaces, our motorized patio screens transform your porch, deck, or pergola into a comfortable year-round retreat. Block the sun, keep out insects, and enjoy your outdoor space in any weather.
+                For outdoor living spaces in {city}, our motorized patio screens {city} TX transform your porch, deck, or pergola into a comfortable year-round retreat. Block the sun, keep out insects, and enjoy outdoor living in any weather.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to="/motorized-patio-screens"
+                  to={`/${location.slug}-tx/motorized-patio-screens`}
                   className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-heading uppercase tracking-wider text-sm hover:bg-primary/90 transition-colors"
                 >
-                  Explore Patio Screens <ArrowRight className="w-4 h-4" />
+                  Patio Screens {city} TX <ArrowRight className="w-4 h-4" />
                 </Link>
                 <ContactLink className="border border-border hover:bg-card">
-                  Get Shade Quote
+                  Get {city} Shade Quote
                 </ContactLink>
               </div>
             </div>
@@ -651,22 +691,22 @@ const LocationPage = ({ location }: LocationPageProps) => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-primary font-medium uppercase tracking-wider text-sm">
-                Switchable Privacy
+                Smart Film {city} TX
               </span>
               <h2 className="section-title text-foreground mt-2 mb-6">
-                Smart Film Installation in {city}
+                Smart Film {city}, Texas - Switchable Privacy Glass
               </h2>
               <p className="text-muted-foreground mb-6">
-                Experience the future of privacy with smart film technology. Transform any glass surface from completely clear to frosted white in milliseconds with the flip of a switch or tap of your phone.
+                Experience the future of privacy with smart film in {city}, TX. Transform any glass surface from completely clear to frosted white in milliseconds with the flip of a switch or tap of your phone.
               </p>
               <p className="text-muted-foreground mb-6">
-                Smart film is perfect for {city} homes, offices, conference rooms, medical facilities, and retail spaces. Create instant privacy when needed while maintaining an open, bright atmosphere when desired. Our PDLC (Polymer Dispersed Liquid Crystal) technology is energy-efficient, using minimal power to stay transparent.
+                Smart film {city} TX is perfect for homes, offices, conference rooms, medical facilities, and retail spaces. Create instant privacy when needed while maintaining an open, bright atmosphere when desired. Our PDLC technology is energy-efficient and easy to install.
               </p>
               
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">Instant privacy on demand</span>
+                  <span className="text-foreground">Instant privacy on demand in {city}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -678,7 +718,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">UV protection included</span>
+                  <span className="text-foreground">99% UV protection</span>
                 </li>
               </ul>
               
@@ -687,7 +727,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
                   to={`/${location.slug}-tx/smart-film`}
                   className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-heading uppercase tracking-wider text-sm hover:bg-primary/90 transition-colors"
                 >
-                  Smart Film Details <ArrowRight className="w-4 h-4" />
+                  Smart Film {city} TX <ArrowRight className="w-4 h-4" />
                 </Link>
                 <ContactLink className="border border-border hover:bg-card">
                   Get Smart Film Quote
