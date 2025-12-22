@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight, Camera } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/rockwall-window-tinting-hero.jpg";
 import logo from "@/assets/logo.png";
 
@@ -90,6 +91,15 @@ const Hero = () => {
                 Call (469) 757-4325
               </a>
             </div>
+            
+            {/* Photo Gallery Button */}
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors font-heading uppercase tracking-wider text-sm"
+            >
+              <Camera className="w-5 h-5" />
+              <span>View Photo Gallery</span>
+            </Link>
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap gap-6 pt-4">
