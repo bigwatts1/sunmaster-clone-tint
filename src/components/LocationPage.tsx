@@ -29,6 +29,7 @@ const serviceNavItems: ServiceNavItem[] = [
   { icon: Sparkles, title: "Ceramic Tint", slug: "ceramic-window-tint", video: "/videos/ceramic-bg.mov" },
   { icon: Shield, title: "Security Film", slug: "security-window-film", image: securityFilmImg },
   { icon: ToggleRight, title: "Smart Film", slug: "smart-film", video: "/videos/smartfilm-bg.mp4" },
+  { icon: PanelTop, title: "Patio Screens", slug: "motorized-patio-screens", video: "https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//copy_DF98BC66-AF50-462F-AE4A-29E0ECEA82E5.mov" },
 ];
 
 const services = [
