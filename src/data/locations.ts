@@ -8,6 +8,10 @@ export interface LocationData {
   nearby?: string[];
   description: string;
   localFacts: string[];
+  // Location-specific contact info (for locations with physical presence)
+  businessName?: string;
+  address?: string;
+  phone?: string;
 }
 
 export const locations: LocationData[] = [
@@ -433,6 +437,9 @@ export const locations: LocationData[] = [
       "L-3 Technologies and major manufacturing employers",
       "Gateway to East Texas with Lake Tawakoni nearby",
     ],
+    businessName: "Sunmasters Window Tinting & PPF Greenville",
+    address: "2700 Mockingbird Ln #105, Greenville, TX 75402",
+    phone: "(903) 453-1965",
   },
   {
     slug: "caddo-mills",
