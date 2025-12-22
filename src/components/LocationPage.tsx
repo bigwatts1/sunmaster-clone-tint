@@ -19,24 +19,28 @@ const services = [
     title: "Automotive Window Tinting",
     description: "XPEL ceramic window film for cars, trucks, and SUVs with up to 98% heat rejection.",
     slug: "automotive-window-tint",
+    video: "/videos/automotive-bg.mp4",
   },
   {
     icon: Home,
     title: "Residential Window Tinting",
     description: "Energy-saving window film for homes that reduces heat, glare, and UV damage.",
     slug: "residential-window-tint",
+    video: "/videos/residential-bg.mp4",
   },
   {
     icon: Building2,
     title: "Commercial Window Tinting",
     description: "Professional window film solutions for offices, storefronts, and commercial buildings.",
     slug: "commercial-window-tint",
+    video: "/videos/commercial-bg.mp4",
   },
   {
     icon: Sparkles,
     title: "Ceramic Window Tint",
     description: "Premium ceramic technology for superior heat rejection without signal interference.",
     slug: "ceramic-window-tint",
+    video: "/videos/ceramic-bg.mov",
   },
   {
     icon: Shield,
@@ -55,6 +59,7 @@ const services = [
     title: "Smart Film",
     description: "Switchable privacy glass that transitions from clear to opaque with the flip of a switch.",
     slug: "smart-film",
+    video: "/videos/smartfilm-bg.mp4",
   },
 ];
 
@@ -470,18 +475,34 @@ const LocationPage = ({ location }: LocationPageProps) => {
               <Link
                 key={service.title}
                 to={`/${location.slug}-tx/${service.slug}`}
-                className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors group"
+                className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
               >
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-primary" />
+                <div className="aspect-[16/10] overflow-hidden relative">
+                  {service.video ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    >
+                      <source src={service.video} type={service.video.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
+                    </video>
+                  ) : (
+                    <div className="w-full h-full bg-secondary flex items-center justify-center">
+                      <service.icon className="w-16 h-16 text-primary/50" />
+                    </div>
+                  )}
                 </div>
-                <h3 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
-                  {service.title} in {city}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  View {service.title} in {city} <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="p-6">
+                  <h3 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
+                    {service.title} in {city}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
+                  <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    View {service.title} in {city} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
