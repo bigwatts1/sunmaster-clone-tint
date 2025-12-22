@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { MapPin, Phone, CheckCircle2, ArrowRight, Thermometer, Sun, DollarSign, Eye, Lock, Award, Car, Home, Building2, Shield, Sparkles, Blinds, Palette, Store } from "lucide-react";
+import { MapPin, Phone, CheckCircle2, ArrowRight, Thermometer, Sun, DollarSign, Eye, Lock, Award, Car, Home, Building2, Shield, Sparkles, Blinds, Palette, Store, ToggleRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -14,6 +14,44 @@ interface CityServicePageProps {
   location: LocationData;
   service: ServiceData;
 }
+
+const allServices = [
+  {
+    icon: Car,
+    title: "Automotive",
+    slug: "automotive-window-tint",
+    video: "/videos/automotive-bg.mp4",
+  },
+  {
+    icon: Home,
+    title: "Residential",
+    slug: "residential-window-tint",
+    video: "/videos/residential-bg.mp4",
+  },
+  {
+    icon: Building2,
+    title: "Commercial",
+    slug: "commercial-window-tint",
+    video: "/videos/commercial-bg.mp4",
+  },
+  {
+    icon: Sparkles,
+    title: "Ceramic Tint",
+    slug: "ceramic-window-tint",
+    video: "/videos/ceramic-bg.mov",
+  },
+  {
+    icon: Shield,
+    title: "Security Film",
+    slug: "security-window-film",
+  },
+  {
+    icon: ToggleRight,
+    title: "Smart Film",
+    slug: "smart-film",
+    video: "/videos/smartfilm-bg.mp4",
+  },
+];
 
 const iconMap: Record<string, React.ElementType> = {
   Car,
@@ -174,7 +212,51 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
         </div>
       </section>
 
-      {/* Service Info Bar */}
+      {/* Service Navigation Cards */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <span className="text-primary font-medium uppercase tracking-wider text-sm">
+              Our Services in {city}
+            </span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {allServices.map((svc) => (
+              <Link
+                key={svc.slug}
+                to={`/${location.slug}-tx/${svc.slug}`}
+                className={`relative bg-card border rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 ${
+                  service.slug === svc.slug ? 'border-primary ring-2 ring-primary' : 'border-border hover:border-primary/50'
+                }`}
+              >
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  {svc.video ? (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    >
+                      <source src={svc.video} type={svc.video.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
+                    </video>
+                  ) : (
+                    <div className="w-full h-full bg-secondary flex items-center justify-center">
+                      <svc.icon className="w-10 h-10 text-primary/50" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <h3 className="font-heading font-bold text-foreground text-sm group-hover:text-primary transition-colors">
+                    {svc.title}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="py-8 bg-primary">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
