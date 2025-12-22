@@ -12,6 +12,8 @@ export interface LocationData {
   businessName?: string;
   address?: string;
   phone?: string;
+  // Location-specific hero video
+  heroVideo?: string;
 }
 
 export const locations: LocationData[] = [
@@ -440,6 +442,7 @@ export const locations: LocationData[] = [
     businessName: "Sunmasters Window Tinting & PPF Greenville",
     address: "2700 Mockingbird Ln #105, Greenville, TX 75402",
     phone: "(903) 453-1965",
+    heroVideo: "/videos/greenville-hero.mov",
   },
   {
     slug: "caddo-mills",
