@@ -16,7 +16,7 @@ import Footer from "@/components/Footer";
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Sunmasters Window Tinting Rockwall",
+  "name": "Sunmasters Window Tinting Rockwall TX",
   "image": "https://sunmastersdfw.com/og-image.png",
   "telephone": "(469) 757-4325",
   "email": "aaron@sunmastersdfw.com",
@@ -35,6 +35,7 @@ const localBusinessSchema = {
   },
   "url": "https://sunmastersdfw.com",
   "priceRange": "$$",
+  "description": "Professional window tinting in Rockwall TX. Automotive, residential & commercial window film installation. Certified XPEL installers with lifetime warranty.",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -51,6 +52,18 @@ const localBusinessSchema = {
     { "@type": "City", "name": "Mesquite" },
     { "@type": "City", "name": "Richardson" }
   ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Window Tinting Services Rockwall TX",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automotive Window Tinting Rockwall TX" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Window Tinting Rockwall TX" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Window Tinting Rockwall TX" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Security Film Rockwall TX" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ceramic Coating Rockwall TX" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paint Protection Film Rockwall TX" }}
+    ]
+  },
   "sameAs": []
 };
 
@@ -73,8 +86,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Window Tinting Rockwall TX | Dallas Window Film | Sunmasters</title>
-        <meta name="description" content="Professional window tinting in Rockwall TX & Dallas. Automotive, residential & commercial window film installation. Free quotes. Call (469) 757-4325." />
+        <title>#1 Window Tinting Rockwall TX | Auto, Home & Commercial | Sunmasters</title>
+        <meta name="description" content="Sunmasters is Rockwall TX's #1 window tinting company. Professional automotive, residential & commercial window film installation. Certified XPEL installers. Free quotes. Call (469) 757-4325." />
+        <meta name="keywords" content="window tinting Rockwall TX, automotive window tinting Rockwall, residential window tinting Rockwall TX, commercial window tinting Rockwall, car tint Rockwall Texas" />
         <link rel="canonical" href="https://sunmastersdfw.com/" />
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
