@@ -176,7 +176,7 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
               playsInline
               className="w-full h-full object-cover"
             >
-              <source src={heroVideo} type="video/mp4" />
+              <source src={heroVideo} type={heroVideo.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
             </video>
           ) : service.slug === 'smart-film' ? (
             <video
