@@ -50,7 +50,7 @@ const BlogPost = () => {
             "publisher": {
               "@type": "Organization",
               "name": "Sunmasters Window Tinting and Shades",
-              "url": "https://sunmastersdfw.com"
+              "url": "https://sunmasterstintandshades.com"
             },
             "datePublished": post.date,
             "mainEntityOfPage": {

@@ -13,7 +13,7 @@ const GalleryPage = () => {
           name="description" 
           content="View our photo gallery showcasing professional window tinting, ceramic coating, paint protection film, and more from SunMasters in the DFW area."
         />
-        <link rel="canonical" href="https://sunmastersdfw.com/gallery" />
+        <link rel="canonical" href="https://sunmasterstintandshades.com/gallery" />
       </Helmet>
 
       <TopBar />
