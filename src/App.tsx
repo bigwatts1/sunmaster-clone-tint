@@ -1,3 +1,4 @@
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -50,9 +51,10 @@ import Greenville from "./pages/locations/Greenville";
 import CaddoMills from "./pages/locations/CaddoMills";
 import Commerce from "./pages/locations/Commerce";
 
-const queryClient = new QueryClient();
-
-const App = () => (
+const App = () => {
+  const [queryClient] = React.useState(() => new QueryClient());
+  
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -115,6 +117,7 @@ const App = () => (
       </Routes>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;
