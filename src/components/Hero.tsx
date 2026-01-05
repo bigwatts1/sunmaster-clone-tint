@@ -33,11 +33,7 @@ const Hero = () => {
           }}
         >
           <source 
-            src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//64AE3775-E4F5-4A33-B85C-F0A60F3AD2A7.mov" 
-            type="video/quicktime" 
-          />
-          <source 
-            src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//64AE3775-E4F5-4A33-B85C-F0A60F3AD2A7.mov" 
+            src="/videos/hero-banner.mp4" 
             type="video/mp4" 
           />
         </video>
