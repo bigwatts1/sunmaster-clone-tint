@@ -109,33 +109,6 @@ const getShadeTypes = (city: string) => [
   },
 ];
 
-const shadeTypes = [
-  {
-    icon: PanelTop,
-    title: "Motorized Patio Screens",
-    description: "Transform your outdoor living space with retractable motorized screens that provide shade, insect protection, and weather resistance.",
-    slug: "motorized-patio-screens",
-  },
-  {
-    icon: Blinds,
-    title: "Motorized Blinds & Shades",
-    description: "Automated window treatments with smart home integration for effortless light control and energy savings.",
-    slug: "motorized-window-shades",
-  },
-  {
-    icon: Sun,
-    title: "Solar Shades",
-    description: "Block harsh sunlight while maintaining your view with UV-filtering solar shade fabrics.",
-    slug: "motorized-window-shades",
-  },
-  {
-    icon: Lock,
-    title: "Blackout Shades",
-    description: "Complete light blocking for bedrooms, media rooms, and spaces requiring total darkness.",
-    slug: "motorized-window-shades",
-  },
-];
-
 const tintingBenefits = [
   {
     icon: Thermometer,
@@ -178,6 +151,66 @@ const companyBenefits = [
   "Serving the entire DFW metroplex",
 ];
 
+// Generate unique intro content based on location characteristics
+const getUniqueIntroContent = (location: LocationData): { heroIntro: string; aboutIntro: string; servicesIntro: string } => {
+  const { city, region, county, population, description } = location;
+  
+  // Population-based variations
+  const popNum = population ? parseInt(population.replace(/,/g, '')) : 0;
+  const isLargeCity = popNum > 200000;
+  const isMediumCity = popNum > 50000 && popNum <= 200000;
+  const isSmallCity = popNum <= 50000;
+  
+  // Region-based variations
+  const isDallasMet = region === "Dallas Metro";
+  const isNorthDFW = region === "North DFW";
+  const isEastDFW = region === "East DFW";
+  const isWestDFW = region === "West DFW";
+  
+  let heroIntro = "";
+  let aboutIntro = "";
+  let servicesIntro = "";
+  
+  if (isLargeCity) {
+    heroIntro = `As one of the largest cities in Texas, ${city} demands top-tier window tinting solutions. Sunmasters delivers professional automotive, residential, and commercial window film installation to ${city}'s diverse neighborhoods and thriving business districts.`;
+    aboutIntro = `${city}'s size and diversity create unique challenges for vehicle owners, homeowners, and businesses. From downtown high-rises to suburban developments, Sunmasters provides tailored window tinting solutions that address the specific needs of ${city} properties.`;
+    servicesIntro = `With a population of ${population}, ${city} is a major hub for window tinting services. Our team handles everything from fleet vehicles and commercial buildings to luxury homes and daily drivers.`;
+  } else if (isMediumCity) {
+    heroIntro = `${city}'s growing community of ${population} residents deserves exceptional window tinting services. Sunmasters brings certified expertise and premium materials to ${city} homes, businesses, and vehicles throughout ${county || region}.`;
+    aboutIntro = `${description} Our experienced installers understand the unique character of ${city} and provide customized solutions for every property type, from new construction to established neighborhoods.`;
+    servicesIntro = `${city} homeowners and vehicle owners throughout ${county || region} trust Sunmasters for quality window film installation. We tailor our services to meet the specific needs of the ${city} community.`;
+  } else {
+    heroIntro = `${city}'s close-knit community values quality craftsmanship and personalized service. Sunmasters brings big-city expertise with small-town care to every window tinting project in ${city} and surrounding areas.`;
+    aboutIntro = `${description} Whether you are protecting a family vehicle, reducing energy costs at home, or enhancing your business storefront, our team delivers exceptional results that ${city} residents can count on.`;
+    servicesIntro = `Even in smaller communities like ${city}, Texas heat demands professional window tinting solutions. Sunmasters provides the same premium service and XPEL products to ${city} that we deliver throughout the DFW metroplex.`;
+  }
+  
+  // Add region-specific context
+  if (isEastDFW) {
+    aboutIntro += ` Located in ${region}, ${city} enjoys a more relaxed pace while still facing the intense Texas sun that makes window tinting essential.`;
+  } else if (isNorthDFW) {
+    aboutIntro += ` As part of the rapidly growing ${region} corridor, ${city} represents the future of North Texas living, and our window solutions match that forward-thinking approach.`;
+  } else if (isWestDFW) {
+    aboutIntro += ` ${city}'s position in ${region} offers convenient access to both Dallas and Fort Worth, and our mobile service makes getting professional window tinting even easier.`;
+  }
+  
+  return { heroIntro, aboutIntro, servicesIntro };
+};
+
+// Generate unique benefits content per city
+const getUniqueBenefitsContent = (city: string, region: string): string => {
+  const variations = [
+    `Living in ${city} means dealing with Texas weather extremes—scorching summers that push air conditioning to its limits and intense UV exposure that damages interiors. Professional window tinting addresses these challenges while adding value to your property.`,
+    `${city} residents face unique environmental challenges from the Texas climate. With summer temperatures regularly exceeding 100°F, quality window film is not a luxury but a necessity for comfort and protection.`,
+    `The ${region} area experiences some of the most intense sun exposure in the country. For ${city} homeowners and vehicle owners, professional window tinting provides year-round protection and comfort.`,
+    `From protecting your vehicle's interior to reducing home energy costs, ${city} residents discover that window tinting pays for itself through comfort, protection, and savings.`
+  ];
+  
+  // Use city name hash to pick a consistent variation
+  const hash = city.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return variations[hash % variations.length];
+};
+
 const LocationPage = ({ location }: LocationPageProps) => {
   const { city, state, region, county, population, nearby, description, localFacts, businessName, address, phone, heroVideo } = location;
   
@@ -185,9 +218,11 @@ const LocationPage = ({ location }: LocationPageProps) => {
   const serviceNavItems = getServiceNavItems(city);
   const services = getServices(city);
   const shadeTypes = getShadeTypes(city);
+  const uniqueContent = getUniqueIntroContent(location);
+  const uniqueBenefits = getUniqueBenefitsContent(city, region);
   
-  const pageTitle = `#1 Window Tinting ${city}, ${state} | Automotive, Residential & Commercial | Sunmasters`;
-  const metaDescription = `Looking for window tinting in ${city}, TX? Sunmasters provides professional automotive window tinting ${city}, residential window tinting ${city}, and commercial window film. XPEL certified installers. 99% UV protection. Lifetime warranty. Free estimates in ${county || region}.`;
+  const pageTitle = `Window Tinting ${city}, TX | Automotive, Residential & Commercial | Sunmasters`;
+  const metaDescription = `Professional window tinting in ${city}, TX. Sunmasters offers automotive, residential & commercial window film installation. XPEL certified. 99% UV protection. Lifetime warranty. Free estimates in ${county || region}.`;
   const canonicalUrl = `https://www.sunmasterstintandshades.com/locations/${location.slug}`;
 
   return (
@@ -210,7 +245,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": `Sunmasters Window Tinting ${city} TX`,
-            "description": `#1 professional window tinting in ${city}, ${state}. Automotive window tinting ${city}, residential window tinting ${city}, commercial window film ${city}. XPEL certified installers serving ${county || region}.`,
+            "description": `Professional window tinting in ${city}, ${state}. Automotive, residential & commercial window film. XPEL certified installers serving ${county || region}.`,
             "url": canonicalUrl,
             "telephone": "469-757-4325",
             "email": "aaron@sunmastersdfw.com",
@@ -340,7 +375,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
       <TopBar />
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section - Single H1 */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         {/* Background Image/Video */}
         <div className="absolute inset-0">
@@ -376,10 +411,10 @@ const LocationPage = ({ location }: LocationPageProps) => {
               </span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              #1 Window Tinting {city}, TX
+              Window Tinting {city}, TX
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-3xl">
-              Looking for professional window tinting in {city}, Texas? Sunmasters provides expert automotive window tinting {city} TX, residential window tinting {city} TX, and commercial window film {city} TX. Certified XPEL installers serving {county || region} with 99% UV protection and lifetime warranty.
+              {uniqueContent.heroIntro}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
@@ -479,7 +514,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
         </div>
       </section>
 
-      {/* About Location */}
+      {/* H2: Professional Window Tinting Services in {City}, Texas */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
@@ -491,19 +526,19 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 Professional Window Tinting Services in {city}, Texas
               </h2>
               <p className="text-muted-foreground mb-6">
-                Sunmasters Window Tinting proudly serves {city}, {state} and the surrounding {region} area. Our certified XPEL installers bring professional automotive window tinting {city} TX, residential window tinting {city} TX, and commercial window film {city} TX directly to your location.
+                {uniqueContent.aboutIntro}
               </p>
               <p className="text-muted-foreground mb-6">
-                Whether you need car window tinting {city} TX for your daily driver, home window tinting {city} TX to reduce energy costs, commercial tinting {city} TX for your business, or motorized patio screens {city} TX for outdoor living, Sunmasters delivers exceptional results.
+                Our certified XPEL installers bring decades of combined experience to every project in {city}. Whether you need heat-rejecting ceramic film for your vehicle, energy-saving residential tint for your home, or privacy film for your office, we deliver precision installation with a lifetime warranty.
               </p>
               <p className="text-muted-foreground mb-6">
-                The intense {city} Texas sun can fade furniture, increase energy bills, and make interiors uncomfortable. Our professional window films provide year-round comfort, blocking up to 98% of infrared heat while maintaining your views.
+                {uniqueContent.servicesIntro}
               </p>
               
               {localFacts.length > 0 && (
                 <div className="bg-secondary rounded-lg p-6">
                   <h3 className="font-heading font-bold text-foreground text-lg mb-4">
-                    Why {city} Chooses Sunmasters
+                    About {city}, TX
                   </h3>
                   <ul className="space-y-3">
                     {localFacts.map((fact, index) => (
@@ -520,7 +555,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
             <div>
               <div className="bg-card border border-border rounded-lg p-8">
                 <h3 className="font-heading font-bold text-foreground text-xl mb-6">
-                  Why Choose Sunmasters in {city}?
+                  Sunmasters Advantage
                 </h3>
                 <ul className="space-y-4">
                   {companyBenefits.map((benefit, index) => (
@@ -533,7 +568,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 
                 <div className="mt-8 pt-6 border-t border-border">
                   <p className="text-muted-foreground text-sm mb-4">
-                    Ready to get started? Contact us today for a free estimate.
+                    Ready to get started? Contact us today for a free estimate in {city}.
                   </p>
                   <ContactLink className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                     Get Your Free Estimate
@@ -545,52 +580,18 @@ const LocationPage = ({ location }: LocationPageProps) => {
         </div>
       </section>
 
-      {/* Benefits of Window Tinting */}
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-primary font-medium uppercase tracking-wider text-sm">
-              Window Tinting Benefits {city} TX
-            </span>
-            <h2 className="section-title text-foreground mt-2">
-              Benefits of Window Tinting in {city}, Texas
-            </h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto mt-4">
-              {city}, TX residents and businesses face intense Texas heat and sun exposure year-round. Professional window tinting {city} TX provides heat reduction, UV protection, energy savings, and enhanced privacy for your vehicle, home, or business.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tintingBenefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors"
-              >
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-heading font-bold text-foreground text-xl mb-2">
-                  {benefit.title} in {city}
-                </h3>
-                <p className="text-muted-foreground text-sm">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Window Tinting Services */}
+      {/* H2: Automotive, Residential & Commercial Window Tinting in {City} */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-primary font-medium uppercase tracking-wider text-sm">
-              Window Tinting Services {city} TX
+              Complete Tinting Solutions
             </span>
             <h2 className="section-title text-foreground mt-2">
-              Window Tinting {city}, TX - All Services
+              Automotive, Residential & Commercial Window Tinting in {city}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              From automotive window tinting {city} TX to residential window tinting {city} TX and commercial window film {city} TX, we offer comprehensive window tinting solutions throughout {county || region}.
+              From vehicles to homes to businesses, Sunmasters provides comprehensive window film solutions throughout {city} and {county || region}. Each installation is backed by our lifetime warranty and expert craftsmanship.
             </p>
           </div>
 
@@ -624,11 +625,118 @@ const LocationPage = ({ location }: LocationPageProps) => {
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
                   <span className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Get {service.title} Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Benefits of Window Tinting in {City}, TX */}
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="text-primary font-medium uppercase tracking-wider text-sm">
+              Why Window Tinting
+            </span>
+            <h2 className="section-title text-foreground mt-2">
+              Benefits of Window Tinting in {city}, TX
+            </h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto mt-4">
+              {uniqueBenefits}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {tintingBenefits.map((benefit) => (
+              <div
+                key={benefit.title}
+                className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors"
+              >
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                  <benefit.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-foreground text-xl mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Why Choose Sunmasters in {City}, TX */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-primary font-medium uppercase tracking-wider text-sm">
+                The Sunmasters Difference
+              </span>
+              <h2 className="section-title text-foreground mt-2 mb-6">
+                Why Choose Sunmasters in {city}, TX
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Since 1979, Sunmasters has been the trusted name in window tinting throughout the Dallas-Fort Worth metroplex. Our reputation is built on quality materials, expert installation, and customer satisfaction that speaks for itself.
+              </p>
+              <p className="text-muted-foreground mb-6">
+                When you choose Sunmasters for your {city} window tinting project, you get more than just film on glass. You get certified XPEL installers who take pride in their craft, premium materials that perform year after year, and a lifetime warranty that protects your investment.
+              </p>
+              <p className="text-muted-foreground mb-8">
+                We understand that {city} residents and business owners have high standards. That is why we deliver the same exceptional quality to every project, whether it is a single vehicle or an entire commercial building.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <ContactLink className="bg-primary hover:bg-primary/90 text-primary-foreground font-heading uppercase tracking-wider">
+                  Get Free {city} Estimate
+                </ContactLink>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-border hover:bg-card"
+                  asChild
+                >
+                  <a href="tel:469-757-4325">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call Now
+                  </a>
+                </Button>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-foreground text-lg mb-2">45+ Years</h3>
+                <p className="text-muted-foreground text-sm">Serving DFW since 1979</p>
+              </div>
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-foreground text-lg mb-2">Lifetime</h3>
+                <p className="text-muted-foreground text-sm">Warranty on all work</p>
+              </div>
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-foreground text-lg mb-2">XPEL</h3>
+                <p className="text-muted-foreground text-sm">Certified installers</p>
+              </div>
+              <div className="bg-card border border-border rounded-lg p-6 text-center">
+                <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-heading font-bold text-foreground text-lg mb-2">Same Day</h3>
+                <p className="text-muted-foreground text-sm">Service available</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -642,16 +750,16 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 Motorized Shades {city} TX
               </span>
               <h2 className="section-title text-foreground mt-2 mb-6">
-                Motorized Shades & Patio Screens {city}, Texas
+                Motorized Shades & Patio Screens in {city}
               </h2>
               <p className="text-muted-foreground mb-6">
-                Complete your {city} home or business with professional motorized shade installation. Sunmasters offers motorized blinds {city} TX, motorized patio screens {city} TX, and solar shades {city} TX designed for the Texas climate.
+                Complete your {city} home or business with professional motorized shade installation. Sunmasters offers motorized blinds, patio screens, and solar shades designed for the Texas climate.
               </p>
               <p className="text-muted-foreground mb-6">
-                Our motorized shades in {city} integrate seamlessly with smart home systems like Amazon Alexa, Google Home, and Apple HomeKit. Control your window treatments with voice commands, smartphone apps, or automated schedules.
+                Our motorized shades integrate seamlessly with smart home systems like Amazon Alexa, Google Home, and Apple HomeKit. Control your window treatments with voice commands, smartphone apps, or automated schedules.
               </p>
               <p className="text-muted-foreground mb-8">
-                For outdoor living spaces in {city}, our motorized patio screens {city} TX transform your porch, deck, or pergola into a comfortable year-round retreat. Block the sun, keep out insects, and enjoy outdoor living in any weather.
+                For outdoor living spaces, our motorized patio screens transform your porch, deck, or pergola into a comfortable year-round retreat. Block the sun, keep out insects, and enjoy outdoor living in any weather.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -659,10 +767,10 @@ const LocationPage = ({ location }: LocationPageProps) => {
                   to={`/${location.slug}-tx/motorized-patio-screens`}
                   className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-heading uppercase tracking-wider text-sm hover:bg-primary/90 transition-colors"
                 >
-                  Patio Screens {city} TX <ArrowRight className="w-4 h-4" />
+                  Patio Screens {city} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <ContactLink className="border border-border hover:bg-card">
-                  Get {city} Shade Quote
+                  Get Shade Quote
                 </ContactLink>
               </div>
             </div>
@@ -697,19 +805,19 @@ const LocationPage = ({ location }: LocationPageProps) => {
                 Smart Film {city} TX
               </span>
               <h2 className="section-title text-foreground mt-2 mb-6">
-                Smart Film {city}, Texas - Switchable Privacy Glass
+                Smart Film in {city} - Switchable Privacy Glass
               </h2>
               <p className="text-muted-foreground mb-6">
-                Experience the future of privacy with smart film in {city}, TX. Transform any glass surface from completely clear to frosted white in milliseconds with the flip of a switch or tap of your phone.
+                Experience the future of privacy with smart film in {city}. Transform any glass surface from completely clear to frosted white in milliseconds with the flip of a switch or tap of your phone.
               </p>
               <p className="text-muted-foreground mb-6">
-                Smart film {city} TX is perfect for homes, offices, conference rooms, medical facilities, and retail spaces. Create instant privacy when needed while maintaining an open, bright atmosphere when desired. Our PDLC technology is energy-efficient and easy to install.
+                Smart film is perfect for homes, offices, conference rooms, medical facilities, and retail spaces. Create instant privacy when needed while maintaining an open, bright atmosphere when desired. Our PDLC technology is energy-efficient and easy to install.
               </p>
               
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">Instant privacy on demand in {city}</span>
+                  <span className="text-foreground">Instant privacy on demand</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -730,7 +838,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
                   to={`/${location.slug}-tx/smart-film`}
                   className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-heading uppercase tracking-wider text-sm hover:bg-primary/90 transition-colors"
                 >
-                  Smart Film {city} TX <ArrowRight className="w-4 h-4" />
+                  Smart Film {city} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <ContactLink className="border border-border hover:bg-card">
                   Get Smart Film Quote
@@ -780,70 +888,6 @@ const LocationPage = ({ location }: LocationPageProps) => {
         </div>
       </section>
 
-      {/* SEO Content Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="section-title text-foreground text-center mb-8">
-              Your Trusted Window Tinting Experts in {city}, Texas
-            </h2>
-            
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="mb-6">
-                When it comes to professional window tinting and shade installation in {city}, {state}, Sunmasters Window Tinting and Shades stands apart as the premier choice for homeowners, vehicle owners, and business operators throughout {county || region}. Our commitment to quality craftsmanship, premium materials, and exceptional customer service has made us the go-to provider for window solutions across the Dallas-Fort Worth metroplex.
-              </p>
-              
-              <h2 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
-                Automotive Window Tinting in {city}
-              </h2>
-              <p className="mb-6">
-                {city} drivers know the challenges of Texas heat. Summer temperatures regularly exceed 100°F, turning your vehicle into an oven. Our XPEL ceramic window films block up to 98% of infrared heat, keeping your cabin cool and comfortable. Unlike cheap dyed films that fade and bubble, XPEL's nano-ceramic technology maintains its performance and appearance for the lifetime of your vehicle.
-              </p>
-              <p className="mb-6">
-                Every automotive tinting installation at Sunmasters is performed by certified XPEL technicians using precision computer-cut patterns. This ensures a perfect fit with no gaps, bubbles, or peeling edges. We offer multiple shade options to match your style while staying compliant with Texas tint laws.
-              </p>
-              
-              <h2 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
-                Residential Window Film Solutions
-              </h2>
-              <p className="mb-6">
-                Protect your {city} home from the relentless Texas sun with professional residential window tinting. Our window films reject solar heat, reduce glare, and block 99% of harmful UV rays that cause furniture fading, hardwood floor damage, and artwork deterioration. Many {city} homeowners see energy savings of 20-30% on cooling costs after installation.
-              </p>
-              <p className="mb-6">
-                We offer a variety of residential film options including solar control films, decorative films, privacy films, and security films. Our team works with you to find the perfect solution that enhances your home's comfort, efficiency, and appearance.
-              </p>
-              
-              <h2 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
-                Commercial & Office Window Film
-              </h2>
-              <p className="mb-6">
-                {city} businesses trust Sunmasters for commercial window tinting that reduces operating costs and improves tenant comfort. From small storefronts to large office buildings, we provide custom solutions that address glare, heat, privacy, and security concerns. Our commercial films can reduce HVAC costs, extend equipment life, and create a more productive work environment.
-              </p>
-              
-              <h3 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
-                Motorized Shades for Modern {city} Living
-              </h3>
-              <p className="mb-6">
-                Upgrade your window treatments with motorized shades and blinds that offer effortless control at the touch of a button. Perfect for hard-to-reach windows, large glass walls, or anyone who values convenience, our motorized solutions integrate with popular smart home platforms for voice control and automated scheduling.
-              </p>
-              <p className="mb-6">
-                Our motorized patio screens are ideal for {city}'s outdoor lifestyle. Transform your patio, porch, or pergola into a comfortable living space protected from sun, wind, and insects. With the touch of a button, enjoy your outdoor area year-round.
-              </p>
-              
-              <h3 className="font-heading font-bold text-foreground text-xl mt-8 mb-4">
-                Smart Film: Switchable Privacy Glass in {city}
-              </h3>
-              <p className="mb-6">
-                Experience cutting-edge smart film technology that transforms any glass surface from clear to frosted in an instant. Perfect for {city} conference rooms, medical offices, bathrooms, and storefronts, smart film provides on-demand privacy while maintaining natural light when transparency is desired.
-              </p>
-              <p className="mb-6">
-                Our PDLC smart film can be retrofitted to existing windows, making it a cost-effective alternative to replacing glass. With smart home integration capabilities, control your privacy settings via voice commands, smartphone apps, or automated schedules.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
@@ -852,7 +896,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
               FAQ
             </span>
             <h2 className="section-title text-foreground mt-2">
-              FAQs About Window Tinting in {city}
+              Window Tinting FAQs for {city}
             </h2>
           </div>
 
@@ -905,16 +949,16 @@ const LocationPage = ({ location }: LocationPageProps) => {
         </div>
       </section>
 
-      {/* Nearby Areas */}
+      {/* H2: Service Areas Near {City} */}
       {nearby && nearby.length > 0 && (
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="font-heading font-bold text-foreground text-2xl">
-                Serving {city} and {region}
+                Service Areas Near {city}
               </h2>
               <p className="text-muted-foreground mt-2">
-                In addition to {city}, we provide window tinting and shade services throughout the {region} area.
+                In addition to {city}, we provide window tinting and shade services throughout {county || region} and surrounding communities.
               </p>
             </div>
             
