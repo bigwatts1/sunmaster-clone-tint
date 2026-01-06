@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import RelatedServices from "@/components/RelatedServices";
+import LocationLinks from "@/components/LocationLinks";
 import securityImg from "@/assets/rockwall-security-window-film.jpg";
 
 const benefits = [
@@ -654,6 +655,8 @@ const SecurityFilm = () => {
           </div>
         </div>
       </section>
+
+      <LocationLinks serviceType="security" maxLocations={12} />
 
       <RelatedServices 
         currentService="/security-film" 

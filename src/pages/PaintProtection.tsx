@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import RelatedServices from "@/components/RelatedServices";
+import LocationLinks from "@/components/LocationLinks";
 
 
 const benefits = [
@@ -481,6 +482,8 @@ const PaintProtection = () => {
           </div>
         </div>
       </section>
+
+      <LocationLinks serviceType="automotive" maxLocations={12} />
 
       <RelatedServices 
         currentService="/paint-protection" 

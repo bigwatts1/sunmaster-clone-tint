@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import RelatedServices from "@/components/RelatedServices";
+import LocationLinks from "@/components/LocationLinks";
 import residentialImg from "@/assets/rockwall-home-window-tinting.jpeg";
 
 const benefits = [
@@ -592,6 +593,8 @@ const ResidentialTinting = () => {
           </div>
         </div>
       </section>
+
+      <LocationLinks serviceType="residential" maxLocations={12} />
 
       <RelatedServices 
         currentService="/residential-tinting" 

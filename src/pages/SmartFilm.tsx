@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import RelatedServices from "@/components/RelatedServices";
+import LocationLinks from "@/components/LocationLinks";
 import smartfilmImg from "@/assets/rockwall-smart-film-installation.jpg";
 
 const benefits = [
@@ -340,6 +341,8 @@ const SmartFilm = () => {
           </div>
         </div>
       </section>
+
+      <LocationLinks serviceType="smart" maxLocations={12} />
 
       <RelatedServices 
         currentService="/smart-film" 

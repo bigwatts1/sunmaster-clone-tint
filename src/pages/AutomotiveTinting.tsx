@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import RelatedServices from "@/components/RelatedServices";
+import LocationLinks from "@/components/LocationLinks";
 import automotiveImg from "@/assets/rockwall-car-window-tinting.jpeg";
 import automotivePricing from "@/assets/automotive-pricing.jpeg";
 
@@ -654,6 +655,8 @@ const AutomotiveTinting = () => {
           </div>
         </div>
       </section>
+
+      <LocationLinks serviceType="automotive" maxLocations={12} />
 
       <RelatedServices 
         currentService="/automotive-tinting" 
