@@ -211,6 +211,90 @@ const getUniqueBenefitsContent = (city: string, region: string): string => {
   return variations[hash % variations.length];
 };
 
+// Generate unique SEO meta title (50-60 chars) optimized for CTR
+const getUniqueMetaTitle = (location: LocationData): string => {
+  const { city, slug, population } = location;
+  const popNum = population ? parseInt(population.replace(/,/g, '')) : 0;
+  
+  // Title variations based on city characteristics (all 50-60 chars)
+  const titleVariations: Record<string, string> = {
+    'dallas': `Window Tinting Dallas TX | Auto, Home & Office Film`,
+    'plano': `Window Tinting Plano TX | Car, Home & Business Tint`,
+    'frisco': `Window Tinting Frisco TX | Auto & Home Film Experts`,
+    'mckinney': `Window Tinting McKinney TX | Car & Residential Film`,
+    'fort-worth': `Window Tinting Fort Worth TX | Auto, Home & Commercial`,
+    'arlington': `Window Tinting Arlington TX | Automotive & Home Film`,
+    'irving': `Window Tinting Irving TX | Car, Home & Office Tint`,
+    'garland': `Window Tinting Garland TX | Auto & Residential Film`,
+    'grand-prairie': `Window Tinting Grand Prairie TX | Auto & Home Tint`,
+    'richardson': `Window Tinting Richardson TX | Car & Home Film`,
+    'allen': `Window Tinting Allen TX | Auto, Home & Commercial`,
+    'carrollton': `Window Tinting Carrollton TX | Car & Home Experts`,
+    'lewisville': `Window Tinting Lewisville TX | Auto & Home Film`,
+    'denton': `Window Tinting Denton TX | Car, Home & Office Tint`,
+    'flower-mound': `Window Tinting Flower Mound TX | Auto & Home Film`,
+    'the-colony': `Window Tinting The Colony TX | Car & Home Experts`,
+    'little-elm': `Window Tinting Little Elm TX | Auto & Residential`,
+    'prosper': `Window Tinting Prosper TX | Luxury Auto & Home Film`,
+    'mesquite': `Window Tinting Mesquite TX | Car, Home & Business`,
+    'rockwall': `Window Tinting Rockwall TX | Auto, Home & Commercial`,
+    'rowlett': `Window Tinting Rowlett TX | Car & Residential Film`,
+    'wylie': `Window Tinting Wylie TX | Auto & Home Film Experts`,
+    'murphy': `Window Tinting Murphy TX | Car & Residential Tint`,
+    'sachse': `Window Tinting Sachse TX | Auto & Home Film Service`,
+    'coppell': `Window Tinting Coppell TX | Car & Home Film Pros`,
+    'grapevine': `Window Tinting Grapevine TX | Auto, Home & Office`,
+    'southlake': `Window Tinting Southlake TX | Luxury Auto & Home`,
+    'greenville': `Window Tinting Greenville TX | Auto & Home Experts`,
+    'caddo-mills': `Window Tinting Caddo Mills TX | Car & Home Film`,
+    'commerce': `Window Tinting Commerce TX | Auto & Residential Film`,
+  };
+  
+  return titleVariations[slug] || `Window Tinting ${city} TX | Auto, Home & Commercial`;
+};
+
+// Generate unique SEO meta description (150-160 chars) optimized for CTR
+const getUniqueMetaDescription = (location: LocationData): string => {
+  const { city, slug, county, region, population } = location;
+  const popNum = population ? parseInt(population.replace(/,/g, '')) : 0;
+  
+  // Description variations based on city characteristics (all 150-160 chars)
+  const descVariations: Record<string, string> = {
+    'dallas': `Professional window tinting in Dallas, TX for cars, homes & businesses. XPEL certified. 99% UV block & lifetime warranty. Free estimates. Call today!`,
+    'plano': `Expert window tinting in Plano, TX. Automotive, residential & commercial tint with 99% UV protection. XPEL certified installer. Free quotes available.`,
+    'frisco': `Premium window tinting in Frisco, TX. Car, home & office tint with lifetime warranty. 98% heat rejection & 99% UV block. Get your free estimate now!`,
+    'mckinney': `Window tinting services in McKinney, TX. Auto, home & commercial film with 99% UV protection. XPEL certified. Lifetime warranty. Free quotes today!`,
+    'fort-worth': `Professional window tint in Fort Worth, TX. Automotive, residential & commercial film. 98% heat rejection & lifetime warranty. Get a free estimate!`,
+    'arlington': `Window tinting in Arlington, TX for vehicles, homes & offices. XPEL ceramic film with 99% UV block. Lifetime warranty included. Free estimates today!`,
+    'irving': `Expert window tinting services in Irving, TX. Auto, home & commercial tint with lifetime warranty. 99% UV protection. Call for your free quote now!`,
+    'garland': `Professional window tinting in Garland, TX. Car & home film with 98% heat rejection. XPEL certified installer. Lifetime warranty. Free estimates!`,
+    'grand-prairie': `Window tinting in Grand Prairie, TX for cars, homes & businesses. 99% UV protection & lifetime warranty. XPEL certified. Free quotes available!`,
+    'richardson': `Expert window tinting in Richardson, TX. Auto, home & office film with 99% UV block. XPEL certified installer. Lifetime warranty. Free estimates!`,
+    'allen': `Professional window tinting in Allen, TX. Automotive, home & commercial tint. 98% heat rejection & lifetime warranty. XPEL certified. Free quotes!`,
+    'carrollton': `Window tinting services in Carrollton, TX. Car & home film with 99% UV protection. XPEL certified installer. Lifetime warranty. Free estimates!`,
+    'lewisville': `Expert window tinting in Lewisville, TX for autos & homes. 98% heat rejection & 99% UV block. XPEL certified. Lifetime warranty. Free quotes today!`,
+    'denton': `Professional window tinting in Denton, TX. Car, home & office tint with lifetime warranty. 99% UV protection. XPEL certified. Free estimates now!`,
+    'flower-mound': `Premium window tinting in Flower Mound, TX. Auto & residential film with 99% UV block. XPEL certified installer. Lifetime warranty. Free quotes!`,
+    'the-colony': `Window tinting in The Colony, TX for cars & homes. 98% heat rejection & lifetime warranty. XPEL certified installer. Get your free estimate today!`,
+    'little-elm': `Expert window tinting services in Little Elm, TX. Auto & home film with 99% UV protection. XPEL certified. Lifetime warranty. Free quotes now!`,
+    'prosper': `Luxury window tinting in Prosper, TX for high-end vehicles & homes. XPEL ceramic film with lifetime warranty. 99% UV block. Free estimates today!`,
+    'mesquite': `Professional window tinting in Mesquite, TX. Car, home & business film with 98% heat rejection. XPEL certified. Lifetime warranty. Free quotes!`,
+    'rockwall': `Expert window tinting in Rockwall, TX. Automotive, home & commercial tint. 99% UV block & lifetime warranty. XPEL certified. Free estimates today!`,
+    'rowlett': `Window tinting services in Rowlett, TX for cars & homes. 98% heat rejection & 99% UV protection. XPEL certified. Lifetime warranty. Free quotes!`,
+    'wylie': `Professional window tinting in Wylie, TX. Auto & residential film with lifetime warranty. XPEL certified installer. 99% UV block. Free estimates!`,
+    'murphy': `Expert window tinting in Murphy, TX for vehicles & homes. 99% UV protection & 98% heat rejection. XPEL certified. Lifetime warranty. Free quotes!`,
+    'sachse': `Window tinting services in Sachse, TX. Auto & home film with 99% UV block. XPEL certified installer. Lifetime warranty included. Free estimates today!`,
+    'coppell': `Premium window tinting in Coppell, TX for cars & homes. 98% heat rejection & lifetime warranty. XPEL certified installer. Get your free quote now!`,
+    'grapevine': `Professional window tinting in Grapevine, TX. Auto, home & office film. 99% UV protection & lifetime warranty. XPEL certified. Free estimates!`,
+    'southlake': `Luxury window tinting in Southlake, TX. Premium auto & home film with 99% UV block. XPEL certified installer. Lifetime warranty. Free quotes now!`,
+    'greenville': `Expert window tinting in Greenville, TX for cars & homes. 98% heat rejection & 99% UV protection. XPEL certified. Lifetime warranty. Free quotes!`,
+    'caddo-mills': `Window tinting in Caddo Mills, TX for vehicles & homes. XPEL ceramic film with 99% UV block. Lifetime warranty included. Get a free estimate today!`,
+    'commerce': `Professional window tinting in Commerce, TX. Auto & residential film with 98% heat rejection. XPEL certified. Lifetime warranty. Free estimates!`,
+  };
+  
+  return descVariations[slug] || `Professional window tinting in ${city}, TX for vehicles, homes & businesses. 99% UV protection & lifetime warranty. Free quotes!`;
+};
+
 const LocationPage = ({ location }: LocationPageProps) => {
   const { city, state, region, county, population, nearby, description, localFacts, businessName, address, phone, heroVideo } = location;
   
@@ -221,8 +305,8 @@ const LocationPage = ({ location }: LocationPageProps) => {
   const uniqueContent = getUniqueIntroContent(location);
   const uniqueBenefits = getUniqueBenefitsContent(city, region);
   
-  const pageTitle = `Window Tinting ${city}, TX | Automotive, Residential & Commercial | Sunmasters`;
-  const metaDescription = `Professional window tinting in ${city}, TX. Sunmasters offers automotive, residential & commercial window film installation. XPEL certified. 99% UV protection. Lifetime warranty. Free estimates in ${county || region}.`;
+  const pageTitle = getUniqueMetaTitle(location);
+  const metaDescription = getUniqueMetaDescription(location);
   const canonicalUrl = `https://www.sunmasterstintandshades.com/locations/${location.slug}`;
 
   return (
