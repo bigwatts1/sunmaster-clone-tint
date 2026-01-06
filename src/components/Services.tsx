@@ -17,21 +17,21 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "Automotive Tinting Rockwall TX",
+    title: "Automotive Window Tinting Rockwall TX",
     description: "Fast, reliable tinting for cars, trucks, and SUVs in Rockwall. UV protection, heat reduction, and enhanced privacy.",
     image: automotiveImg,
     video: "/videos/automotive-bg.mp4",
     link: "/automotive-tinting",
   },
   {
-    title: "Residential Tinting Rockwall TX",
+    title: "Residential Window Tinting Rockwall TX",
     description: "Custom window film solutions for Rockwall homes. Improve energy efficiency and protect your family from UV rays.",
     image: residentialImg,
     video: "/videos/residential-bg.mp4",
     link: "/residential-tinting",
   },
   {
-    title: "Commercial Tinting Rockwall TX",
+    title: "Commercial Window Tinting Rockwall TX",
     description: "Large-scale window solutions for Rockwall businesses, offices, and commercial properties.",
     image: commercialImg,
     video: "/videos/commercial-bg.mp4",
@@ -134,9 +134,9 @@ const Services = () => {
                 )}
               </div>
               <div className="p-6">
-                <h3 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
+                <h2 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
                   {service.title}
-                </h3>
+                </h2>
                 <p className="text-muted-foreground text-sm mb-4">
                   {service.description}
                 </p>
