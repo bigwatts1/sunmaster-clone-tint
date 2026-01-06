@@ -117,6 +117,9 @@ const Services = () => {
                       src={service.image}
                       alt={service.title}
                       className="hidden"
+                      width={400}
+                      height={250}
+                      loading="lazy"
                     />
                   </>
                 ) : (
@@ -124,6 +127,9 @@ const Services = () => {
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width={400}
+                    height={250}
+                    loading="lazy"
                   />
                 )}
               </div>

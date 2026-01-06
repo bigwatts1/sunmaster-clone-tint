@@ -1,0 +1,6 @@
+# Sunmasters Window Tinting Rockwall TX
+# This file declares that this site does not use advertising
+# For transparency purposes only
+
+# If you add advertising in the future, list your ad network entries here
+# Example: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

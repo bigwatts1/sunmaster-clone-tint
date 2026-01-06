@@ -74,6 +74,9 @@ const Gallery = () => {
                       src={image.src} 
                       alt={image.alt}
                       className="w-full h-48 md:h-56 object-cover rounded-lg"
+                      width={300}
+                      height={224}
+                      loading="lazy"
                     />
                   </div>
                 ))}

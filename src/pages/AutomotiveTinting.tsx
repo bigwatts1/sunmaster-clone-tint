@@ -178,6 +178,9 @@ const AutomotiveTinting = () => {
                 src={automotiveImg}
                 alt="Professional automotive window tinting on vehicle in Dallas"
                 className="rounded-lg shadow-2xl w-full"
+                width={600}
+                height={400}
+                loading="eager"
               />
               <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
                 <p className="font-heading font-bold text-2xl">Lifetime</p>
@@ -358,6 +361,9 @@ const AutomotiveTinting = () => {
               src={automotivePricing}
               alt="Automotive window tinting pricing chart - XPEL PRIME CS, PRIME XR, and PRIME XR PLUS options for all vehicle types"
               className="rounded-lg shadow-2xl w-full"
+              width={800}
+              height={600}
+              loading="lazy"
             />
           </div>
         </div>
