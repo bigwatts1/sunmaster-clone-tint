@@ -151,6 +151,9 @@ const ResidentialTinting = () => {
                 src={residentialImg}
                 alt="Residential window tinting installation in Dallas home"
                 className="rounded-lg shadow-2xl w-full"
+                width={600}
+                height={400}
+                loading="eager"
               />
               <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
                 <p className="font-heading font-bold text-2xl">45+</p>

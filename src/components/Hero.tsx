@@ -121,6 +121,9 @@ const Hero = () => {
                 src={logo} 
                 alt="Sunmasters Window Tinting Rockwall TX - #1 Auto Home and Commercial Window Film in Rockwall Texas" 
                 className="w-64 md:w-80 h-auto drop-shadow-2xl"
+                width={320}
+                height={320}
+                loading="eager"
               />
             </div>
             

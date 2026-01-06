@@ -359,6 +359,9 @@ const LocationPage = ({ location }: LocationPageProps) => {
               src={locationHeroImage} 
               alt={`Professional window tinting services in ${city}, ${state}`}
               className="w-full h-full object-cover"
+              width={1200}
+              height={600}
+              loading="eager"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
