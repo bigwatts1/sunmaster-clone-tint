@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroBg from "@/assets/rockwall-window-tinting-hero.jpg";
+import heroBg from "@/assets/hero-bg.webp";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
@@ -10,33 +10,18 @@ const Hero = () => {
       id="home"
       className="relative min-h-[90vh] flex items-center"
     >
-      {/* Background Video with overlay */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Fallback background image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBg})` }}
+      {/* Static Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt="Professional window tinting service in Rockwall TX"
+          className="w-full h-full object-cover"
+          width={1920}
+          height={1080}
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
-        {/* Video overlay */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          // @ts-ignore - webkit prefix for Safari compatibility
-          webkit-playsinline="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          poster={heroBg}
-          onError={(e) => {
-            // Hide video if it fails to load, fallback image will show
-            (e.target as HTMLVideoElement).style.display = 'none';
-          }}
-        >
-          <source 
-            src="/videos/hero-banner.mp4" 
-            type="video/mp4" 
-          />
-        </video>
         <div className="absolute inset-0 bg-background/80" />
       </div>
 
@@ -47,13 +32,13 @@ const Hero = () => {
           <div className="space-y-6">
             {/* Trust Badge */}
             <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 rounded-full px-4 py-2">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-primary rounded-full" />
               <span className="text-foreground text-sm font-medium">Trusted by Thousands of Customers</span>
             </div>
 
-            {/* Main Heading - SEO Optimized H1 */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="text-foreground">#1 Window Tinting Rockwall TX</span>
+            {/* Main Heading - Plain H1 */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+              #1 Window Tinting Rockwall TX
               <br />
               <span className="text-primary">Auto, Home & Commercial Window Film</span>
             </h1>
@@ -77,7 +62,7 @@ const Hero = () => {
               >
                 <a href="#estimate">
                   Free Quote
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </Button>
               <a
@@ -120,7 +105,7 @@ const Hero = () => {
               <img 
                 src={logo} 
                 alt="Sunmasters Window Tinting Rockwall TX - #1 Auto Home and Commercial Window Film in Rockwall Texas" 
-                className="w-64 md:w-80 h-auto drop-shadow-2xl"
+                className="w-64 md:w-80 h-auto"
                 width={320}
                 height={320}
                 loading="eager"
