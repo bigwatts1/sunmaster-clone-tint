@@ -36,12 +36,15 @@ const Hero = () => {
               <span className="text-foreground text-sm font-medium">Trusted by Thousands of Customers</span>
             </div>
 
-            {/* Main Heading - Plain H1 */}
+            {/* Main Heading - Single H1 */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-              #1 Window Tinting Rockwall TX
-              <br />
-              <span className="text-primary">Auto, Home & Commercial Window Film</span>
+              Window Tinting Rockwall TX
             </h1>
+            
+            {/* Tagline */}
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+              Auto, Home & Commercial Window Film
+            </p>
 
             {/* Subheadline */}
             <p className="text-xl text-foreground font-medium">
