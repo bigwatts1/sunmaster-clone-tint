@@ -16,9 +16,9 @@ import Footer from "@/components/Footer";
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Sunmasters Window Tinting Rockwall TX",
+  "name": "Sunmasters Window Tinting & Shades",
   "image": "https://sunmastersautoandshades.com/og-image.png",
-  "telephone": "(469) 757-4325",
+  "telephone": "+1-469-757-4325",
   "email": "aaron@sunmastersdfw.com",
   "address": {
     "@type": "PostalAddress",
@@ -45,23 +45,21 @@ const localBusinessSchema = {
     }
   ],
   "areaServed": [
-    { "@type": "City", "name": "Rockwall" },
-    { "@type": "City", "name": "Dallas" },
-    { "@type": "City", "name": "Plano" },
-    { "@type": "City", "name": "Garland" },
-    { "@type": "City", "name": "Mesquite" },
-    { "@type": "City", "name": "Richardson" }
+    { "@type": "City", "name": "Rockwall TX" },
+    { "@type": "City", "name": "Heath TX" },
+    { "@type": "City", "name": "Rowlett TX" },
+    { "@type": "City", "name": "Royse City TX" }
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Window Tinting Services Rockwall TX",
+    "name": "Window Tinting Services",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automotive Window Tinting Rockwall TX" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Window Tinting Rockwall TX" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Window Tinting Rockwall TX" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Security Film Rockwall TX" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ceramic Coating Rockwall TX" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paint Protection Film Rockwall TX" }}
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automotive Window Tinting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Window Tinting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Window Tinting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Security Film" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ceramic Coating" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paint Protection Film" }}
     ]
   },
   "sameAs": []
