@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
 import RelatedServices from "@/components/RelatedServices";
+import LocationLinks from "@/components/LocationLinks";
 import ceramicImg from "@/assets/rockwall-ceramic-coating.jpg";
 
 const benefits = [
@@ -671,6 +672,8 @@ const CeramicCoating = () => {
           </div>
         </div>
       </section>
+
+      <LocationLinks serviceType="ceramic" maxLocations={12} />
 
       <RelatedServices 
         currentService="/ceramic-coating" 

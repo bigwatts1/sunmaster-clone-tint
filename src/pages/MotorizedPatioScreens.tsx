@@ -5,6 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLink from "@/components/ContactLink";
+import LocationLinks from "@/components/LocationLinks";
 
 const benefits = [
   {
@@ -488,6 +489,8 @@ const MotorizedPatioScreens = () => {
           </div>
         </div>
       </section>
+
+      <LocationLinks serviceType="residential" maxLocations={12} />
 
       <Footer />
     </>
