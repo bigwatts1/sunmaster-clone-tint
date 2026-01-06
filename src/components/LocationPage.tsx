@@ -188,7 +188,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
   
   const pageTitle = `#1 Window Tinting ${city}, ${state} | Automotive, Residential & Commercial | Sunmasters`;
   const metaDescription = `Looking for window tinting in ${city}, TX? Sunmasters provides professional automotive window tinting ${city}, residential window tinting ${city}, and commercial window film. XPEL certified installers. 99% UV protection. Lifetime warranty. Free estimates in ${county || region}.`;
-  const canonicalUrl = `https://sunmasterstintandshades.com/locations/${location.slug}`;
+  const canonicalUrl = `https://sunmastersautoandshades.com/locations/${location.slug}`;
 
   return (
     <>

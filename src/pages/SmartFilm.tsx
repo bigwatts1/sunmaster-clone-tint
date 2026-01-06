@@ -61,7 +61,7 @@ const SmartFilm = () => {
           name="description"
           content="Professional smart film installation in Dallas-Fort Worth. Instantly switch windows from clear to frosted for privacy on demand. Free estimates available."
         />
-        <link rel="canonical" href="https://sunmasterstintandshades.com/smart-film" />
+        <link rel="canonical" href="https://sunmastersautoandshades.com/smart-film" />
       </Helmet>
 
       <TopBar />

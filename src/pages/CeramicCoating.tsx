@@ -163,7 +163,7 @@ const CeramicCoating = () => {
           content="Professional ceramic coating in Dallas-Fort Worth. 9H hardness, hydrophobic protection, stunning gloss. Protect your vehicle's paint for years. Free estimates available."
         />
         <meta name="keywords" content="ceramic coating Dallas, ceramic coating near me, car ceramic coating, paint protection, hydrophobic coating, 9H ceramic coating, auto detailing Dallas, paint correction" />
-        <link rel="canonical" href="https://sunmasterstintandshades.com/ceramic-coating" />
+        <link rel="canonical" href="https://sunmastersautoandshades.com/ceramic-coating" />
       </Helmet>
 
       <TopBar />
