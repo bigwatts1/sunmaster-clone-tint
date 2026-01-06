@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, User, Share2 } from "lucide-react";
+import DOMPurify from "dompurify";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,6 +9,21 @@ import ContactLink from "@/components/ContactLink";
 import { getBlogPostBySlug, blogPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
 
+// Sanitize and transform blog content safely
+const transformBlogContent = (content: string): string => {
+  const transformed = content
+    .replace(/## /g, '<h2 class="text-2xl font-bold mt-8 mb-4">')
+    .replace(/### /g, '<h3 class="text-xl font-bold mt-6 mb-3">')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n\n/g, '</p><p class="mb-4">')
+    .replace(/- (.*?)(?=\n|$)/g, '<li class="ml-4">$1</li>');
+  
+  // Sanitize to prevent XSS attacks
+  return DOMPurify.sanitize(transformed, {
+    ALLOWED_TAGS: ['h2', 'h3', 'p', 'strong', 'li', 'ul', 'ol', 'a', 'br', 'em'],
+    ALLOWED_ATTR: ['class', 'href', 'target', 'rel'],
+  });
+};
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
@@ -116,12 +132,7 @@ const BlogPost = () => {
             <article className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary">
               <div 
                 dangerouslySetInnerHTML={{ 
-                  __html: post.content
-                    .replace(/## /g, '<h2 class="text-2xl font-bold mt-8 mb-4">')
-                    .replace(/### /g, '<h3 class="text-xl font-bold mt-6 mb-3">')
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\n\n/g, '</p><p class="mb-4">')
-                    .replace(/- (.*?)(?=\n|$)/g, '<li class="ml-4">$1</li>')
+                  __html: transformBlogContent(post.content)
                 }} 
               />
             </article>

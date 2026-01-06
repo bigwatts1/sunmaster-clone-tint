@@ -2,11 +2,87 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
-};
+// Allowed origins for CORS - restrict to production domain
+const ALLOWED_ORIGINS = [
+  "https://www.sunmasterstintandshades.com",
+  "https://sunmasterstintandshades.com",
+  "http://localhost:5173", // Local dev
+  "http://localhost:8080",
+];
+
+// Simple in-memory rate limiting (per IP, resets on function cold start)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_MAX = 5; // Max requests per window
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour window
+
+function getCorsHeaders(origin: string | null): Record<string, string> {
+  const allowedOrigin = origin && ALLOWED_ORIGINS.some(allowed => 
+    origin === allowed || origin.endsWith('.lovableproject.com')
+  ) ? origin : ALLOWED_ORIGINS[0];
+  
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
+}
+
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true, remaining: RATE_LIMIT_MAX - 1 };
+  }
+  
+  if (record.count >= RATE_LIMIT_MAX) {
+    return { allowed: false, remaining: 0 };
+  }
+  
+  record.count++;
+  return { allowed: true, remaining: RATE_LIMIT_MAX - record.count };
+}
+
+// Input validation
+function validateInput(data: unknown): { valid: boolean; error?: string; sanitized?: ContactRequest } {
+  if (!data || typeof data !== 'object') {
+    return { valid: false, error: "Invalid request body" };
+  }
+  
+  const { name, phone, email, service, message } = data as Record<string, unknown>;
+  
+  // Validate required fields
+  if (typeof name !== 'string' || name.trim().length === 0 || name.length > 100) {
+    return { valid: false, error: "Invalid name" };
+  }
+  if (typeof phone !== 'string' || phone.trim().length === 0 || phone.length > 20) {
+    return { valid: false, error: "Invalid phone" };
+  }
+  if (typeof email !== 'string' || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/) || email.length > 255) {
+    return { valid: false, error: "Invalid email" };
+  }
+  if (typeof service !== 'string' || service.trim().length === 0 || service.length > 100) {
+    return { valid: false, error: "Invalid service" };
+  }
+  if (message !== undefined && (typeof message !== 'string' || message.length > 2000)) {
+    return { valid: false, error: "Invalid message" };
+  }
+  
+  // Sanitize: trim and escape HTML
+  const sanitize = (str: string) => str.trim().replace(/[<>]/g, '');
+  
+  return {
+    valid: true,
+    sanitized: {
+      name: sanitize(name),
+      phone: sanitize(phone),
+      email: email.trim().toLowerCase(),
+      service: sanitize(service),
+      message: typeof message === 'string' ? sanitize(message) : '',
+    }
+  };
+}
 
 interface ContactRequest {
   name: string;
@@ -17,15 +93,66 @@ interface ContactRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
-  try {
-    const { name, phone, email, service, message }: ContactRequest = await req.json();
+  // Only allow POST requests
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
 
-    console.log("Received contact form submission:", { name, phone, email, service });
+  try {
+    // Rate limiting based on IP
+    const clientIP = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || 
+                     req.headers.get("cf-connecting-ip") || 
+                     "unknown";
+    
+    const rateCheck = checkRateLimit(clientIP);
+    if (!rateCheck.allowed) {
+      console.log(`Rate limit exceeded for IP: ${clientIP}`);
+      return new Response(
+        JSON.stringify({ error: "Too many requests. Please try again later." }),
+        {
+          status: 429,
+          headers: { 
+            "Content-Type": "application/json", 
+            "Retry-After": "3600",
+            ...corsHeaders 
+          },
+        }
+      );
+    }
+
+    // Parse and validate input
+    let rawData: unknown;
+    try {
+      rawData = await req.json();
+    } catch {
+      return new Response(JSON.stringify({ error: "Invalid JSON" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    const validation = validateInput(rawData);
+    if (!validation.valid || !validation.sanitized) {
+      return new Response(JSON.stringify({ error: validation.error }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    const { name, phone, email, service, message } = validation.sanitized;
+
+    console.log("Received contact form submission:", { name, phone, service });
 
     // Send notification to business owner
     const ownerEmailRes = await fetch("https://api.resend.com/emails", {
@@ -89,7 +216,7 @@ const handler = async (req: Request): Promise<Response> => {
       status: 200,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Log detailed error server-side only for debugging
     console.error("Error in send-contact-email function:", error);
     
