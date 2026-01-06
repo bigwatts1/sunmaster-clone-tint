@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.webp";
-import logo from "@/assets/logo.webp";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   return (

@@ -1,5 +1,5 @@
 import { Phone } from "lucide-react";
-import logo from "@/assets/logo.webp";
+import logo from "@/assets/logo.png";
 
 const TeamSection = () => {
   return (

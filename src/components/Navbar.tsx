@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X, Phone, ChevronDown, MapPin, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.webp";
+import logo from "@/assets/logo.png";
 
 const servicePages = [
   { label: "Automotive Tinting", href: "/automotive-tinting" },

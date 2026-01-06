@@ -1,12 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { useLazyLoad } from "@/hooks/useLazyLoad";
-import automotiveImg from "@/assets/rockwall-automotive-window-tinting.webp";
-import commercialImg from "@/assets/rockwall-commercial-window-tinting.webp";
-import residentialImg from "@/assets/rockwall-residential-window-tinting.webp";
-import ppfImg from "@/assets/rockwall-paint-protection-film.webp";
-import ceramicImg from "@/assets/rockwall-ceramic-coating.webp";
-import securityImg from "@/assets/rockwall-school-security-film.webp";
-import smartfilmImg from "@/assets/rockwall-smart-film-installation.webp";
+import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
+import commercialImg from "@/assets/rockwall-commercial-window-tinting.jpg";
+import residentialImg from "@/assets/rockwall-residential-window-tinting.jpg";
+import ppfImg from "@/assets/rockwall-paint-protection-film.jpg";
+import ceramicImg from "@/assets/rockwall-ceramic-coating.jpg";
+import securityImg from "@/assets/rockwall-school-security-film.jpg";
+import smartfilmImg from "@/assets/rockwall-smart-film-installation.jpg";
 
 interface Service {
   title: string;
