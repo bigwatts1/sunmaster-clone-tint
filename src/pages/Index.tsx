@@ -5,15 +5,32 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 
-// Lazy load below-the-fold components
-const About = lazy(() => import("@/components/About"));
-const ServicesOverview = lazy(() => import("@/components/ServicesOverview"));
-const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
-const HomepageSEOContent = lazy(() => import("@/components/HomepageSEOContent"));
-const Testimonials = lazy(() => import("@/components/Testimonials"));
-const AreasServed = lazy(() => import("@/components/AreasServed"));
-const ContactSection = lazy(() => import("@/components/ContactSection"));
-const Footer = lazy(() => import("@/components/Footer"));
+// Consolidated lazy load - single chunk for below-the-fold content
+const BelowTheFold = lazy(() => 
+  Promise.all([
+    import("@/components/About"),
+    import("@/components/ServicesOverview"),
+    import("@/components/WhyChooseUs"),
+    import("@/components/HomepageSEOContent"),
+    import("@/components/Testimonials"),
+    import("@/components/AreasServed"),
+    import("@/components/ContactSection"),
+    import("@/components/Footer"),
+  ]).then(([About, ServicesOverview, WhyChooseUs, HomepageSEOContent, Testimonials, AreasServed, ContactSection, Footer]) => ({
+    default: () => (
+      <>
+        <About.default />
+        <ServicesOverview.default />
+        <WhyChooseUs.default />
+        <HomepageSEOContent.default />
+        <Testimonials.default />
+        <AreasServed.default />
+        <ContactSection.default />
+        <Footer.default />
+      </>
+    )
+  }))
+);
 
 // Simple loading placeholder
 const SectionPlaceholder = () => (
@@ -109,32 +126,11 @@ const Index = () => {
         <Hero />
         <Services />
         
-        {/* Below the fold - lazy loaded */}
+        {/* Below the fold - single consolidated chunk */}
         <Suspense fallback={<SectionPlaceholder />}>
-          <About />
-        </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
-          <ServicesOverview />
-        </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
-          <WhyChooseUs />
-        </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
-          <HomepageSEOContent />
-        </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
-          <Testimonials />
-        </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
-          <AreasServed />
-        </Suspense>
-        <Suspense fallback={<SectionPlaceholder />}>
-          <ContactSection />
+          <BelowTheFold />
         </Suspense>
       </main>
-      <Suspense fallback={<div className="h-40 bg-card" />}>
-        <Footer />
-      </Suspense>
     </div>
   );
 };
