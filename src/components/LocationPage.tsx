@@ -253,6 +253,146 @@ const getUniqueMetaTitle = (location: LocationData): string => {
   return titleVariations[slug] || `Window Tinting ${city} TX | Auto, Home & Commercial`;
 };
 
+// Generate JSON-LD structured data for LocalBusiness schema
+const getLocalBusinessSchema = (location: LocationData): object => {
+  const { city, state, county, slug } = location;
+  const websiteUrl = "https://www.sunmasterstintandshades.com";
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${websiteUrl}/window-tinting-${slug}#localbusiness`,
+    "name": "Sunmasters Window Tinting & Shades",
+    "description": `Professional window tinting services in ${city}, ${state}. Automotive, residential, and commercial window film installation with lifetime warranty.`,
+    "url": `${websiteUrl}/window-tinting-${slug}`,
+    "telephone": "(214) 865-8882",
+    "email": "info@sunmasterstintandshades.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": city,
+      "addressRegion": state,
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": city,
+      "addressRegion": state
+    },
+    "priceRange": "$$",
+    "image": `${websiteUrl}/og-image.png`,
+    "logo": `${websiteUrl}/og-image.png`,
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/sunmasterswindowtinting",
+      "https://www.instagram.com/sunmasters_tint"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Window Tinting Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Automotive Window Tinting",
+            "description": `Professional car, truck, and SUV window tinting in ${city}, TX with XPEL ceramic film and lifetime warranty.`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Residential Window Tinting",
+            "description": `Home window film installation in ${city}, TX for heat rejection, UV protection, and energy savings.`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Commercial Window Tinting",
+            "description": `Office and business window tinting in ${city}, TX for storefronts, buildings, and commercial properties.`
+          }
+        }
+      ]
+    }
+  };
+};
+
+// Generate JSON-LD Service schema for all services
+const getServiceSchema = (location: LocationData): object[] => {
+  const { city, state, slug } = location;
+  const websiteUrl = "https://www.sunmasterstintandshades.com";
+  
+  const services = [
+    {
+      name: "Automotive Window Tinting",
+      description: `Professional automotive window tinting in ${city}, ${state}. XPEL ceramic film with 99% UV protection and lifetime warranty.`,
+      slug: "automotive-window-tint"
+    },
+    {
+      name: "Residential Window Tinting",
+      description: `Home window tinting in ${city}, ${state}. Energy-saving film that blocks heat, UV rays, and glare.`,
+      slug: "residential-window-tint"
+    },
+    {
+      name: "Commercial Window Tinting",
+      description: `Commercial window film installation in ${city}, ${state}. Professional solutions for offices, storefronts, and buildings.`,
+      slug: "commercial-window-tint"
+    },
+    {
+      name: "Ceramic Window Tint",
+      description: `Premium ceramic window tinting in ${city}, ${state}. Superior heat rejection without signal interference.`,
+      slug: "ceramic-window-tint"
+    },
+    {
+      name: "Security Film",
+      description: `Safety and security window film in ${city}, ${state}. Holds glass together when broken for protection.`,
+      slug: "security-window-film"
+    },
+    {
+      name: "Smart Film",
+      description: `Switchable smart film installation in ${city}, ${state}. Transitions from clear to opaque instantly.`,
+      slug: "smart-film"
+    }
+  ];
+  
+  return services.map(service => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.name,
+    "description": service.description,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Sunmasters Window Tinting & Shades",
+      "telephone": "(214) 865-8882"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": city,
+      "addressRegion": state
+    },
+    "url": `${websiteUrl}/${service.slug}`
+  }));
+};
+
 // Generate unique SEO meta description (150-160 chars) optimized for CTR
 const getUniqueMetaDescription = (location: LocationData): string => {
   const { city, slug, county, region, population } = location;
@@ -323,95 +463,17 @@ const LocationPage = ({ location }: LocationPageProps) => {
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
         
-        {/* Local Business Schema */}
+        {/* LocalBusiness Schema - Comprehensive structured data for Google */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": `Sunmasters Window Tinting ${city} TX`,
-            "description": `Professional window tinting in ${city}, ${state}. Automotive, residential & commercial window film. XPEL certified installers serving ${county || region}.`,
-            "url": canonicalUrl,
-            "telephone": "469-757-4325",
-            "email": "aaron@sunmastersdfw.com",
-            "areaServed": {
-              "@type": "City",
-              "name": city,
-              "containedInPlace": {
-                "@type": "State",
-                "name": "Texas"
-              }
-            },
-            "serviceArea": {
-              "@type": "GeoCircle",
-              "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "addressLocality": city,
-                "addressRegion": state
-              }
-            },
-            "priceRange": "$$",
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              "opens": "08:00",
-              "closes": "18:00"
-            },
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": `Window Tinting Services ${city} TX`,
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": `Automotive Window Tinting ${city} TX`,
-                    "description": `Professional car window tinting in ${city}, Texas with XPEL ceramic films. 98% heat rejection, 99% UV protection.`
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": `Residential Window Tinting ${city} TX`,
-                    "description": `Home window tinting in ${city}, TX for energy savings, UV protection, and reduced glare.`
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": `Commercial Window Tinting ${city} TX`,
-                    "description": `Commercial window film in ${city} for offices, storefronts, and commercial buildings.`
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": `Ceramic Window Tint ${city} TX`,
-                    "description": `Premium ceramic tint in ${city} with superior heat rejection and no signal interference.`
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": `Security Film ${city} TX`,
-                    "description": `Security window film in ${city} for break-in protection and storm safety.`
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": `Motorized Patio Screens ${city} TX`,
-                    "description": `Motorized patio screens in ${city} for outdoor living with insect and sun protection.`
-                  }
-                }
-              ]
-            }
-          })}
+          {JSON.stringify(getLocalBusinessSchema(location))}
         </script>
+        
+        {/* Service Schemas - Individual service structured data */}
+        {getServiceSchema(location).map((schema, index) => (
+          <script key={index} type="application/ld+json">
+            {JSON.stringify(schema)}
+          </script>
+        ))}
         
         {/* FAQ Schema */}
         <script type="application/ld+json">
