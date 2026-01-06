@@ -17,7 +17,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Sunmasters Window Tinting Rockwall TX",
-  "image": "https://sunmasterstintandshades.com/og-image.png",
+  "image": "https://sunmastersautoandshades.com/og-image.png",
   "telephone": "(469) 757-4325",
   "email": "aaron@sunmastersdfw.com",
   "address": {
@@ -33,7 +33,7 @@ const localBusinessSchema = {
     "latitude": 32.9290,
     "longitude": -96.4594
   },
-  "url": "https://sunmasterstintandshades.com",
+  "url": "https://sunmastersautoandshades.com",
   "priceRange": "$$",
   "description": "Professional window tinting in Rockwall TX. Automotive, residential & commercial window film installation. Certified XPEL installers with lifetime warranty.",
   "openingHoursSpecification": [
@@ -89,7 +89,7 @@ const Index = () => {
         <title>#1 Window Tinting Rockwall TX | Auto, Home & Commercial | Sunmasters</title>
         <meta name="description" content="Sunmasters is Rockwall TX's #1 window tinting company. Professional automotive, residential & commercial window film installation. Certified XPEL installers. Free quotes. Call (469) 757-4325." />
         <meta name="keywords" content="window tinting Rockwall TX, automotive window tinting Rockwall, residential window tinting Rockwall TX, commercial window tinting Rockwall, car tint Rockwall Texas" />
-        <link rel="canonical" href="https://sunmasterstintandshades.com/" />
+        <link rel="canonical" href="https://sunmastersautoandshades.com/" />
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </script>
