@@ -393,6 +393,172 @@ const getServiceSchema = (location: LocationData): object[] => {
   }));
 };
 
+// Generate unique city-specific FAQs (5-7 per city)
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+const getCityFAQs = (location: LocationData): FAQ[] => {
+  const { city, slug, region, county, population, nearby } = location;
+  const popNum = population ? parseInt(population.replace(/,/g, '')) : 0;
+  const nearbyText = nearby && nearby.length > 0 ? nearby.slice(0, 3).join(', ') : region;
+  
+  // Base FAQs that all cities get (customized per city)
+  const baseFAQs: FAQ[] = [
+    {
+      question: `How much does window tinting cost in ${city}, TX?`,
+      answer: `Window tinting prices in ${city} depend on the service type. Automotive tinting ranges from $199-$599 based on vehicle size and film quality. Residential projects typically cost $6-$15 per square foot. Commercial tinting is quoted per project. Sunmasters offers free estimates for all ${city} customers.`
+    },
+    {
+      question: `How long does window tint installation take in ${city}?`,
+      answer: `Most automotive window tinting in ${city} takes 2-4 hours and can be completed same-day. Residential tinting for an average home takes 4-6 hours. Commercial projects vary based on scope. We work efficiently to minimize disruption to ${city} businesses and homeowners.`
+    },
+    {
+      question: `Is window tint legal in ${city}, Texas?`,
+      answer: `Yes, window tinting is legal in ${city} and throughout Texas. State law requires front side windows to allow at least 25% visible light transmission (VLT). Rear side windows and back windshield can be any darkness. Windshield tinting above the AS-1 line is permitted. Sunmasters ensures all ${city} installations meet Texas regulations.`
+    },
+    {
+      question: `Do you offer residential window tinting in ${city}?`,
+      answer: `Absolutely! Sunmasters provides comprehensive residential window tinting throughout ${city} and ${county || region}. Our home window films reduce heat by up to 98%, block 99% of UV rays, lower energy bills, and protect furniture from fading. We offer free in-home consultations for ${city} homeowners.`
+    },
+    {
+      question: `What areas near ${city} do you serve?`,
+      answer: `In addition to ${city}, Sunmasters provides window tinting services throughout the ${region} area including ${nearbyText}, and surrounding communities. We offer mobile service for automotive tinting and on-site installation for residential and commercial projects across the DFW metroplex.`
+    }
+  ];
+  
+  // City-specific additional FAQs based on characteristics
+  const citySpecificFAQs: Record<string, FAQ[]> = {
+    'dallas': [
+      {
+        question: "What types of commercial window tinting do you offer for Dallas businesses?",
+        answer: "Sunmasters provides commercial window tinting for Dallas high-rises, office buildings, storefronts, and retail spaces. Our commercial solutions include solar control film, security film, decorative film, and privacy film. We serve Fortune 500 headquarters and small businesses alike throughout Dallas County."
+      },
+      {
+        question: "Do you offer ceramic window tint for vehicles in Dallas?",
+        answer: "Yes, we specialize in XPEL ceramic window tinting for Dallas vehicles. Ceramic tint provides superior heat rejection (up to 98%), 99% UV protection, and zero signal interference for GPS, phones, and radio. It's the premium choice for Dallas drivers seeking maximum comfort."
+      }
+    ],
+    'plano': [
+      {
+        question: "Why choose ceramic window tint for my Plano vehicle?",
+        answer: "Plano's hot Texas summers demand superior heat protection. XPEL ceramic tint blocks up to 98% of infrared heat while maintaining excellent visibility. Unlike metallic films, ceramic won't interfere with electronics—perfect for Plano's tech-savvy drivers."
+      },
+      {
+        question: "Can window tinting help reduce energy costs for Plano homes?",
+        answer: "Yes! Residential window tinting can reduce Plano home cooling costs by up to 30%. Our solar control films reject heat before it enters your home, reducing AC workload. Many Plano homeowners see ROI within 2-3 years through energy savings."
+      }
+    ],
+    'frisco': [
+      {
+        question: "Do you provide window tinting for luxury vehicles in Frisco?",
+        answer: "Absolutely! Sunmasters specializes in premium window tinting for Frisco's luxury vehicles including Tesla, Mercedes, BMW, Porsche, and exotic cars. Our XPEL ceramic film and meticulous installation protects your investment while enhancing appearance and comfort."
+      },
+      {
+        question: "Can you install window tint on new construction homes in Frisco?",
+        answer: "Yes, we work with Frisco homebuilders and new homeowners to install window film during or after construction. Early installation protects flooring and furniture from day one and can be coordinated with your builder's timeline."
+      }
+    ],
+    'mckinney': [
+      {
+        question: "Do you offer window tinting for historic downtown McKinney buildings?",
+        answer: "Yes! We provide specialized window film solutions for McKinney's historic downtown buildings that preserve architectural character while adding modern comfort and UV protection. Our films can match existing aesthetics while meeting energy efficiency goals."
+      },
+      {
+        question: "What warranty comes with window tinting in McKinney?",
+        answer: "All XPEL window film installations in McKinney include a lifetime manufacturer warranty covering bubbling, peeling, cracking, and color change. This transferable warranty covers both materials and Sunmasters' professional installation."
+      }
+    ],
+    'fort-worth': [
+      {
+        question: "Do you provide commercial window tinting in downtown Fort Worth?",
+        answer: "Yes, Sunmasters serves Fort Worth's growing downtown with commercial window tinting for office buildings, mixed-use developments, and cultural venues. We've installed films in various Fort Worth commercial properties and understand the unique needs of urban buildings."
+      },
+      {
+        question: "Can window film protect my Fort Worth home from break-ins?",
+        answer: "Our security window film helps deter Fort Worth break-ins by holding glass together when impacted. While it won't make glass unbreakable, it significantly slows intruder entry time—often enough to deter theft and protect occupants."
+      }
+    ],
+    'rockwall': [
+      {
+        question: "Do you offer window tinting for lakefront homes in Rockwall?",
+        answer: "Yes! Rockwall's Lake Ray Hubbard properties face intense sun exposure and glare. Our residential window films reduce heat, eliminate lake glare, protect interiors, and maintain your beautiful water views. We serve Heath, Rowlett, and all lakeside Rockwall communities."
+      },
+      {
+        question: "Can you tint boat windows and marine vessels in Rockwall?",
+        answer: "We specialize in automotive and architectural tinting. For Rockwall boat owners, we recommend consulting marine specialists for vessel-specific applications due to unique material and installation requirements."
+      }
+    ],
+    'southlake': [
+      {
+        question: "Do you work with Southlake's luxury home builders?",
+        answer: "Yes, Sunmasters partners with Southlake custom home builders to integrate window film into new construction. We can coordinate with your builder for seamless installation that protects your investment from day one."
+      },
+      {
+        question: "What's the best window tint for high-end vehicles in Southlake?",
+        answer: "For Southlake's luxury and exotic vehicles, we recommend XPEL Prime XR Plus ceramic film. It offers maximum heat rejection, crystal-clear visibility, and zero electronic interference—ideal for vehicles with advanced technology systems."
+      }
+    ],
+    'prosper': [
+      {
+        question: "Do you service new home developments in Prosper?",
+        answer: "Absolutely! We work throughout Prosper's new developments including Windsong Ranch, Star Trail, and Artesia. Early window film installation protects new home interiors before furniture even arrives and qualifies for our lifetime warranty."
+      },
+      {
+        question: "What's the best window tint option for Prosper families?",
+        answer: "Prosper families benefit from our ceramic window films that block 99% of harmful UV rays—protecting children's skin and eyes in vehicles and homes. The superior heat rejection also keeps car seats and interiors cooler for passenger comfort."
+      }
+    ],
+    'greenville': [
+      {
+        question: "What's included in your Greenville window tinting warranty?",
+        answer: "Our Greenville location offers the same lifetime XPEL warranty as all Sunmasters installations. This covers bubbling, peeling, fading, and cracking for as long as you own the vehicle or property. We stand behind every Greenville installation."
+      },
+      {
+        question: "Do you offer same-day window tinting in Greenville?",
+        answer: "Yes! Our Greenville location at 2700 Mockingbird Ln offers same-day automotive window tinting for most vehicles. Call (903) 453-1965 to check availability and schedule your appointment."
+      }
+    ]
+  };
+  
+  // Default additional FAQs for cities without specific content
+  const defaultAdditionalFAQs: FAQ[] = [
+    {
+      question: `What warranty do you offer on ${city} window tinting?`,
+      answer: `All window film installations in ${city} include XPEL's lifetime manufacturer warranty covering bubbling, peeling, cracking, and color change. This transferable warranty provides peace of mind and covers both materials and our professional installation workmanship.`
+    },
+    {
+      question: `Do you offer mobile window tinting service in ${city}?`,
+      answer: `Yes! Sunmasters offers mobile automotive window tinting service throughout ${city} and ${region}. We can come to your home or workplace for added convenience. Contact us to schedule mobile service in ${city}.`
+    }
+  ];
+  
+  // Combine base FAQs with city-specific or default additional FAQs
+  const additionalFAQs = citySpecificFAQs[slug] || defaultAdditionalFAQs;
+  
+  // Return 5-7 FAQs based on what's available
+  return [...baseFAQs, ...additionalFAQs].slice(0, 7);
+};
+
+// Generate FAQ Schema for JSON-LD
+const getFAQSchema = (location: LocationData): object => {
+  const faqs = getCityFAQs(location);
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+};
+
 // Generate unique SEO meta description (150-160 chars) optimized for CTR
 const getUniqueMetaDescription = (location: LocationData): string => {
   const { city, slug, county, region, population } = location;
@@ -477,44 +643,7 @@ const LocationPage = ({ location }: LocationPageProps) => {
         
         {/* FAQ Schema */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": `How much does window tinting cost in ${city}, TX?`,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": `Window tinting prices in ${city} vary based on the type of service. Automotive tinting typically ranges from $199-$599 depending on vehicle size and film quality. Residential and commercial projects are quoted based on square footage. Contact Sunmasters for a free estimate.`
-                }
-              },
-              {
-                "@type": "Question",
-                "name": `Is window tinting legal in ${city}, Texas?`,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, window tinting is legal in Texas with specific regulations. Front side windows must allow at least 25% light transmission. Rear windows and back windshield can be any darkness. Sunmasters ensures all installations comply with Texas state laws."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": `How long does window tinting take in ${city}?`,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Automotive window tinting typically takes 2-4 hours depending on the vehicle. Residential projects vary based on the number of windows. Sunmasters offers same-day service for most automotive tinting jobs."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": `Do you offer motorized shades installation in ${city}?`,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": `Yes, Sunmasters provides professional motorized shade and blind installation throughout ${city} and the ${region} area. We offer motorized patio screens, solar shades, blackout shades, and smart home integrated window treatments.`
-                }
-              }
-            ]
-          })}
+          {JSON.stringify(getFAQSchema(location))}
         </script>
       </Helmet>
 
@@ -1039,58 +1168,27 @@ const LocationPage = ({ location }: LocationPageProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="text-primary font-medium uppercase tracking-wider text-sm">
-              FAQ
+              Frequently Asked Questions
             </span>
             <h2 className="section-title text-foreground mt-2">
-              Window Tinting FAQs for {city}
+              Window Tinting FAQs for {city}, TX
             </h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Find answers to common questions about window tinting services in {city} and the {region} area.
+            </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="font-heading font-bold text-foreground text-lg mb-2">
-                How much does window tinting cost in {city}, TX?
-              </h3>
-              <p className="text-muted-foreground">
-                Window tinting prices in {city} vary based on the type of service. Automotive tinting typically ranges from $199-$599 depending on vehicle size and film quality. Residential and commercial projects are quoted based on square footage and film type. Contact Sunmasters for a free, no-obligation estimate.
-              </p>
-            </div>
-            
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="font-heading font-bold text-foreground text-lg mb-2">
-                Is window tinting legal in {city}, Texas?
-              </h3>
-              <p className="text-muted-foreground">
-                Yes, window tinting is legal in Texas with specific regulations. Front side windows must allow at least 25% visible light transmission (VLT). Rear side windows and the back windshield can be any darkness. Windshield tinting is allowed above the AS-1 line. Sunmasters ensures all installations comply with Texas state laws.
-              </p>
-            </div>
-            
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="font-heading font-bold text-foreground text-lg mb-2">
-                How long does window tinting take?
-              </h3>
-              <p className="text-muted-foreground">
-                Automotive window tinting typically takes 2-4 hours depending on the vehicle type and number of windows. Most vehicles can be completed same-day. Residential and commercial projects vary based on the number of windows and complexity. We provide accurate time estimates during your free consultation.
-              </p>
-            </div>
-            
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="font-heading font-bold text-foreground text-lg mb-2">
-                Do you offer motorized shade installation in {city}?
-              </h3>
-              <p className="text-muted-foreground">
-                Yes! Sunmasters provides professional motorized shade and blind installation throughout {city} and the {region} area. We offer motorized patio screens, solar shades, blackout shades, roller shades, and smart home integrated window treatments. All installations include professional programming and setup.
-              </p>
-            </div>
-            
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="font-heading font-bold text-foreground text-lg mb-2">
-                What warranty do you offer on window tinting?
-              </h3>
-              <p className="text-muted-foreground">
-                All XPEL window film installations are backed by a lifetime manufacturer warranty covering bubbling, peeling, cracking, and color change. This warranty is transferable and covers both materials and our professional installation. We stand behind every job we complete.
-              </p>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {getCityFAQs(location).map((faq, index) => (
+              <div key={index} className="bg-card border border-border rounded-lg p-6 hover:border-primary/30 transition-colors">
+                <h3 className="font-heading font-bold text-foreground text-lg mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
