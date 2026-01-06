@@ -21,6 +21,53 @@
     <meta name="twitter:image" content="https://sunmastersautoandshades.com/og-image.png" />
     
     <link rel="icon" type="image/png" href="/favicon.ico" />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    
+    <!-- Critical CSS: Hero and above-the-fold content -->
+    <style>
+      /* Critical reset and base styles */
+      *, *::before, *::after { box-sizing: border-box; border-width: 0; border-style: solid; }
+      html { line-height: 1.5; -webkit-text-size-adjust: 100%; font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif; }
+      body { margin: 0; line-height: inherit; background-color: hsl(220 30% 8%); color: hsl(40 20% 98%); font-family: 'Open Sans', sans-serif; }
+      img, video { display: block; max-width: 100%; height: auto; }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.025em; }
+      
+      /* Critical layout */
+      .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+      @media (min-width: 1024px) { .container { max-width: 1280px; } }
+      
+      /* Hero section critical styles */
+      #home { position: relative; min-height: 90vh; display: flex; align-items: center; }
+      #home > div:first-child { position: absolute; inset: 0; }
+      #home > div:first-child img { width: 100%; height: 100%; object-fit: cover; }
+      #home > div:first-child > div { position: absolute; inset: 0; background-color: hsl(220 30% 8% / 0.8); }
+      
+      /* Critical text styles */
+      .text-foreground { color: hsl(40 20% 98%); }
+      .text-primary { color: hsl(32 95% 55%); }
+      .text-muted-foreground { color: hsl(220 15% 65%); }
+      .bg-primary { background-color: hsl(32 95% 55%); }
+      .bg-card { background-color: hsl(220 30% 12%); }
+      .border-border { border-color: hsl(220 30% 22%); }
+      
+      /* Hide content until hydrated */
+      #root:empty::before {
+        content: '';
+        display: block;
+        height: 100vh;
+        background-color: hsl(220 30% 8%);
+      }
+    </style>
+    
+    <!-- Noscript fallback for fonts -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" />
+    </noscript>
   </head>
   <body>
     <div id="root"><!--app-html--></div>
