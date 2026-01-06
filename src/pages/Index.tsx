@@ -1,17 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import ServicesOverview from "@/components/ServicesOverview";
-import About from "@/components/About";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import HomepageSEOContent from "@/components/HomepageSEOContent";
-import Testimonials from "@/components/Testimonials";
-import AreasServed from "@/components/AreasServed";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+
+// Lazy load below-the-fold components
+const About = lazy(() => import("@/components/About"));
+const ServicesOverview = lazy(() => import("@/components/ServicesOverview"));
+const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
+const HomepageSEOContent = lazy(() => import("@/components/HomepageSEOContent"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const AreasServed = lazy(() => import("@/components/AreasServed"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+// Simple loading placeholder
+const SectionPlaceholder = () => (
+  <div className="py-20 bg-background">
+    <div className="container mx-auto px-4">
+      <div className="h-64 bg-muted/20 rounded-lg animate-pulse" />
+    </div>
+  </div>
+);
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -94,17 +105,36 @@ const Index = () => {
       </Helmet>
       <Navbar />
       <main>
+        {/* Above the fold - loaded immediately */}
         <Hero />
         <Services />
-        <About />
-        <ServicesOverview />
-        <WhyChooseUs />
-        <HomepageSEOContent />
-        <Testimonials />
-        <AreasServed />
-        <ContactSection />
+        
+        {/* Below the fold - lazy loaded */}
+        <Suspense fallback={<SectionPlaceholder />}>
+          <About />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <ServicesOverview />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <WhyChooseUs />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <HomepageSEOContent />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <Testimonials />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <AreasServed />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <ContactSection />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="h-40 bg-card" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

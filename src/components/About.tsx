@@ -1,21 +1,30 @@
 import { CheckCircle, Shield, Award, Users } from "lucide-react";
+import { useLazyLoad } from "@/hooks/useLazyLoad";
 
 const About = () => {
+  const [videoRef, isVideoVisible] = useLazyLoad<HTMLDivElement>();
+
   return (
     <section id="about" className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Stats & Image */}
+          {/* Left - Stats & Video */}
           <div className="relative">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="rounded-lg w-full"
-            >
-              <source src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//IMG_3977.mov" type="video/mp4" />
-            </video>
+            <div ref={videoRef} className="rounded-lg w-full aspect-video bg-muted">
+              {isVideoVisible ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="rounded-lg w-full h-full object-cover"
+                >
+                  <source src="https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//IMG_3977.mov" type="video/mp4" />
+                </video>
+              ) : (
+                <div className="w-full h-full bg-muted rounded-lg animate-pulse" />
+              )}
+            </div>
             
             {/* Stats Overlay */}
             <div className="grid grid-cols-2 gap-4 mt-6">

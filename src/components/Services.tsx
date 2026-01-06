@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useLazyLoad } from "@/hooks/useLazyLoad";
 import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
 import commercialImg from "@/assets/rockwall-commercial-window-tinting.jpg";
 import residentialImg from "@/assets/rockwall-residential-window-tinting.jpg";
@@ -73,6 +74,55 @@ const services: Service[] = [
   },
 ];
 
+const ServiceCard = ({ service }: { service: Service }) => {
+  const [ref, isVisible] = useLazyLoad<HTMLAnchorElement>();
+
+  return (
+    <a
+      ref={ref}
+      href={service.link || "/#estimate"}
+      className="group block bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+    >
+      <div className="aspect-[16/10] overflow-hidden relative">
+        {isVisible && service.video ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            poster={service.image}
+          >
+            <source src={service.video} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            width={400}
+            height={250}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+      </div>
+      <div className="p-6">
+        <h2 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
+          {service.title}
+        </h2>
+        <p className="text-muted-foreground text-sm mb-4">
+          {service.description}
+        </p>
+        <span className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
+          Get {service.title} Quote
+          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+        </span>
+      </div>
+    </a>
+  );
+};
+
 const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
@@ -96,56 +146,7 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
-            <a
-              key={service.title}
-              href={service.link || "/#estimate"}
-              className="group block bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
-            >
-              <div className="aspect-[16/10] overflow-hidden relative">
-                {service.video ? (
-                  <>
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    >
-                      <source src={service.video} type="video/mp4" />
-                    </video>
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="hidden"
-                      width={400}
-                      height={250}
-                      loading="lazy"
-                    />
-                  </>
-                ) : (
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    width={400}
-                    height={250}
-                    loading="lazy"
-                  />
-                )}
-              </div>
-              <div className="p-6">
-                <h2 className="font-heading font-bold text-foreground text-xl mb-2 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h2>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {service.description}
-                </p>
-                <span className="inline-flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                  Get {service.title} Quote
-                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
-            </a>
+            <ServiceCard key={service.title} service={service} />
           ))}
         </div>
       </div>
