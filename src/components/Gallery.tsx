@@ -11,6 +11,10 @@ import automotiveGenesisUtv from "@/assets/gallery/automotive-genesis-utv.jpeg";
 import automotiveTeslaModel3 from "@/assets/gallery/automotive-tesla-model3.jpeg";
 import automotiveChallengerGreen from "@/assets/gallery/automotive-challenger-green.jpeg";
 import automotiveCorvetteBlue from "@/assets/gallery/automotive-corvette-blue.jpeg";
+import residentialModernHome from "@/assets/gallery/residential-modern-home.png";
+import residentialFloorToCeiling from "@/assets/gallery/residential-floor-to-ceiling.jpeg";
+import residentialLuxuryPoolside from "@/assets/gallery/residential-luxury-poolside.jpeg";
+import residentialCourtyard from "@/assets/gallery/residential-courtyard.jpeg";
 
 const galleryCategories = [
   {
@@ -33,7 +37,12 @@ const galleryCategories = [
     id: "residential",
     title: "Residential Tinting",
     icon: Home,
-    images: [],
+    images: [
+      { src: residentialModernHome, alt: "Modern luxury home with professional window tinting in Rockwall" },
+      { src: residentialFloorToCeiling, alt: "Floor-to-ceiling windows with tinting overlooking pool area" },
+      { src: residentialLuxuryPoolside, alt: "Luxury Mediterranean estate with tinted windows poolside" },
+      { src: residentialCourtyard, alt: "Elegant courtyard with tinted arched windows" },
+    ],
   },
   {
     id: "commercial",
