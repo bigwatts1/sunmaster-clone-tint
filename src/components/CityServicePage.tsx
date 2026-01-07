@@ -320,7 +320,7 @@ const CityServicePage = ({ location, service }: CityServicePageProps) => {
 
   const pageTitle = getPageTitle();
   const metaDescription = getMetaDescription();
-  const canonicalUrl = `https://sunmastersautoandshades.com/${location.slug}-tx/${service.slug}`;
+  const canonicalUrl = `https://www.sunmasterstintandshades.com/${location.slug}-tx/${service.slug}`;
 
   return (
     <>

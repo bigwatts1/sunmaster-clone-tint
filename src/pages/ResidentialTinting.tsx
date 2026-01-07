@@ -111,7 +111,7 @@ const ResidentialTinting = () => {
           content="Professional home window tinting in Dallas-Fort Worth. Reduce energy bills up to 30%, block 99% UV rays, and protect your family and furnishings. Free estimates available."
         />
         <meta name="keywords" content="residential window tinting, home window film, Dallas window tinting, energy saving window film, UV protection film, heat reduction film, privacy window film, security film" />
-        <link rel="canonical" href="https://sunmastersautoandshades.com/residential-tinting" />
+        <link rel="canonical" href="https://www.sunmasterstintandshades.com/residential-tinting" />
       </Helmet>
 
       <TopBar />

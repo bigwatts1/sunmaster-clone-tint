@@ -131,7 +131,7 @@ const CommercialTinting = () => {
           content="Professional commercial window tinting in Dallas-Fort Worth. Reduce energy costs 25-35%, improve employee comfort, and enhance security. Free estimates for offices, retail, and more."
         />
         <meta name="keywords" content="commercial window tinting, office window film, Dallas commercial tinting, building window film, storefront tinting, security window film, solar control film, commercial energy savings" />
-        <link rel="canonical" href="https://sunmastersautoandshades.com/commercial-tinting" />
+        <link rel="canonical" href="https://www.sunmasterstintandshades.com/commercial-tinting" />
       </Helmet>
 
       <TopBar />

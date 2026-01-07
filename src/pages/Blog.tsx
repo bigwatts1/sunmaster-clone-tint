@@ -20,7 +20,7 @@ const Blog = () => {
           content="Expert window tinting tips, guides, and industry news from Sunmasters. Learn about automotive tinting, residential film, PPF, ceramic coating, and more for Dallas-Fort Worth."
         />
         <meta name="keywords" content="window tinting blog, car tint tips, home window film guide, PPF care, ceramic coating maintenance, Texas tint laws, DFW window tinting" />
-        <link rel="canonical" href="https://sunmastersautoandshades.com/blog" />
+        <link rel="canonical" href="https://www.sunmasterstintandshades.com/blog" />
       </Helmet>
 
       <TopBar />
