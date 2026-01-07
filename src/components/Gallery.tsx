@@ -11,6 +11,7 @@ import automotiveGenesisUtv from "@/assets/gallery/automotive-genesis-utv.jpeg";
 import automotiveTeslaModel3 from "@/assets/gallery/automotive-tesla-model3.jpeg";
 import automotiveChallengerGreen from "@/assets/gallery/automotive-challenger-green.jpeg";
 import automotiveCorvetteBlue from "@/assets/gallery/automotive-corvette-blue.jpeg";
+import automotiveMercedesWhite from "@/assets/gallery/automotive-mercedes-white.jpeg";
 import residentialModernHome from "@/assets/gallery/residential-modern-home.png";
 import residentialFloorToCeiling from "@/assets/gallery/residential-floor-to-ceiling.jpeg";
 import residentialLuxuryPoolside from "@/assets/gallery/residential-luxury-poolside.jpeg";
@@ -37,6 +38,7 @@ const galleryCategories = [
       { src: automotiveTeslaModel3, alt: "Red Tesla Model 3 side view with window tinting" },
       { src: automotiveChallengerGreen, alt: "Green Dodge Challenger with window tinting at Sun Masters" },
       { src: automotiveCorvetteBlue, alt: "Blue Chevrolet Corvette C8 with window tinting at Sun Masters" },
+      { src: automotiveMercedesWhite, alt: "White Mercedes-Benz C-Class with window tinting at Sun Masters" },
     ],
   },
   {
