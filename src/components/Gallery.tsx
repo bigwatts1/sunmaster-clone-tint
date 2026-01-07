@@ -15,6 +15,12 @@ import residentialModernHome from "@/assets/gallery/residential-modern-home.png"
 import residentialFloorToCeiling from "@/assets/gallery/residential-floor-to-ceiling.jpeg";
 import residentialLuxuryPoolside from "@/assets/gallery/residential-luxury-poolside.jpeg";
 import residentialCourtyard from "@/assets/gallery/residential-courtyard.jpeg";
+import residentialBrickBackyard from "@/assets/gallery/residential-brick-backyard.jpeg";
+import residentialStoneFront from "@/assets/gallery/residential-stone-front.jpeg";
+import residentialLuxuryEstate from "@/assets/gallery/residential-luxury-estate.jpeg";
+import residentialPoolHome from "@/assets/gallery/residential-pool-home.jpeg";
+import residentialFarmhouse from "@/assets/gallery/residential-farmhouse.jpeg";
+import residentialWhiteCottage from "@/assets/gallery/residential-white-cottage.jpeg";
 
 const galleryCategories = [
   {
@@ -42,6 +48,12 @@ const galleryCategories = [
       { src: residentialFloorToCeiling, alt: "Floor-to-ceiling windows with tinting overlooking pool area" },
       { src: residentialLuxuryPoolside, alt: "Luxury Mediterranean estate with tinted windows poolside" },
       { src: residentialCourtyard, alt: "Elegant courtyard with tinted arched windows" },
+      { src: residentialBrickBackyard, alt: "Brick home backyard view with tinted windows" },
+      { src: residentialStoneFront, alt: "Contemporary stone home with tinted windows and landscaping" },
+      { src: residentialLuxuryEstate, alt: "Luxury estate with full window tinting installation" },
+      { src: residentialPoolHome, alt: "Family home with tinted windows overlooking pool" },
+      { src: residentialFarmhouse, alt: "Modern farmhouse with professional window tinting" },
+      { src: residentialWhiteCottage, alt: "White cottage with frosted door and tinted windows" },
     ],
   },
   {
