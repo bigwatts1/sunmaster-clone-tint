@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Car, Home, Building2, Zap, Sun } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Car, Home, Building2, Zap, Sun, X } from "lucide-react";
 import automotiveHyundaiTint from "@/assets/gallery/automotive-hyundai-tint.jpeg";
 
 const galleryCategories = [
@@ -38,6 +40,8 @@ const galleryCategories = [
 ];
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <section id="gallery" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -68,26 +72,47 @@ const Gallery = () => {
               {/* Category Images */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {category.images.map((image, index) => (
-                  <div
+                  <button
                     key={index}
-                    className="gallery-item"
+                    className="gallery-item cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary rounded-lg overflow-hidden"
                     style={{ animationDelay: `${index * 0.1}s` }}
+                    onClick={() => setSelectedImage(image)}
                   >
                     <img 
                       src={image.src} 
                       alt={image.alt}
-                      className="w-full h-48 md:h-56 object-cover rounded-lg"
+                      className="w-full h-48 md:h-56 object-cover rounded-lg transition-transform duration-300 hover:scale-105"
                       width={300}
                       height={224}
                       loading="lazy"
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl p-0 bg-black/95 border-none">
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors"
+            aria-label="Close"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          {selectedImage && (
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="w-full h-auto max-h-[85vh] object-contain"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
