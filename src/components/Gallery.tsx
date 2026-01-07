@@ -3,6 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Car, Home, Building2, Zap, Sun, X } from "lucide-react";
 import automotiveHyundaiTint from "@/assets/gallery/automotive-hyundai-tint.jpeg";
+import automotiveIneosGrenadier from "@/assets/gallery/automotive-ineos-grenadier.jpeg";
+import automotiveTeslaRed from "@/assets/gallery/automotive-tesla-red.jpeg";
+import automotiveFordRaptor from "@/assets/gallery/automotive-ford-raptor.jpeg";
+import automotivePorsche911 from "@/assets/gallery/automotive-porsche-911.jpeg";
+import automotiveGenesisUtv from "@/assets/gallery/automotive-genesis-utv.jpeg";
+import automotiveTeslaModel3 from "@/assets/gallery/automotive-tesla-model3.jpeg";
+import automotiveChallengerGreen from "@/assets/gallery/automotive-challenger-green.jpeg";
+import automotiveCorvetteBlue from "@/assets/gallery/automotive-corvette-blue.jpeg";
 
 const galleryCategories = [
   {
@@ -11,6 +19,14 @@ const galleryCategories = [
     icon: Car,
     images: [
       { src: automotiveHyundaiTint, alt: "Red Hyundai sedan with professional window tinting at Sun Masters" },
+      { src: automotiveIneosGrenadier, alt: "Blue INEOS Grenadier SUV with window tinting at Sun Masters" },
+      { src: automotiveTeslaRed, alt: "Red Tesla Model 3 with window tinting at Sun Masters" },
+      { src: automotiveFordRaptor, alt: "White Ford F-150 Raptor with window tinting" },
+      { src: automotivePorsche911, alt: "Silver Porsche 911 Turbo with window tinting at Sun Masters" },
+      { src: automotiveGenesisUtv, alt: "White Genesis sedan and UTV with window tinting at Sun Masters" },
+      { src: automotiveTeslaModel3, alt: "Red Tesla Model 3 side view with window tinting" },
+      { src: automotiveChallengerGreen, alt: "Green Dodge Challenger with window tinting at Sun Masters" },
+      { src: automotiveCorvetteBlue, alt: "Blue Chevrolet Corvette C8 with window tinting at Sun Masters" },
     ],
   },
   {
