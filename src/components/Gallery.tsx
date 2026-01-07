@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Car, Home, Building2, Zap, Sun } from "lucide-react";
+import automotiveHyundaiTint from "@/assets/gallery/automotive-hyundai-tint.jpeg";
 
 const galleryCategories = [
   {
     id: "automotive",
     title: "Automotive Tinting",
     icon: Car,
-    images: [],
+    images: [
+      { src: automotiveHyundaiTint, alt: "Red Hyundai sedan with professional window tinting at Sun Masters" },
+    ],
   },
   {
     id: "residential",
