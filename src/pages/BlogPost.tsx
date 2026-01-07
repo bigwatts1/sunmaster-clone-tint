@@ -36,7 +36,7 @@ const BlogPost = () => {
     .filter((p) => p.slug !== post.slug)
     .slice(0, 3);
 
-  const canonicalUrl = `https://sunmastersautoandshades.com/blog/${post.slug}`;
+  const canonicalUrl = `https://www.sunmasterstintandshades.com/blog/${post.slug}`;
 
   return (
     <>
@@ -66,7 +66,7 @@ const BlogPost = () => {
             "publisher": {
               "@type": "Organization",
               "name": "Sunmasters Window Tinting and Shades",
-              "url": "https://sunmastersautoandshades.com"
+              "url": "https://www.sunmasterstintandshades.com"
             },
             "datePublished": post.date,
             "mainEntityOfPage": {

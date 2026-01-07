@@ -99,7 +99,7 @@ const MotorizedPatioScreens = () => {
           name="description"
           content="Professional motorized patio screen installation in Dallas-Fort Worth. Retractable screens for patios, pergolas & outdoor living spaces. UV protection, bug control & smart home integration. Free estimates."
         />
-        <link rel="canonical" href="https://sunmastersautoandshades.com/motorized-patio-screens" />
+        <link rel="canonical" href="https://www.sunmasterstintandshades.com/motorized-patio-screens" />
       </Helmet>
 
       <TopBar />

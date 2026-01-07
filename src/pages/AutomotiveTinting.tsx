@@ -138,7 +138,7 @@ const AutomotiveTinting = () => {
           content="Professional XPEL automotive window tinting in Dallas-Fort Worth. Ceramic tint blocks 98% heat & 99% UV rays. Texas legal tint. Lifetime warranty. Free estimates."
         />
         <meta name="keywords" content="automotive window tinting, car window tint Dallas, XPEL window film, ceramic tint, Texas legal tint, heat rejection tint, UV protection, vehicle window tinting" />
-        <link rel="canonical" href="https://sunmastersautoandshades.com/automotive-tinting" />
+        <link rel="canonical" href="https://www.sunmasterstintandshades.com/automotive-tinting" />
       </Helmet>
 
       <TopBar />
