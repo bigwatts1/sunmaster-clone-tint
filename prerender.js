@@ -92,8 +92,17 @@ const routesToPrerender = [
   console.log(`Pre-rendering ${routesToPrerender.length} routes...`)
   
   for (const url of routesToPrerender) {
-    const appHtml = render(url);
-    const html = template.replace(`<!--app-html-->`, appHtml)
+    const { html: appHtml, helmet } = render(url);
+
+    // Replace app content and inject helmet head tags
+    let html = template
+      .replace(`<!--app-html-->`, appHtml)
+      // Replace title
+      .replace(/<title>.*?<\/title>/, helmet.title)
+      // Remove static canonical and inject helmet's link tags (which include canonical)
+      .replace(/<link rel="canonical"[^>]*>/, '')
+      // Inject helmet meta tags before </head>
+      .replace('</head>', `${helmet.meta}\n${helmet.link}\n${helmet.script}\n</head>`)
 
     // Determine file path
     const filePath = `dist${url === '/' ? '/index' : url}.html`
