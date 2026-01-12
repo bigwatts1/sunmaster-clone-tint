@@ -1,5 +1,6 @@
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
+import { Helmet } from 'react-helmet';
 import App from './App';
 
 export function render(url: string) {
@@ -9,5 +10,16 @@ export function render(url: string) {
     </StaticRouter>
   );
 
-  return html;
+  // Get helmet data for head tags
+  const helmet = Helmet.renderStatic();
+
+  return {
+    html,
+    helmet: {
+      title: helmet.title.toString(),
+      meta: helmet.meta.toString(),
+      link: helmet.link.toString(),
+      script: helmet.script.toString(),
+    }
+  };
 }
