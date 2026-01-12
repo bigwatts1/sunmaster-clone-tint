@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, User, Share2 } from "lucide-react";
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
