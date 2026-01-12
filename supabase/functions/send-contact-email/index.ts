@@ -50,7 +50,7 @@ function validateInput(data: unknown): { valid: boolean; error?: string; sanitiz
     return { valid: false, error: "Invalid request body" };
   }
   
-  const { name, phone, email, service, message } = data as Record<string, unknown>;
+  const { name, phone, email, service, location, message } = data as Record<string, unknown>;
   
   // Validate required fields
   if (typeof name !== 'string' || name.trim().length === 0 || name.length > 100) {
@@ -64,6 +64,9 @@ function validateInput(data: unknown): { valid: boolean; error?: string; sanitiz
   }
   if (typeof service !== 'string' || service.trim().length === 0 || service.length > 100) {
     return { valid: false, error: "Invalid service" };
+  }
+  if (location !== undefined && (typeof location !== 'string' || location.length > 100)) {
+    return { valid: false, error: "Invalid location" };
   }
   if (message !== undefined && (typeof message !== 'string' || message.length > 2000)) {
     return { valid: false, error: "Invalid message" };
@@ -79,6 +82,7 @@ function validateInput(data: unknown): { valid: boolean; error?: string; sanitiz
       phone: sanitize(phone),
       email: email.trim().toLowerCase(),
       service: sanitize(service),
+      location: typeof location === 'string' ? sanitize(location) : '',
       message: typeof message === 'string' ? sanitize(message) : '',
     }
   };
@@ -89,6 +93,7 @@ interface ContactRequest {
   phone: string;
   email: string;
   service: string;
+  location: string;
   message: string;
 }
 
@@ -150,9 +155,9 @@ const handler = async (req: Request): Promise<Response> => {
       });
     }
 
-    const { name, phone, email, service, message } = validation.sanitized;
+    const { name, phone, email, service, location, message } = validation.sanitized;
 
-    console.log("Received contact form submission:", { name, phone, service });
+    console.log("Received contact form submission:", { name, phone, service, location });
 
     // Send notification to business owner
     const ownerEmailRes = await fetch("https://api.resend.com/emails", {
@@ -164,13 +169,14 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Sunmasters Website <onboarding@resend.dev>",
         to: ["aaron@sunmastersdfw.com"],
-        subject: `New Contact Form: ${service} - ${name}`,
+        subject: `New Contact Form: ${service} - ${name}${location ? ` (${location})` : ''}`,
         html: `
           <h2>New Contact Form Submission</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Phone:</strong> ${phone}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Service Requested:</strong> ${service}</p>
+          <p><strong>Location:</strong> ${location || "Not specified"}</p>
           <p><strong>Message:</strong></p>
           <p>${message || "No message provided"}</p>
         `,
