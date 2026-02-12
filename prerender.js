@@ -8,6 +8,8 @@ const toAbsolute = (p) => path.resolve(__dirname, p)
 const template = fs.readFileSync(toAbsolute('dist/client/index.html'), 'utf-8')
 const { render } = await import('./dist/server/entry-server.js')
 
+const SITE_ORIGIN = process.env.SITE_ORIGIN || 'https://www.sunmasterstintandshades.com'
+
 // City slugs from locations data
 const citySlugs = [
   'dallas', 'plano', 'frisco', 'mckinney', 'fort-worth', 'arlington', 'irving',
@@ -120,8 +122,24 @@ const routesToPrerender = [
   
   console.log(`\nSuccessfully pre-rendered ${routesToPrerender.length} pages!`)
 
+  // Generate sitemap.xml from the exact routes we pre-render (prevents orphan pages)
+  const normalizePath = (p) => (p === '/' ? '/' : p.replace(/\/$/, ''))
+  const urls = [...new Set(routesToPrerender.map(normalizePath))]
+    .filter((p) => p && p !== '/client' && p !== '/server')
+    .map((p) => `${SITE_ORIGIN}${p === '/' ? '' : p}`)
+
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    urls.map((loc) => `  <url><loc>${loc}</loc></url>`).join('\n') +
+    `\n</urlset>\n`
+
+  fs.writeFileSync(toAbsolute('dist/sitemap.xml'), sitemapXml)
+  // also keep a copy in public/ for local dev parity
+  fs.writeFileSync(toAbsolute('public/sitemap.xml'), sitemapXml)
+  console.log('generated: sitemap.xml')
+
   // Copy client assets to dist root for deployment
-  const assetsToCopy = ['assets', 'favicon.ico', 'robots.txt', 'sitemap.xml', 'videos', 'og-image.png'];
+  const assetsToCopy = ['assets', 'favicon.ico', 'robots.txt', 'videos', 'og-image.png'];
   for (const asset of assetsToCopy) {
     const src = toAbsolute(`dist/client/${asset}`);
     const dest = toAbsolute(`dist/${asset}`);
@@ -132,6 +150,16 @@ const routesToPrerender = [
         fs.copyFileSync(src, dest);
       }
       console.log('copied:', asset);
+    }
+  }
+
+  // Netlify publishes the entire dist/ directory. If dist/client or dist/server remain,
+  // they become accidental indexable routes (/client, /server). We don't want that.
+  for (const dir of ['dist/client', 'dist/server']) {
+    const abs = toAbsolute(dir)
+    if (fs.existsSync(abs)) {
+      fs.rmSync(abs, { recursive: true, force: true })
+      console.log('removed:', dir)
     }
   }
 })()
