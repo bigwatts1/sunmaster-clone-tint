@@ -1,0 +1,27 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\14693\\sunmaster-site\\sunmaster-clone-tint-main\\dist"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build:ssg"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

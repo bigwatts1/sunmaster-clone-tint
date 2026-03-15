@@ -1,0 +1,179 @@
+/* Fonts loaded via index.html with preload for performance */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 30% 8%;
+    --foreground: 40 20% 98%;
+
+    --card: 220 30% 12%;
+    --card-foreground: 40 20% 98%;
+
+    --popover: 220 30% 12%;
+    --popover-foreground: 40 20% 98%;
+
+    --primary: 32 95% 55%;
+    --primary-foreground: 220 50% 15%;
+
+    --secondary: 220 50% 15%;
+    --secondary-foreground: 40 20% 98%;
+
+    --muted: 220 30% 18%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 32 100% 50%;
+    --accent-foreground: 220 50% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 20% 98%;
+
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --ring: 32 95% 55%;
+
+    --radius: 0.25rem;
+
+    /* Custom tokens */
+    --hero-overlay: 220 30% 5% / 0.75;
+    --accent-glow: 32 95% 55% / 0.3;
+    --form-bg: 220 30% 8% / 0.95;
+    --gradient-sunset: linear-gradient(180deg, hsl(45 100% 60%), hsl(32 95% 55%), hsl(25 90% 50%));
+
+    /* Font families */
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 40 20% 98%;
+    --sidebar-primary: 32 95% 55%;
+    --sidebar-primary-foreground: 220 50% 15%;
+    --sidebar-accent: 220 30% 18%;
+    --sidebar-accent-foreground: 40 20% 98%;
+    --sidebar-border: 220 30% 22%;
+    --sidebar-ring: 32 95% 55%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 40 20% 98%;
+
+    --card: 220 30% 12%;
+    --card-foreground: 40 20% 98%;
+
+    --popover: 220 30% 12%;
+    --popover-foreground: 40 20% 98%;
+
+    --primary: 32 95% 55%;
+    --primary-foreground: 220 50% 15%;
+
+    --secondary: 220 50% 15%;
+    --secondary-foreground: 40 20% 98%;
+
+    --muted: 220 30% 18%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 32 100% 50%;
+    --accent-foreground: 220 50% 15%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 20% 98%;
+
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --ring: 32 95% 55%;
+
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 40 20% 98%;
+    --sidebar-primary: 32 95% 55%;
+    --sidebar-primary-foreground: 220 50% 15%;
+    --sidebar-accent: 220 30% 18%;
+    --sidebar-accent-foreground: 40 20% 98%;
+    --sidebar-border: 220 30% 22%;
+    --sidebar-ring: 32 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-bold tracking-wide;
+  }
+}
+
+@layer components {
+  .accent-line {
+    @apply w-1 h-full bg-primary absolute left-0 top-0;
+  }
+  
+  .hero-title {
+    font-family: var(--font-heading);
+    @apply text-5xl md:text-7xl font-bold uppercase tracking-wider;
+    text-shadow: 2px 2px 8px hsl(var(--hero-overlay));
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    @apply text-3xl md:text-4xl font-bold uppercase tracking-wide;
+  }
+
+  .service-card {
+    @apply relative overflow-hidden rounded-sm transition-all duration-300;
+  }
+
+  .service-card:hover {
+    @apply transform scale-[1.02];
+    box-shadow: 0 10px 40px hsl(var(--accent-glow));
+  }
+
+  .form-container {
+    background: hsl(var(--form-bg));
+    @apply backdrop-blur-sm;
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    @apply text-5xl md:text-6xl font-bold text-primary;
+  }
+
+  .nav-link {
+    @apply uppercase tracking-widest text-sm font-medium transition-colors duration-200;
+  }
+
+  .nav-link:hover {
+    @apply text-primary;
+  }
+
+  .gallery-item {
+    @apply aspect-[4/3] overflow-hidden rounded-sm cursor-pointer transition-transform duration-300;
+  }
+
+  .gallery-item:hover {
+    @apply transform scale-105;
+  }
+
+  .gallery-item img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+  }
+
+  .gallery-item:hover img {
+    @apply transform scale-110;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 8px hsl(var(--hero-overlay));
+  }
+}
