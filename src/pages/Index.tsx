@@ -1,45 +1,17 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-
-// Consolidated lazy load - single chunk for below-the-fold content
-const BelowTheFold = lazy(() => 
-  Promise.all([
-    import("@/components/About"),
-    import("@/components/ServicesOverview"),
-    import("@/components/WhyChooseUs"),
-    import("@/components/HomepageSEOContent"),
-    import("@/components/Testimonials"),
-    import("@/components/AreasServed"),
-    import("@/components/ContactSection"),
-    import("@/components/Footer"),
-  ]).then(([About, ServicesOverview, WhyChooseUs, HomepageSEOContent, Testimonials, AreasServed, ContactSection, Footer]) => ({
-    default: () => (
-      <>
-        <About.default />
-        <ServicesOverview.default />
-        <WhyChooseUs.default />
-        <HomepageSEOContent.default />
-        <Testimonials.default />
-        <AreasServed.default />
-        <ContactSection.default />
-        <Footer.default />
-      </>
-    )
-  }))
-);
-
-// Simple loading placeholder
-const SectionPlaceholder = () => (
-  <div className="py-20 bg-background">
-    <div className="container mx-auto px-4">
-      <div className="h-64 bg-muted/20 rounded-lg animate-pulse" />
-    </div>
-  </div>
-);
+import About from "@/components/About";
+import ServicesOverview from "@/components/ServicesOverview";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import HomepageSEOContent from "@/components/HomepageSEOContent";
+import Testimonials from "@/components/Testimonials";
+import AreasServed from "@/components/AreasServed";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -129,10 +101,15 @@ const Index = () => {
         <Hero />
         <Services />
         
-        {/* Below the fold - single consolidated chunk */}
-        <Suspense fallback={<SectionPlaceholder />}>
-          <BelowTheFold />
-        </Suspense>
+        {/* Below the fold */}
+        <About />
+        <ServicesOverview />
+        <WhyChooseUs />
+        <HomepageSEOContent />
+        <Testimonials />
+        <AreasServed />
+        <ContactSection />
+        <Footer />
       </main>
     </div>
   );
