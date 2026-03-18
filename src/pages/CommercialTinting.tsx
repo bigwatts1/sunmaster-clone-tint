@@ -126,12 +126,12 @@ const CommercialTinting = () => {
   return (
     <>
       <Helmet>
-        <title>Commercial Window Tinting Dallas | Office Building Window Film | Sunmasters</title>
+        <title>Commercial Window Tinting Dallas | Cut Cooling Costs 35% | Sunmasters</title>
         <meta
           name="description"
-          content="Professional commercial window tinting in Dallas-Fort Worth. Reduce energy costs 25-35%, improve employee comfort, and enhance security. Free estimates for offices, retail, and more."
+          content="Commercial window tinting for DFW offices, storefronts & restaurants. Cut cooling costs 25-35%. ROI in 3-4 years. 45+ years experience. Free assessment. ★★★★★ (469) 757-4325"
         />
-        <meta name="keywords" content="commercial window tinting, office window film, Dallas commercial tinting, building window film, storefront tinting, security window film, solar control film, commercial energy savings" />
+        <meta name="keywords" content="commercial window tinting dallas, commercial window film near me, office window tinting dfw, storefront window film, building window tint dallas fort worth" />
         <link rel="canonical" href="https://www.sunmasterstintandshades.com/commercial-tinting" />
       </Helmet>
 

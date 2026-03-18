@@ -106,12 +106,12 @@ const ResidentialTinting = () => {
   return (
     <>
       <Helmet>
-        <title>Residential Window Tinting Dallas | Home Window Film | Sunmasters</title>
+        <title>Residential Window Tinting Near Me | Cut Energy Bills 30% | Sunmasters DFW</title>
         <meta
           name="description"
-          content="Professional home window tinting in Dallas-Fort Worth. Reduce energy bills up to 30%, block 99% UV rays, and protect your family and furnishings. Free estimates available."
+          content="Home window tinting in Dallas-Fort Worth. Cut energy bills 30%. Block 99% UV rays. Protect furniture from fading. Free in-home estimates. 45+ years experience. ★★★★★ (469) 757-4325"
         />
-        <meta name="keywords" content="residential window tinting, home window film, Dallas window tinting, energy saving window film, UV protection film, heat reduction film, privacy window film, security film" />
+        <meta name="keywords" content="residential window tinting near me, home window tinting near me, home window film dallas, residential window film dfw, energy saving window tint, house window tinting" />
         <link rel="canonical" href="https://www.sunmasterstintandshades.com/residential-tinting" />
       </Helmet>
 

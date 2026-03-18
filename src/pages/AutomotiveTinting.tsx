@@ -133,12 +133,12 @@ const AutomotiveTinting = () => {
   return (
     <>
       <Helmet>
-        <title>Automotive Window Tinting Dallas | XPEL Car Tint | Sunmasters</title>
+        <title>Car Tint Near Me | Ceramic Window Tint $199+ | Sunmasters DFW</title>
         <meta
           name="description"
-          content="Professional XPEL automotive window tinting in Dallas-Fort Worth. Ceramic tint blocks 98% heat & 99% UV rays. Texas legal tint. Lifetime warranty. Free estimates."
+          content="Car window tinting near you in Dallas-Fort Worth. XPEL ceramic tint from $199. 98% heat rejection. Same-day service. Lifetime warranty. ★★★★★ Call (469) 757-4325"
         />
-        <meta name="keywords" content="automotive window tinting, car window tint Dallas, XPEL window film, ceramic tint, Texas legal tint, heat rejection tint, UV protection, vehicle window tinting" />
+        <meta name="keywords" content="car tint near me, window tinting near me, tint near me, window tint near me, automotive window tinting dallas, ceramic tint dfw, car window tint rockwall" />
         <link rel="canonical" href="https://www.sunmasterstintandshades.com/automotive-tinting" />
       </Helmet>
 
