@@ -26,7 +26,7 @@ const getServiceNavItems = (city: string): ServiceNavItem[] => [
   { icon: Car, title: `Automotive Tinting ${city} TX`, slug: "automotive-window-tint", video: "/videos/automotive-bg.mp4" },
   { icon: Home, title: `Residential Tinting ${city} TX`, slug: "residential-window-tint", video: "/videos/residential-bg.mp4" },
   { icon: Building2, title: `Commercial Tinting ${city} TX`, slug: "commercial-window-tint", video: "/videos/commercial-bg.mp4" },
-  { icon: Sparkles, title: `Ceramic Tint ${city} TX`, slug: "ceramic-window-tint", video: "/videos/ceramic-bg.mov" },
+  { icon: Sparkles, title: `Ceramic Tint ${city} TX`, slug: "ceramic-window-tint", video: "/videos/automotive-bg.mp4" },
   { icon: Shield, title: `Security Film ${city} TX`, slug: "security-window-film", image: securityFilmImg },
   { icon: ToggleRight, title: `Smart Film ${city} TX`, slug: "smart-film", video: "/videos/smartfilm-bg.mp4" },
   { icon: PanelTop, title: `Patio Screens ${city} TX`, slug: "motorized-patio-screens", video: "https://veihnijxukhoegozttym.supabase.co/storage/v1/object/public/videos//copy_DF98BC66-AF50-462F-AE4A-29E0ECEA82E5.mov" },
@@ -59,7 +59,7 @@ const getServices = (city: string) => [
     title: `Ceramic Window Tint ${city} TX`,
     description: `Premium ceramic technology for ${city} vehicles - superior heat rejection without signal interference.`,
     slug: "ceramic-window-tint",
-    video: "/videos/ceramic-bg.mov",
+    video: "/videos/automotive-bg.mp4",
   },
   {
     icon: Shield,

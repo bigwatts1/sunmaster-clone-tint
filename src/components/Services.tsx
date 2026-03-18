@@ -49,14 +49,14 @@ const services: Service[] = [
     title: "Paint Protection Film Rockwall TX",
     description: "Protect your vehicle's paint from rock chips, scratches, and road debris with PPF in Rockwall.",
     image: ppfImg,
-    video: "/videos/ppf-homepage.mov",
+    video: "/videos/automotive-bg.mp4",
     link: "/paint-protection",
   },
   {
     title: "Ceramic Coating Rockwall TX",
     description: "Long-lasting paint protection with a brilliant, hydrophobic finish for your vehicle in Rockwall.",
     image: ceramicImg,
-    video: "/videos/ceramic-bg.mov",
+    video: "/videos/automotive-bg.mp4",
     link: "/ceramic-coating",
   },
   {

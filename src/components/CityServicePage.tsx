@@ -47,7 +47,7 @@ const allServices: ServiceItem[] = [
     icon: Sparkles,
     title: "Ceramic Tint",
     slug: "ceramic-window-tint",
-    video: "/videos/ceramic-bg.mov",
+    video: "/videos/automotive-bg.mp4",
   },
   {
     icon: Shield,
