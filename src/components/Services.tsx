@@ -1,8 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { useLazyLoad } from "@/hooks/useLazyLoad";
-import automotiveImg from "@/assets/rockwall-automotive-window-tinting.jpg";
+import automotiveImg from "@/assets/gallery/automotive-tesla-red.jpeg";
 import commercialImg from "@/assets/rockwall-commercial-window-tinting.jpg";
-import residentialImg from "@/assets/rockwall-residential-window-tinting.jpg";
+import residentialImg from "@/assets/gallery/residential-luxury-estate.jpeg";
 import ppfImg from "@/assets/rockwall-paint-protection-film.jpg";
 import ceramicImg from "@/assets/rockwall-ceramic-coating.jpg";
 import securityImg from "@/assets/rockwall-school-security-film.jpg";
@@ -56,7 +56,7 @@ const services: Service[] = [
     title: "Ceramic Coating Rockwall TX",
     description: "Long-lasting paint protection with a brilliant, hydrophobic finish for your vehicle in Rockwall.",
     image: ceramicImg,
-    video: "/videos/automotive-bg.mp4",
+    video: "/videos/ceramic-bg.mp4",
     link: "/ceramic-coating",
   },
   {
