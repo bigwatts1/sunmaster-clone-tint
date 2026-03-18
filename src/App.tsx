@@ -1,65 +1,63 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 
-// Only import the homepage statically (most common entry point)
+// Direct imports for full SSG rendering (no lazy loading)
 import Index from "./pages/Index";
-
-// Lazy load all other pages for code splitting
-const SmartFilm = lazy(() => import("./pages/SmartFilm"));
-const PaintProtection = lazy(() => import("./pages/PaintProtection"));
-const ResidentialTinting = lazy(() => import("./pages/ResidentialTinting"));
-const CommercialTinting = lazy(() => import("./pages/CommercialTinting"));
-const AutomotiveTinting = lazy(() => import("./pages/AutomotiveTinting"));
-const CeramicCoating = lazy(() => import("./pages/CeramicCoating"));
-const SecurityFilm = lazy(() => import("./pages/SecurityFilm"));
-const MotorizedPatioScreens = lazy(() => import("./pages/MotorizedPatioScreens"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const CityService = lazy(() => import("./pages/CityService"));
-const LandingAutoTint = lazy(() => import("./pages/LandingAutoTint"));
-const LandingHomeTint = lazy(() => import("./pages/LandingHomeTint"));
-const LandingCommercialTint = lazy(() => import("./pages/LandingCommercialTint"));
-const LandingPPF = lazy(() => import("./pages/LandingPPF"));
-const LandingCeramicCoating = lazy(() => import("./pages/LandingCeramicCoating"));
-const LandingSmartFilm = lazy(() => import("./pages/LandingSmartFilm"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+import SmartFilm from "./pages/SmartFilm";
+import PaintProtection from "./pages/PaintProtection";
+import ResidentialTinting from "./pages/ResidentialTinting";
+import CommercialTinting from "./pages/CommercialTinting";
+import AutomotiveTinting from "./pages/AutomotiveTinting";
+import CeramicCoating from "./pages/CeramicCoating";
+import SecurityFilm from "./pages/SecurityFilm";
+import MotorizedPatioScreens from "./pages/MotorizedPatioScreens";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Gallery from "./pages/Gallery";
+import CityService from "./pages/CityService";
+import LandingAutoTint from "./pages/LandingAutoTint";
+import LandingHomeTint from "./pages/LandingHomeTint";
+import LandingCommercialTint from "./pages/LandingCommercialTint";
+import LandingPPF from "./pages/LandingPPF";
+import LandingCeramicCoating from "./pages/LandingCeramicCoating";
+import LandingSmartFilm from "./pages/LandingSmartFilm";
+import NotFound from "./pages/NotFound";
 
 // Location Pages
-const Dallas = lazy(() => import("./pages/locations/Dallas"));
-const Plano = lazy(() => import("./pages/locations/Plano"));
-const Frisco = lazy(() => import("./pages/locations/Frisco"));
-const McKinney = lazy(() => import("./pages/locations/McKinney"));
-const FortWorth = lazy(() => import("./pages/locations/FortWorth"));
-const Arlington = lazy(() => import("./pages/locations/Arlington"));
-const Irving = lazy(() => import("./pages/locations/Irving"));
-const Garland = lazy(() => import("./pages/locations/Garland"));
-const GrandPrairie = lazy(() => import("./pages/locations/GrandPrairie"));
-const Richardson = lazy(() => import("./pages/locations/Richardson"));
-const Allen = lazy(() => import("./pages/locations/Allen"));
-const Carrollton = lazy(() => import("./pages/locations/Carrollton"));
-const Lewisville = lazy(() => import("./pages/locations/Lewisville"));
-const Denton = lazy(() => import("./pages/locations/Denton"));
-const FlowerMound = lazy(() => import("./pages/locations/FlowerMound"));
-const TheColony = lazy(() => import("./pages/locations/TheColony"));
-const LittleElm = lazy(() => import("./pages/locations/LittleElm"));
-const Prosper = lazy(() => import("./pages/locations/Prosper"));
-const Mesquite = lazy(() => import("./pages/locations/Mesquite"));
-const Rockwall = lazy(() => import("./pages/locations/Rockwall"));
-const Rowlett = lazy(() => import("./pages/locations/Rowlett"));
-const Wylie = lazy(() => import("./pages/locations/Wylie"));
-const Murphy = lazy(() => import("./pages/locations/Murphy"));
-const Sachse = lazy(() => import("./pages/locations/Sachse"));
-const Coppell = lazy(() => import("./pages/locations/Coppell"));
-const Grapevine = lazy(() => import("./pages/locations/Grapevine"));
-const Southlake = lazy(() => import("./pages/locations/Southlake"));
-const Greenville = lazy(() => import("./pages/locations/Greenville"));
-const CaddoMills = lazy(() => import("./pages/locations/CaddoMills"));
-const Commerce = lazy(() => import("./pages/locations/Commerce"));
+import Dallas from "./pages/locations/Dallas";
+import Plano from "./pages/locations/Plano";
+import Frisco from "./pages/locations/Frisco";
+import McKinney from "./pages/locations/McKinney";
+import FortWorth from "./pages/locations/FortWorth";
+import Arlington from "./pages/locations/Arlington";
+import Irving from "./pages/locations/Irving";
+import Garland from "./pages/locations/Garland";
+import GrandPrairie from "./pages/locations/GrandPrairie";
+import Richardson from "./pages/locations/Richardson";
+import Allen from "./pages/locations/Allen";
+import Carrollton from "./pages/locations/Carrollton";
+import Lewisville from "./pages/locations/Lewisville";
+import Denton from "./pages/locations/Denton";
+import FlowerMound from "./pages/locations/FlowerMound";
+import TheColony from "./pages/locations/TheColony";
+import LittleElm from "./pages/locations/LittleElm";
+import Prosper from "./pages/locations/Prosper";
+import Mesquite from "./pages/locations/Mesquite";
+import Rockwall from "./pages/locations/Rockwall";
+import Rowlett from "./pages/locations/Rowlett";
+import Wylie from "./pages/locations/Wylie";
+import Murphy from "./pages/locations/Murphy";
+import Sachse from "./pages/locations/Sachse";
+import Coppell from "./pages/locations/Coppell";
+import Grapevine from "./pages/locations/Grapevine";
+import Southlake from "./pages/locations/Southlake";
+import Greenville from "./pages/locations/Greenville";
+import CaddoMills from "./pages/locations/CaddoMills";
+import Commerce from "./pages/locations/Commerce";
 
 const App = () => {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -69,7 +67,6 @@ const App = () => {
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/smart-film" element={<SmartFilm />} />
@@ -134,7 +131,6 @@ const App = () => {
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Suspense>
     </TooltipProvider>
   </QueryClientProvider>
   );
