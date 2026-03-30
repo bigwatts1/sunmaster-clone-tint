@@ -47,6 +47,13 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Track lead conversion in Facebook Pixel
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead', {
+        content_name: formData.service,
+        content_category: 'contact_form',
+      });
+    }
     toast({
       title: "Message Sent!",
       description: "We'll get back to you as soon as possible.",

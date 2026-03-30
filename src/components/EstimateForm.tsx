@@ -47,6 +47,13 @@ const EstimateForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Track lead conversion in Facebook Pixel
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead', {
+        content_name: formData.locationType,
+        content_category: 'estimate_form',
+      });
+    }
     toast({
       title: "Request Submitted!",
       description: "We'll contact you soon to schedule your free estimate.",
